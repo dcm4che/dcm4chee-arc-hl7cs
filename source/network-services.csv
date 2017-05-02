@@ -1,0 +1,21 @@
+"**Patient Administration**",,,
+"ADT/ACK - Admit/Visit Notification (Event A01)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Transfer a Patient (Event A02)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Discharge/End Visit (Event A03)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Register a Patient (Event A04)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Pre-Admit a Patient (Event A05)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Change an Outpatient to an Inpatient (Event A06)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Change an Inpatient to an Outpatient (Event A07)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Update Patient Information (Event A08)", "2.3.1, 2.5.1", "No", "Yes"
+"ADT/ACK - Add Person or Patient Information (Event A28)", "2.5", "Yes", "Yes"
+"ADT/ACK - Update Person Information (Event A31)", "2.5", "Yes", "Yes"
+"ADT/ACK - Merge Patient - Patient Identifier List (Event A40)", "2.3.1, 2.5, 2.5.1", "Yes", "Yes"
+"ADT/ACK - Change Patient Identifier List (Event A47)", "2.5", "Yes", "Yes"
+"**Order Management**",,,
+"ORM - General Order Message (Event O01)", "2.3.1", "No", "Yes"
+"OMG - General Clinical Order Message (Event O19)", "2.5.1", "Yes", "Yes"
+"OMI - Imaging Order Message (Event O23)", "2.5.1", "No", "Yes"
+"**Report Management**",,,
+"ORU - Unsolicited Observation Message (Event R01)", "2.3.1", "No", "Yes"
+"**HL7 Forwarding**",,,
+"arbitrary HL7 Message", "2.x", "Yes", "Yes"

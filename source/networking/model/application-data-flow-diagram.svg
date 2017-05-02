@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900">
+
+  <defs>
+    <style type="text/css">
+      text { font-family: Helvetica, Verdana, ArialUnicodeMS, san-serif }
+    </style>
+  </defs>
+  <text x="360" y="10" font-size="11" text-anchor="middle">HL7 v2 Standard Interface</text>
+  <line x1="360" y1="20" x2="360" y2="780" stroke="black" stroke-dasharray="2,4"/>
+
+  <rect x="220" y="50" width="120" height="170" fill="none" stroke="black" />
+  <text x="280" y="125" font-size="11" text-anchor="middle">Patient
+    <tspan x="280" dy="12" text-anchor="middle">Update</tspan>
+    <tspan x="280" dy="12" text-anchor="middle">Service</tspan>
+  </text>
+
+  <line x1="150" y1="80" x2="220" y2="80" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="80" r="50" fill="white" stroke="black"/>
+  <text x="100" y="75" font-size="11" text-anchor="middle">Create/Update/
+    <tspan x="100" dy="12" text-anchor="middle">Merge Patient</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">Records in DB</tspan>
+  </text>
+  <path d="M 50 80 L 30 80 L 30 520 L 50 520" fill="none" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+
+  <line x1="150" y1="160" x2="220" y2="190" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="160" r="50" fill="white" stroke="black"/>
+  <text x="100" y="155" font-size="11" text-anchor="middle">Update
+    <tspan x="100" dy="12" text-anchor="middle">Patient by UI</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">or REST API</tspan>
+  </text>
+
+  <line x1="30" y1="300" x2="50" y2="300" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <line x1="150" y1="300" x2="220" y2="300" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="300" r="50" fill="white" stroke="black"/>
+  <text x="100" y="295" font-size="11" text-anchor="middle">Create/Update
+    <tspan x="100" dy="12" text-anchor="middle">MWL Item</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">in DB</tspan>
+  </text>
+
+  <circle cx="460" cy="80" r="50" fill="white" stroke="black"/>
+  <text x="460" y="70" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Sends</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">ADT Message</tspan>
+  </text>
+  <line x1="340" y1="80" x2="410" y2="80" stroke="black" stroke-width="2"/>
+  <path d='M 340 80 l 12 -4 l 0 8' />
+
+  <circle cx="460" cy="190" r="50" fill="white" stroke="black"/>
+  <text x="460" y="180" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Receives</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">ADT Message</tspan>
+  </text>
+  <line x1="340" y1="190" x2="410" y2="190" stroke="black" stroke-width="2"/>
+  <path d='M 410 190 l -12 -4 l 0 8' />
+
+  <rect x="220" y="270" width="120" height="170" fill="none" stroke="black" />
+  <text x="280" y="345" font-size="11" text-anchor="middle">Procedure
+    <tspan x="280" dy="12" text-anchor="middle">Update</tspan>
+    <tspan x="280" dy="12" text-anchor="middle">Service</tspan>
+  </text>
+
+  <circle cx="460" cy="300" r="50" fill="white" stroke="black"/>
+  <text x="460" y="290" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Sends</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">Order Message</tspan>
+  </text>
+  <line x1="340" y1="300" x2="410" y2="300" stroke="black" stroke-width="2"/>
+  <path d='M 340 300 l 12 -4 l 0 8' />
+
+  <line x1="150" y1="410" x2="220" y2="410" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="410" r="50" fill="white" stroke="black"/>
+  <text x="100" y="400" font-size="11" text-anchor="middle">Instances
+    <tspan x="100" dy="12" text-anchor="middle">of MPPS/Study</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">received</tspan>
+  </text>
+
+  <line x1="150" y1="520" x2="220" y2="520" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="520" r="50" fill="white" stroke="black"/>
+  <text x="100" y="510" font-size="11" text-anchor="middle">Store
+    <tspan x="100" dy="12" text-anchor="middle">DICOM Text</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">SR Object</tspan>
+  </text>
+
+  <rect x="220" y="490" width="120" height="60" fill="none" stroke="black" />
+  <text x="280" y="510" font-size="11" text-anchor="middle">Report
+    <tspan x="280" dy="12" text-anchor="middle">Import</tspan>
+    <tspan x="280" dy="12" text-anchor="middle">Service</tspan>
+  </text>
+
+  <rect x="220" y="600" width="120" height="170" fill="none" stroke="black" />
+  <text x="280" y="675" font-size="11" text-anchor="middle">HL7 Forward
+    <tspan x="280" dy="12" text-anchor="middle">Service</tspan>
+  </text>
+
+  <line x1="150" y1="685" x2="220" y2="630" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <line x1="150" y1="685" x2="220" y2="740" stroke="black" stroke-width="2" stroke-dasharray="8"/>
+  <circle cx="100" cy="685" r="50" fill="white" stroke="black"/>
+  <text x="100" y="680" font-size="11" text-anchor="middle">Apply HL7
+    <tspan x="100" dy="12" text-anchor="middle">Forwarding</tspan>
+    <tspan x="100" dy="12" text-anchor="middle">Rules</tspan>
+  </text>
+
+  <circle cx="460" cy="410" r="50" fill="white" stroke="black"/>
+  <text x="460" y="400" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Receives</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">Order Message</tspan>
+  </text>
+  <line x1="340" y1="410" x2="410" y2="410" stroke="black" stroke-width="2"/>
+  <path d='M 410 410 l -12 -4 l 0 8' />
+
+  <circle cx="460" cy="520" r="50" fill="white" stroke="black"/>
+  <text x="460" y="510" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Sends</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">ORU Message</tspan>
+  </text>
+  <line x1="340" y1="520" x2="410" y2="520" stroke="black" stroke-width="2"/>
+  <path d='M 340 520 l 12 -4 l 0 8' />
+
+  <circle cx="460" cy="630" r="50" fill="white" stroke="black"/>
+  <text x="460" y="610" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Sends</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">arbitrary HL7</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">Message</tspan>
+  </text>
+  <line x1="340" y1="630" x2="410" y2="630" stroke="black" stroke-width="2"/>
+  <path d='M 340 630 l 12 -4 l 0 8' />
+
+  <circle cx="460" cy="740" r="50" fill="white" stroke="black"/>
+  <text x="460" y="725" font-size="11" text-anchor="middle">Remote HL7
+    <tspan x="460" dy="12" text-anchor="middle">App Receives</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">arbitrary HL7</tspan>
+    <tspan x="460" dy="12" text-anchor="middle">Message</tspan>
+  </text>
+  <line x1="340" y1="740" x2="410" y2="740" stroke="black" stroke-width="2"/>
+  <path d='M 410 740 l -12 -4 l 0 8' />
+
+</svg>
