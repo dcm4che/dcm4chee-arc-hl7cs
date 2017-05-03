@@ -1,8 +1,12 @@
-Patient Update Service
-""""""""""""""""""""""
+Patient Management Service
+""""""""""""""""""""""""""
 
-The Patient Update Service processes ADT messages received from external Patient Demographics Sources, updating the
-patient information of archived DICOM objects:
+The Patient Management Service processes ADT messages received from external Patient Demographics Sources, updating the
+patient information of archived DICOM objects, and send ADT messages to external Patient Demographics Consumers on
+patient information changes initiated via the Web UI or proprietary RESTful services of |product|.
+
+Create/Update Patient on receive of ADT message
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ADT messages
 
@@ -10,7 +14,7 @@ The ADT messages
    :header: "HL7 message", "HL7 version"
    :widths: 80, 20
 
-      "ADT/ACK - Admit/Visit Notification (Event A01)"
+      "ADT/ACK - Admit/Visit Notification (Event A01)", "2.3.1, 2.5.1"
       "ADT/ACK - Transfer a Patient (Event A02)", "2.3.1, 2.5.1"
       "ADT/ACK - Discharge/End Visit (Event A03)", "2.3.1, 2.5.1"
       "ADT/ACK - Register a Patient (Event A04)", "2.3.1, 2.5.1"
@@ -30,16 +34,20 @@ On retrieve of DICOM objects, the potentially updated DICOM attributes from the 
 merged with the original DICOM attributes of the stored DICOM objects, so the changes in the Patient information are
 reflected in the retrieved DICOM objects.
 
-The ADT messages
+Merge Patient on receive of ADT Merge Patient message
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. csv-table::
-   :header: "HL7 message", "HL7 version"
-   :widths: 80, 20
+<TODO>
 
-      "ADT/ACK - Merge Patient - Patient Identifier List (Event A40)", "2.3.1, 2.5, 2.5.1"
-      "ADT/ACK - Change Patient Identifier List (Event A47)", "2.5"
+Change Patient ID on receive of ADT Change Patient Identifier List message
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-are treated differently: <TODO>
+<TODO>
+
+Send ADT Add Person or Patient Information
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+<TODO>
 
 
 
