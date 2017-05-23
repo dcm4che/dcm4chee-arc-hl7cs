@@ -20,6 +20,14 @@ names, with different configuration.
 - :doc:`fktdefs/fwd`, which forwards arbitrary HL7 message received from one external HL7 application to another
   external HL7 application according configurable rules.
 
-.. figure:: application-data-flow-diagram.svg
+.. only:: html
 
-   Application Data Flow Diagram
+   .. figure:: application-data-flow-diagram.svg
+
+      Application Data Flow Diagram
+
+.. only:: latex
+
+   .. figure:: application-data-flow-diagram.pdf
+
+      Application Data Flow Diagram
