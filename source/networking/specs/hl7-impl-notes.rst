@@ -118,7 +118,7 @@ This segment contains information sent while acknowledging another message.
    3,0,T,O,,00020,Text Message
    4,5,M,O,,00021,Expected Sequence Number
    5,1,ID,O,0102,00022,Delayed Acknowledgment Type
-   6,00,E,O,,00023,Error Condition
+   6,100,CE,O,,00023,Error Condition
 
 In case that |product| does not recognize either the message type (MSH-9.1) or the trigger event (MSH-9.2) in a
 message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value ``AR``.
