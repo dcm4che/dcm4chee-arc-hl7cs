@@ -1,5 +1,5 @@
-Patient Update Service Specification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Patient Management Service Specification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _adt-inbound:
 

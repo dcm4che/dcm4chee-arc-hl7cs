@@ -13,8 +13,8 @@ Secure Transport Connection Profiles
 
 |product| supports the *Basic TLS Secure Transport Connection Profile* and the
 *AES TLS Secure Transport Connection Profile* as specified in
-`DICOM Standard, Part 15, Annex B.1 <http://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_B.1.html>`_
-and `Annex B.3 <http://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_B.3.html>`_.
+`DICOM Standard, Part 15 <http://dicom.nema.org/medical/dicom/current/output/html/part15.html>`_, Annex B.1
+and Annex B.3.
 
 By default configuration, TLS 1.0, TLS 1.1 and TLS 1.2 are enabled, use of TLS 1.2 is preferred.
 

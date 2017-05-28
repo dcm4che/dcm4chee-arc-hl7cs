@@ -3,7 +3,9 @@ HL7 Service Specifications
 
 .. toctree::
 
-   specs/adt/adt
-   specs/orm/orm
-   specs/oru/oru
-   specs/fwd/fwd
+   hl7-profiling
+   hl7-impl-notes
+   adt
+   orm
+   oru
+   fwd

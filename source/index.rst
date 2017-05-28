@@ -13,6 +13,5 @@ HL7 Conformance Statement |product|
    overview
    toc
    introduction
-   networking
-   charsets
+   networking/index
    security

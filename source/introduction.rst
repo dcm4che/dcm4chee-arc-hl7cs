@@ -79,6 +79,12 @@ the authoritative source for formal definitions of these terms.
    MLLP
       Minimal Lower Layer Protocol.
 
+   MPPS
+      Modality Performed Procedure Step.
+
+   MWL
+      Modality Worklist.
+
    ORM
       General Order message.
 

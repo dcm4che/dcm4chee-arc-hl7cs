@@ -1,5 +1,5 @@
-Procedure Update Service Specification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Procedure Management Service Specification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _orm-inbound:
 

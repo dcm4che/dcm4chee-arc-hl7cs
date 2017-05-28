@@ -3,5 +3,5 @@ Implementation Model
 
 .. toctree::
 
-   model/dataflow
-   model/fktdefs
+   dataflow
+   fktdefs/index
