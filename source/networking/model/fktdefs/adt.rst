@@ -40,10 +40,12 @@ The ADT messages
       "ADT/ACK - Change an Outpatient to an Inpatient (Event A06)", "2.3.1, 2.5.1"
       "ADT/ACK - Change an Inpatient to an Outpatient (Event A07)", "2.3.1, 2.5.1"
       "ADT/ACK - Update Patient Information (Event A08)", "2.3.1, 2.5.1"
+      "ADT/ACK - Cancel Transfer (Event A12)", "2.3.1, 2.5.1"
+      "ADT/ACK - Cancel Discharge/End Visit  (Event A13)", "2.3.1, 2.5.1"
       "ADT/ACK - Add Person or Patient Information (Event A28)", "2.5"
       "ADT/ACK - Update Person Information (Event A31)", "2.5"
 
-are processed the same: Patient IDs and Patient Demographic Information are extracted from the PID segment
+are processed the same: Patient IDs and other Patient Information are extracted from the PID segment
 of the received ADT message and mapped into corresponding DICOM attributes. If a Patient record with the
 extracted primary Patient ID already exists in the database, that Patient record will get updated. If there is no such
 Patient record, a new Patient record will be inserted into the database.
