@@ -29,6 +29,22 @@ Acknowledgement Mode
 Applications that receive HL7 messages shall send acknowledgments using the HL7 Original Mode (versus Enhanced
 Acknowledgment Mode).
 
+HL7 Versioning
+^^^^^^^^^^^^^^
+
+The support of particular versions of HL7 v2 dependent on the HL7 message type by |product| corresponds to the
+different versions of HL7 selected by the IHE Technical Framework for different
+`IHE Domains <https://www.ihe.net/IHE_Domains/>`_. Particularly, the
+`IHE Radiology Technical Framework <https://www.ihe.net/Technical_Frameworks/#radiology>`_ specifies the use of
+HL7 v2.3.1 and optionally of HL7 v2.5.1, the
+`IHE IT Infrastructure Technical Framework <https://www.ihe.net/Technical_Frameworks/#IT>`_ the use of
+HL7 v2.5 for HL7 based transactions.
+
+|product| comply with the message structure and contents defined by the specified version(s) of the HL7 standard as
+defined in the IHE transaction technical specification. It is acceptable if the HL7 standard version value (MSH-12) in
+a conformant message is higher than that specified in the IHE transaction as long as the message structure and contents
+meet the requirements of the specification.
+
 HL7 v2.3.1 Message Implementation Requirements
 ----------------------------------------------
 
@@ -54,28 +70,28 @@ The MSH (message header) segment contains control information set in the beginni
 
 .. csv-table:: MSH segment
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
-   :widths: 10, 10, 10, 10, 10, 10, 40
+   :widths: 8, 8, 8, 8, 8, 12, 48
 
-   1,1,ST,R,,00001,Field Separator
-   2,4,ST,R,,00002,Encoding Characters
-   3,180,HD,R+,,00003,Sending Application
-   4,180,HD,R+,,00004,Sending Facility
-   5,180,HD,R+,,00005,Receiving Application
-   6,180,HD,R+,,00006,Receiving Facility
+   1,1,ST,**R**,,00001,Field Separator
+   2,4,ST,**R**,,00002,Encoding Characters
+   3,180,HD,**R+**,,00003,Sending Application
+   4,180,HD,**R+**,,00004,Sending Facility
+   5,180,HD,**R+**,,00005,Receiving Application
+   6,180,HD,**R+**,,00006,Receiving Facility
    7,26,TS,R,,00007,Date/Time Of Message
    8,40,ST,O,,00008,Security
-   9,13,CM,R,0076/ 0003,00009,Message Type
-   10,20,ST,R,,00010,Message Control ID
+   9,13,CM,**R**,0076/ 0003,00009,Message Type
+   10,20,ST,**R**,,00010,Message Control ID
    11,3,PT,R,,00011,Processing ID
    12,60,VID,R,0104,00012,Version ID
-   13,15,NM,O,,00013,Sequence Number
-   14,180,ST,O,,00014,Continuation Pointer
-   15,2,ID,O,0155,00015,Accept Acknowledgment Type
-   16,2,ID,O,0155,00016,Application Acknowledgment Type
+   13,15,NM,X,,00013,Sequence Number
+   14,180,ST,X,,00014,Continuation Pointer
+   15,2,ID,X,0155,00015,Accept Acknowledgment Type
+   16,2,ID,X,0155,00016,Application Acknowledgment Type
    17,3,ID,O,0399,00017,Country Code
-   18,16,ID,C,0211,00692,Character Set
+   18,16,ID,**C**,0211,00692,Character Set
    19,250,CE,O,,00693,Principal Language Of Message
-   20,20,ID,O,0356,01317,Alternate Character Set Handling Scheme
+   20,20,ID,X,0356,01317,Alternate Character Set Handling Scheme
 
 |product| only supports the HL7-recommended values for the fields *MSH-1-Field Separator* (= ``|``) and
 *MSH-2-Encoding Characters* (= ``^~\&``).
@@ -100,8 +116,7 @@ Examples of valid values:
 Though the field is repeatable in HL7, |product| supports only one occurrence (i.e., one character set).
 The character set specified in this field is used for the encoding of all of the characters within the message.
 
-*MSH-20-Alternate Character Set Handling Scheme* is not supported by |product|: Character set switching is not allowed
-HL7 transactions of the IHE Technical Frameworks.
+*MSH-20-Alternate Character Set Handling Scheme* is not supported by |product|.
 
 
 Acknowledgement Modes
@@ -111,14 +126,14 @@ This segment contains information sent while acknowledging another message.
 
 .. csv-table:: MSA - Message Acknowledgement
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
-   :widths: 10, 10, 10, 10, 10, 10, 40
+   :widths: 8, 8, 8, 8, 8, 12, 48
 
-   1,2,ID,R,0008,00018,Acknowledgment Code
-   2,0,T,R,,0010,Message Control ID
-   3,0,T,O,,00020,Text Message
-   4,5,M,O,,00021,Expected Sequence Number
-   5,1,ID,O,0102,00022,Delayed Acknowledgment Type
-   6,100,CE,O,,00023,Error Condition
+   1,2,ID,**R**,0008,00018,Acknowledgment Code
+   2,0,T,**R**,,0010,Message Control ID
+   3,0,T,**O**,,00020,Text Message
+   4,5,M,X,,00021,Expected Sequence Number
+   5,1,ID,X,0102,00022,Delayed Acknowledgment Type
+   6,100,X,O,,00023,Error Condition
 
 In case that |product| does not recognize either the message type (MSH-9.1) or the trigger event (MSH-9.2) in a
 message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value ``AR``.
@@ -129,8 +144,14 @@ If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may
 ERR - Error segment
 ^^^^^^^^^^^^^^^^^^^
 
-This segment is not included in ACK messages sent by |product|.
+This segment contains information sent while field MSA-1 (acknowledgement code) identifies an error condition.
+It is optional and will not be included in ACK messages sent by |product|.
 
+.. csv-table::   ERR - Error segment
+   :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1,80,ID,R,,00024,Error code and location
 
 HL7 v2.5 Message Implementation Requirements
 --------------------------------------------
@@ -146,8 +167,8 @@ following subsections. The ERR segment is optional and will not be included in A
    :header: Segment,Meaning,Usage,Card.,HL7 chapter
    :widths: 15,40,15,15,15
 
-      MSH,Message Header,R,[1..1],2
-      MSA,Message Acknowledgement,R,[1..1],2
+      MSH,Message Header,**R**,[1..1],2
+      MSA,Message Acknowledgement,**R**,[1..1],2
       [ERR],Error,C,[0..*],2
 
 Message Control
@@ -157,26 +178,26 @@ The MSH (message header) segment contains control information set in the beginni
 
 .. csv-table:: MSH - Message Header
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
-   :widths: 10, 10, 10, 10, 10, 10, 10, 30
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
-   1,1,SI,R,[1..1],,00001,Field Separator
-   2,4,ST,R,[1..1],,00002,Encoding Characters
-   3,227,HD,R,[1..1],,00003,Sending Application
-   4,227,HD,R,[1..1],,00004,Sending Facility
-   5,227,HD,R,[1..1],,00005,Receiving Application
-   6,227,HD,R,[1..1],,00006,Receiving Facility
+   1,1,SI,**R**,[1..1],,00001,Field Separator
+   2,4,ST,**R**,[1..1],,00002,Encoding Characters
+   3,227,HD,**R**,[1..1],,00003,Sending Application
+   4,227,HD,**R**,[1..1],,00004,Sending Facility
+   5,227,HD,**R**,[1..1],,00005,Receiving Application
+   6,227,HD,**R**,[1..1],,00006,Receiving Facility
    7,26,TS,R,[1..1],,00007,Date/Time of Message
    8,40,ST,X,[0..0],,00008,Security
-   9,15,MSG,R,[1..1],,00009,Message Type
-   10,20,ST,R,[1..1],,00010,Message Control Id
+   9,15,MSG,**R**,[1..1],,00009,Message Type
+   10,20,ST,**R**,[1..1],,00010,Message Control Id
    11,3,PT,R,[1..1],,00011,Processing Id
    12,60,VID,R,[1..1],,00012,Version ID
-   13,15,NM,O,[0..1],,00013,Sequence Number
+   13,15,NM,X,[0..1],,00013,Sequence Number
    14,180,ST,X,[0..0],,00014,Continuation Pointer
-   15,2,ID,O,[0..0],0155,00015,Accept Acknowledgement Type
-   16,2,ID,O,[0..0],0155,00016,Application Acknowledgement Type
+   15,2,ID,X,[0..0],0155,00015,Accept Acknowledgement Type
+   16,2,ID,X,[0..0],0155,00016,Application Acknowledgement Type
    17,3,ID,RE,[1..1],0399,00017,Country Code
-   18,16,ID,C,[0..1],0211,00692,Character Set
+   18,16,ID,**C**,[0..1],0211,00692,Character Set
    19,250,CE,RE,[1..1],,00693,Principal Language of Message
    20,20,ID,X,[0..0],0356,01317,Alternate Character Set Handling Scheme
    21,427,EI,RE,[0..*],,01598,Message Profile Identifier
@@ -204,8 +225,7 @@ Examples of valid values:
 Though the field is repeatable in HL7, |product| supports only one occurrence (i.e., one character set).
 The character set specified in this field is used for the encoding of all of the characters within the message.
 
-*MSH-20-Alternate Character Set Handling Scheme* is not supported by |product|: Character set switching is not allowed
-HL7 transactions of the IHE Technical Frameworks.
+*MSH-20-Alternate Character Set Handling Scheme* is not supported by |product|.
 
 Acknowledgement Modes
 ^^^^^^^^^^^^^^^^^^^^^
@@ -214,13 +234,13 @@ This segment contains information sent while acknowledging another message.
 
 .. csv-table:: MSA - Message Acknowledgement
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
-   :widths: 10, 10, 10, 10, 10, 10, 10, 30
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
-   1,2,ID,R,[1..1],0008,00018,Acknowledgement code
-   2,20,ST,R,[1..1],,00010,Message Control Id
-   3,80,ST,O,[0..1],,00020,Text Message
+   1,2,ID,**R**,[1..1],0008,00018,Acknowledgement code
+   2,20,ST,**R**,[1..1],,00010,Message Control Id
+   3,80,ST,**O**,[0..1],,00020,Text Message
    4,15,NM,X,[0..0],,00021,Expected Sequence Number
-   5,,,X,[0..0],00022,Delayed Acknowledgment Type
+   5,,,X,[0..0],,00022,Delayed Acknowledgment Type
    6,250,CE,X,[0..0],0357,00023,Error Condition
 
 In case that |product| does not recognize either the message type (MSH-9.1) or the trigger event (MSH-9.2) in a
@@ -232,7 +252,27 @@ If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may
 ERR - Error segment
 ^^^^^^^^^^^^^^^^^^^
 
-This segment is not included in ACK messages sent by |product|.
+This segment is used to add error comments to acknowledgment messages.
+It is optional and will not be included in ACK messages sent by |product|.
+
+.. csv-table::   ERR - Error segment
+   :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
+
+   1,493,ELD,X,[0..0],,00024,Error Code and Location
+   2,18,ERL,RE[0..*],,01812,Error Location
+   3,705,CWE,R,[1..1],0357,01813,HL7 Error Code
+   4,2,ID,R,[1..1],0516,01814,Severity
+   5,705,CWE,O,[0..1],0533,01815,Application Error Code
+   6,80,ST,O,[0..10],,01816,Application Error Parameter
+   7,2048,TX,O,[0..1],,01817,Diagnostic Information
+   8,250,TX,O,[0..1],,01818,User Message
+   9,20,IS,O,[0..*],0517,01819,Inform Person Indicator
+   10,705,CWE,O,[0..1],0518,01820,Override Type
+   11,705,CWE,O,[0..*],0519,01821,Override Reason Code
+   12,652,XTN,O,[0..*],,01822,Help Desk Contact Point
+
+.. _hl7_and_dicom_mapping_considerations:
 
 HL7 and DICOM Mapping Considerations
 ------------------------------------
@@ -246,7 +286,7 @@ number of bytes per character in such sets.
 |product| maps the value of *MSH-18-Character Set* to the corresponding code value of DICOM attribute
 *(0008,0005) Specific Character Set*:
 
-.. csv-table:: Mapping of HL7 field *MSH-18-Character Set* to DICOM attribute *(0008,0005) Specific Character Set*
+.. csv-table:: Mapping of *MSH-18-Character Set* to *(0008,0005) Specific Character Set*
    :widths: 30, 30, 40
    :header: HL7 MSH-18,"DICOM (0008,0005)",Character Set
 

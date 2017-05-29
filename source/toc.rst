@@ -23,5 +23,4 @@ Table of Content
 |     4.4.4. :doc:`networking/specs/orm`
 |     4.4.5. :doc:`networking/specs/oru`
 |     4.4.6. :doc:`networking/specs/fwd`
-| 5. :doc:`charsets`
-| 6. :doc:`security`
+| 5. :doc:`security`
