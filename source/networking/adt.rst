@@ -243,7 +243,7 @@ HL7 Track Changed Patient ID enabled
 ''''''''''''''''''''''''''''''''''''
 
 A new Patient record with Patient IDs and other Patient Information from the PID segment will be inserted into the
-database. If a Patient record with the prior Patient ID from the MRG segement already exists in the database, all
+database. If a Patient record with the prior Patient ID from the MRG segment already exists in the database, all
 associated Study, MPPS and MWL records will be moved to the Patient record with the Patient ID from the PID segment. If
 there is no such Patient record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 Therefore there will be always a Patient Record with the Patient ID from the MRG segment, which contains a reference to
