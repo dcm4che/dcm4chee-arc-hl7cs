@@ -48,6 +48,8 @@ meet the requirements of the specification.
 HL7 v2.3.1 Message Implementation Requirements
 ----------------------------------------------
 
+.. _ack_message_231:
+
 Acknowledgement Message
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -56,12 +58,14 @@ The segments of the ACK message listed below are required, and their detailed de
 following subsections. The ERR segment is optional and will not be included in ACK messages sent by |product|.
 
 .. csv-table:: Common ACK Message static definition
-   :header: Segment,Meaning,HL7 chapter
+   :header: Segment,Meaning,Chapter in HL7 v2.3.1
    :widths: 25, 50, 25
 
       MSH,Message Header,2
       MSA,Message Acknowledgement,2
       [ERR],Error,2
+
+.. _message_control_231:
 
 Message Control
 ^^^^^^^^^^^^^^^
@@ -141,20 +145,10 @@ message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value `
 If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may provide an error message in
 *MSA-3-Text Message*.
 
-ERR - Error segment
-^^^^^^^^^^^^^^^^^^^
-
-This segment contains information sent while field MSA-1 (acknowledgement code) identifies an error condition.
-It is optional and will not be included in ACK messages sent by |product|.
-
-.. csv-table::   ERR - Error segment
-   :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
-   :widths: 8, 8, 8, 8, 8, 12, 48
-
-   1,80,ID,R,,00024,Error code and location
-
 HL7 v2.5 Message Implementation Requirements
 --------------------------------------------
+
+.. _ack_message_25:
 
 Acknowledgement Message
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,6 +164,8 @@ following subsections. The ERR segment is optional and will not be included in A
       MSH,Message Header,**R**,[1..1],2
       MSA,Message Acknowledgement,**R**,[1..1],2
       [ERR],Error,C,[0..*],2
+
+.. _message_control_25:
 
 Message Control
 ^^^^^^^^^^^^^^^
@@ -249,29 +245,6 @@ message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value `
 If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may provide an error message in
 *MSA-3-Text Message*.
 
-ERR - Error segment
-^^^^^^^^^^^^^^^^^^^
-
-This segment is used to add error comments to acknowledgment messages.
-It is optional and will not be included in ACK messages sent by |product|.
-
-.. csv-table::   ERR - Error segment
-   :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
-   :widths: 8, 8, 8, 8, 8, 8, 12, 40
-
-   1,493,ELD,X,[0..0],,00024,Error Code and Location
-   2,18,ERL,RE[0..*],,01812,Error Location
-   3,705,CWE,R,[1..1],0357,01813,HL7 Error Code
-   4,2,ID,R,[1..1],0516,01814,Severity
-   5,705,CWE,O,[0..1],0533,01815,Application Error Code
-   6,80,ST,O,[0..10],,01816,Application Error Parameter
-   7,2048,TX,O,[0..1],,01817,Diagnostic Information
-   8,250,TX,O,[0..1],,01818,User Message
-   9,20,IS,O,[0..*],0517,01819,Inform Person Indicator
-   10,705,CWE,O,[0..1],0518,01820,Override Type
-   11,705,CWE,O,[0..*],0519,01821,Override Reason Code
-   12,652,XTN,O,[0..*],,01822,Help Desk Contact Point
-
 .. _hl7_and_dicom_mapping_considerations:
 
 HL7 and DICOM Mapping Considerations
@@ -287,6 +260,7 @@ number of bytes per character in such sets.
 *(0008,0005) Specific Character Set*:
 
 .. csv-table:: Mapping of *MSH-18-Character Set* to *(0008,0005) Specific Character Set*
+   :name: tab_hl7_dicom_charset
    :widths: 30, 30, 40
    :header: HL7 MSH-18,"DICOM (0008,0005)",Character Set
 

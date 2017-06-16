@@ -3,6 +3,10 @@ Networking
 
 .. toctree::
 
-   model/index
-   specs/index
-   interfaces
+   model
+   hl7-profiling
+   hl7-impl-notes
+   adt
+   orm
+   oru
+   fwd
