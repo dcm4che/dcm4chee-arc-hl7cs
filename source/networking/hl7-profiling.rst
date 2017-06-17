@@ -44,14 +44,10 @@ Usage
       shall not raise an error due to the presence of a required element, but may raise an error due to the
       absence of a required element.
 
-      **R** in **bold** indicates that the field is used by |product|.
-
    R+
       Required as extension: This is a field optional in the original HL7 standard but required in the profiled messages.
       Only HL7 v2.3.1 messages use this notation to indicate the difference between OPT in the profiles and in the
       base HL7 standard.
-
-      **R+** in **bold** indicates that the field is used by |product|.
 
    RE
       Required but may be empty. (**R2** in HL7 v2.3.1 messages)
@@ -63,13 +59,9 @@ Usage
       contained in the element, but shall be able to successfully process the message if the element is omitted
       (no error message should be generated if the element is missing).
 
-      **RE** (**R2** in HL7 v2.3.1 messages) in **bold** indicates that the field is used by |product|.
-
    O
       Optional. The usage for this field within the message is not defined. The sending application may choose to
       populate the field; the receiving application may choose to ignore the field.
-
-      **O** in **bold** indicates that the field is used by |product|.
 
    C
       Conditional. This usage has an associated condition predicate. (See HL7 v2.5.1, Chapter 2, Section 2.12.6.6,
@@ -84,8 +76,6 @@ Usage
 
       The condition predicate is not explicitly defined when it depends on functional characteristics of the system
       implementing the transaction and it does not affect data consistency.
-
-      **C** in **bold** indicates that the field is used by |product|.
 
    CE
       Conditional but may be empty. This usage has an associated condition predicate. (See HL7 Version 2.5, Chapter 2,
@@ -102,8 +92,6 @@ Usage
 
       If the predicate is NOT satisfied: The conformant sending application shall not populate the element. The
       conformant receiving application may raise an application error if the element is present.
-
-      **CE** in **bold** indicates that the field is used by |product|.
 
    X
       Not supported. For conformant sending applications, the element will not be sent.
@@ -132,10 +120,10 @@ are copied from the corresponding HL7 standard versions with modifications made 
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
-   1,1,ST,**R**,,xx001,Element 1
+   1,1,ST,R,,xx001,Element 1
    2,4,ST,O,,xx002,Element 2
-   3,180,HD,**R2**,,xx003,Element 3
-   4,180,HD,**C**,,xx004,Element 4
+   3,180,HD,R2,,xx003,Element 3
+   4,180,HD,C,,xx004,Element 4
    5,180,HD,O,,xx005,Element 5
    6,180,HD,R,,xx006,Element 6
 
@@ -167,7 +155,10 @@ Segment
    repeatability are hidden.
 
 Meaning
-   Meaning of the segment as defined by HL7.
+   Meaning of the segment as defined by HL7. The beginning of a segment group is designated by one line in this column
+   giving the segment group name in all caps, prefixed by --- (3 dashes), and followed by the keyword "begin". The end
+   of a segment group is designated by one line in this column giving the segment group name in all caps, prefixed by
+   --- (3 dashes), and followed by the keyword "end".
 
 Usage
    Usage of the segment. Same coded values used in the segment level: **R**, **RE**, **O**, **C**, **CE** and **X**

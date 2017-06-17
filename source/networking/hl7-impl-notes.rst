@@ -61,9 +61,9 @@ following subsections. The ERR segment is optional and will not be included in A
    :header: Segment,Meaning,Chapter in HL7 v2.3.1
    :widths: 25, 50, 25
 
-      MSH,Message Header,2
-      MSA,Message Acknowledgement,2
-      [ERR],Error,2
+   MSH,Message Header,2
+   MSA,Message Acknowledgement,2
+   [ERR],Error,2
 
 .. _message_control_231:
 
@@ -76,16 +76,16 @@ The MSH (message header) segment contains control information set in the beginni
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
-   1,1,ST,**R**,,00001,Field Separator
-   2,4,ST,**R**,,00002,Encoding Characters
-   3,180,HD,**R+**,,00003,Sending Application
-   4,180,HD,**R+**,,00004,Sending Facility
-   5,180,HD,**R+**,,00005,Receiving Application
-   6,180,HD,**R+**,,00006,Receiving Facility
+   1,1,ST,R,,00001,**Field Separator**
+   2,4,ST,R,,00002,**Encoding Characters**
+   3,180,HD,R+,,00003,**Sending Application**
+   4,180,HD,R+,,00004,**Sending Facility**
+   5,180,HD,R+,,00005,**Receiving Application**
+   6,180,HD,R+,,00006,**Receiving Facility**
    7,26,TS,R,,00007,Date/Time Of Message
    8,40,ST,O,,00008,Security
-   9,13,CM,**R**,0076/ 0003,00009,Message Type
-   10,20,ST,**R**,,00010,Message Control ID
+   9,13,CM,R,0076/ 0003,00009,**Message Type**
+   10,20,ST,R,,00010,**Message Control ID**
    11,3,PT,R,,00011,Processing ID
    12,60,VID,R,0104,00012,Version ID
    13,15,NM,X,,00013,Sequence Number
@@ -93,9 +93,11 @@ The MSH (message header) segment contains control information set in the beginni
    15,2,ID,X,0155,00015,Accept Acknowledgment Type
    16,2,ID,X,0155,00016,Application Acknowledgment Type
    17,3,ID,O,0399,00017,Country Code
-   18,16,ID,**C**,0211,00692,Character Set
+   18,16,ID,C,0211,00692,**Character Set**
    19,250,CE,O,,00693,Principal Language Of Message
    20,20,ID,X,0356,01317,Alternate Character Set Handling Scheme
+
+Element names in **bold** indicates that the field is used by |product|.
 
 |product| only supports the HL7-recommended values for the fields *MSH-1-Field Separator* (= ``|``) and
 *MSH-2-Encoding Characters* (= ``^~\&``).
@@ -132,12 +134,14 @@ This segment contains information sent while acknowledging another message.
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
-   1,2,ID,**R**,0008,00018,Acknowledgment Code
-   2,0,T,**R**,,0010,Message Control ID
-   3,0,T,**O**,,00020,Text Message
+   1,2,ID,R,0008,00018,**Acknowledgment Code**
+   2,0,T,R,,0010,**Message Control ID**
+   3,0,T,O,,00020,**Text Message**
    4,5,M,X,,00021,Expected Sequence Number
    5,1,ID,X,0102,00022,Delayed Acknowledgment Type
    6,100,X,O,,00023,Error Condition
+
+Element names in **bold** indicates that the field is used by |product|.
 
 In case that |product| does not recognize either the message type (MSH-9.1) or the trigger event (MSH-9.2) in a
 message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value ``AR``.
@@ -161,9 +165,9 @@ following subsections. The ERR segment is optional and will not be included in A
    :header: Segment,Meaning,Usage,Card.,HL7 chapter
    :widths: 15,40,15,15,15
 
-      MSH,Message Header,**R**,[1..1],2
-      MSA,Message Acknowledgement,**R**,[1..1],2
-      [ERR],Error,C,[0..*],2
+   MSH,Message Header,R,[1..1],2
+   MSA,Message Acknowledgement,R,[1..1],2
+   [ERR],Error,C,[0..*],2
 
 .. _message_control_25:
 
@@ -176,16 +180,16 @@ The MSH (message header) segment contains control information set in the beginni
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
-   1,1,SI,**R**,[1..1],,00001,Field Separator
-   2,4,ST,**R**,[1..1],,00002,Encoding Characters
-   3,227,HD,**R**,[1..1],,00003,Sending Application
-   4,227,HD,**R**,[1..1],,00004,Sending Facility
-   5,227,HD,**R**,[1..1],,00005,Receiving Application
-   6,227,HD,**R**,[1..1],,00006,Receiving Facility
+   1,1,SI,R,[1..1],,00001,**Field Separator**
+   2,4,ST,R,[1..1],,00002,**Encoding Characters**
+   3,227,HD,R,[1..1],,00003,**Sending Application**
+   4,227,HD,R,[1..1],,00004,**Sending Facility**
+   5,227,HD,R,[1..1],,00005,**Receiving Application**
+   6,227,HD,R,[1..1],,00006,**Receiving Facility**
    7,26,TS,R,[1..1],,00007,Date/Time of Message
    8,40,ST,X,[0..0],,00008,Security
-   9,15,MSG,**R**,[1..1],,00009,Message Type
-   10,20,ST,**R**,[1..1],,00010,Message Control Id
+   9,15,MSG,R,[1..1],,00009,**Message Type**
+   10,20,ST,R,[1..1],,00010,**Message Control Id**
    11,3,PT,R,[1..1],,00011,Processing Id
    12,60,VID,R,[1..1],,00012,Version ID
    13,15,NM,X,[0..1],,00013,Sequence Number
@@ -193,10 +197,12 @@ The MSH (message header) segment contains control information set in the beginni
    15,2,ID,X,[0..0],0155,00015,Accept Acknowledgement Type
    16,2,ID,X,[0..0],0155,00016,Application Acknowledgement Type
    17,3,ID,RE,[1..1],0399,00017,Country Code
-   18,16,ID,**C**,[0..1],0211,00692,Character Set
+   18,16,ID,C,[0..1],0211,00692,**Character Set**
    19,250,CE,RE,[1..1],,00693,Principal Language of Message
    20,20,ID,X,[0..0],0356,01317,Alternate Character Set Handling Scheme
    21,427,EI,RE,[0..*],,01598,Message Profile Identifier
+
+Element names in **bold** indicates that the field is used by |product|.
 
 |product| only supports the HL7-recommended values for the fields *MSH-1-Field Separator* (= ``|``) and
 *MSH-2-Encoding Characters* (= ``^~\&``).
@@ -232,12 +238,14 @@ This segment contains information sent while acknowledging another message.
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
-   1,2,ID,**R**,[1..1],0008,00018,Acknowledgement code
-   2,20,ST,**R**,[1..1],,00010,Message Control Id
-   3,80,ST,**O**,[0..1],,00020,Text Message
+   1,2,ID,R,[1..1],0008,00018,**Acknowledgement code**
+   2,20,ST,R,[1..1],,00010,**Message Control Id**
+   3,80,ST,O,[0..1],,00020,**Text Message**
    4,15,NM,X,[0..0],,00021,Expected Sequence Number
    5,,,X,[0..0],,00022,Delayed Acknowledgment Type
    6,250,CE,X,[0..0],0357,00023,Error Condition
+
+Element names in **bold** indicates that the field is used by |product|.
 
 In case that |product| does not recognize either the message type (MSH-9.1) or the trigger event (MSH-9.2) in a
 message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value ``AR``.

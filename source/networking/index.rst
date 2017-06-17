@@ -6,7 +6,7 @@ Networking
    model
    hl7-profiling
    hl7-impl-notes
-   adt
-   orm
-   oru
-   fwd
+   adt/index
+   orm/index
+   oru/index
+   fwd/index
