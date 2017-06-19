@@ -23,7 +23,7 @@ Table of Content
 |       7.1.1.7. :ref:`adt_in_a07`
 |       7.1.1.8. :ref:`adt_in_a08`
 |       7.1.1.9. :ref:`adt_in_a11`
-|       7.1.1.9. :ref:`adt_in_a12`
+|       7.1.1.10. :ref:`adt_in_a12`
 |       7.1.1.11. :ref:`adt_in_a13`
 |       7.1.1.12. :ref:`adt_in_a28`
 |       7.1.1.13. :ref:`adt_in_a31`
