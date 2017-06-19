@@ -13,5 +13,11 @@ HL7 Conformance Statement |product|
    overview
    toc
    introduction
-   networking/index
+   model
+   hl7-profiling
+   hl7-impl-notes
+   adt/index
+   orm/index
+   oru/index
+   fwd/index
    security
