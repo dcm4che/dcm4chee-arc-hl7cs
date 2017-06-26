@@ -123,10 +123,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component / sub-component value is not listed if the HL7 element does not contain multiple components / sub-components.
 
-.. csv-table:: HL7 ORM mapping of PID segment to DICOM Patient Attributes
-   :name: orm_in_pid_dicom
-   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
-
+.. table:: HL7 order mapping to DICOM Modality Worklist Attributes
 
    +------------------------------------------------------------------------------------------------------------------------------------------------------+
    | DICOM Attribute                   | DICOM Tag   |  HL7 Field                       |  HL7 Item #    |  HL7 Segment | Note                            |
