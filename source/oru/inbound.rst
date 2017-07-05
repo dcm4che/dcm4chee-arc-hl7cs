@@ -20,7 +20,7 @@ the HL7 message.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
-The following segments are processed from an incoming ORM^O01^ORM_O01 message:
+The following segments are processed from an incoming ORU^R01^ORU_R01 message:
 
 .. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.3.1)
    :header: Segment, Meaning, HL7 Chapter
@@ -110,7 +110,7 @@ OBR - Observation Request segment
 
    1, 4, SI, O, , 00569, SetID - OBX
    2, 3, ID, C, 0125, 00570, Value Type
-   3, 80, CE, R, , 00571, **Observation Identifier*+
+   3, 80, CE, R, , 00571, **Observation Identifier**
    4, 20, ST, C, , 00572, Observation Sub-ID
    5, 65536³, *, C, , 00573, **Observation Value**
    6, 60, CE, O, , 00574, Units
@@ -169,7 +169,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Code Meaning,"(0008,0104)",,,,Radiology Report
    Verifying Observer Sequence,"(0040,A073)"
    >Verifying Organization,"(0040,A027)",,,,Default Value : Verifying Organization
-   >Verifying Observer Name,"(0040,A075)",Principal Result Interpreter,00264,OBR:32,See note 6
+   >Verifying Observer Name,"(0040,A075)",Principal Result Interpreter,00264,OBR:32,See note 8
    >Verification DateTime,"(0040,A030)",Observation Date/Time,00241,OBR:7
    Referenced Request Sequence,"(0040,A370)"
    >Study Instance UID,"(0020,000D)",,,OBX[1]:5,See note 4
@@ -182,7 +182,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Filler Order Number Imaging Service Request,"(0040,2017)",Filler Order Number,00217,OBR:3,See note 7
    Completion Flag,"(0040,A491)",Result Status,00258,OBR:25,See note 1
    Verification Flag,"(0040,A493)",Result Status,00258,OBR:25, See note 2
-   Content Sequence,"(0040,A730)",,,See Note 3
+   Content Sequence,"(0040,A730)",,,,See Note 3
    Item 1
    >Relationship Type,"(0040,A010)",,,,HAS CONCEPT MOD
    >Value Type,"(0040,A040)",,,,CODE
@@ -232,12 +232,20 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 
 Notes :
+
 1. If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
+
 2. If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
+
 3. This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
+
 4. If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
+
 5. If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
+
 6. If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
-6. If absent "UNKNOWN" is used.
+
 7. If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
 Report Manager is able to obtain values.
+
+8. If absent "UNKNOWN" is used.
