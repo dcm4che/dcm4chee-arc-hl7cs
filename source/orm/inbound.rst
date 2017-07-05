@@ -118,6 +118,63 @@ Inbound Message Segments
 
 .. _orm_in_dicom:
 
+OBR - Observation Request segment
+---------------------------------
+
+.. csv-table:: OBR - Observation Request segment (HL7 v2.3.1)
+   :name: tab_obr_231
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 00237, SetID - OBR
+   2, 75, EI, R, , 00216, Placer Order Number
+   3, 75, EI, O, , 00217, Filler Order Number
+   4, 200, CE, R, , 00238, **Universal Service ID**
+   5, 2, ID, O, , 00239, Priority
+   6, 26, TS, O, , 00240, Requested Date/Time
+   7, 26, TS, O, , 00241, Observation Date/Time
+   8, 26, TS, O, , 00242, Observation End Date/Time
+   9, 20, CQ, O, , 00243, Collection Volume
+   10, 60, XCN, O, , 00244, Collection Identifier
+   11, 1, ID, O, 0065, 00245, Specimen Action Code
+   12, 60, CE, R2, , 00246, **Danger Code**
+   13, 300, ST, C, , 00247, **Relevant Clinical Info**
+   14, 26, TS, O, , 00248, Specimen Received Date/Time
+   15, 300, CM, C, 0070, 00249, Specimen Source
+   16, 80, XCN, R, , 00226, **Ordering Provider**
+   17, 40, XTN, O, , 00250, Order Callback Phone Number
+   18, 60, ST, O, , 00251, **Placer Field 1**
+   19, 60, ST, O, , 00252, **Placer Field 2**
+   20, 60, ST, O, , 00253, **Filler Field 1**
+   21, 60, ST, O, , 00254, Filler Field 2
+   22, 26, TS, O, , 00255, Results Rpt/Status Chng - Date/Time
+   23, 40, CM, O, , 00256, Charge to Practice
+   24, 10, ID, O, 0074, 00257, **Diagnostic Service Sect ID**
+   25, 1, ID, O, 0123, 00258, Result Status
+   26, 400, CM, O, , 00259, Parent Result
+   27, 200, TQ, R, , 00221, Quantity/Timing
+   28, 150, XCN, O, , 00260, Result Copies To
+   29, 150, CM, C, , 00261, Parent
+   30, 20, ID, R2, 0124, 00262, **Transportation Mode**
+   31, 300, CE, R2, , 00263, **Reason For Study**
+   32, 200, CM, O, , 00264, Principal Result Interpreter
+   33, 200, CM, O, , 00265, Assistant Result Interpreter
+   34, 200, CM, O, , 00266, **Technician**
+   35, 200, CM, O, , 00267, Transcriptionist
+   36, 26, TS, O, , 00268, Scheduled Date/Time
+   37, 4, NM, O, , 01028, Number of Sample Containers
+   38, 60, CE, O, , 01029, Transport Logistics of Collected Sample
+   39, 200, CE, O, , 01030, Collector's Comment
+   40, 60, CE, O, , 01031, Transport Arrangement Responsibility
+   41, 30, ID, R2, 0224, 01032, Transport Arranged
+   42, 1, ID, O, 0225, 01033, Escort Required
+   43, 200, CE, O, , 01034, Planned Patient Transport Comment
+   44, 80, CE, O, 0088, 00393, Procedure Code
+   45, 80, CE, O, 0340, 01036, Procedure Code Modifier
+
+Element names in **bold** indicates that the field is used by |product|.
+
+
 HL7 Order to DICOM MWL Mapping
 ==============================
 
