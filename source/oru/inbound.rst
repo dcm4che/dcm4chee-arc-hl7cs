@@ -47,11 +47,16 @@ Based on the information received in the OBR and OBX segments, a SR object is st
 Inbound Message Segments
 ========================
 
-.. _oru_in_dicom:
+.. _oru_in_pid:
+
+PID - Patient Identification segment
+------------------------------------
+Same as specified in :numref:`tab_pid_231` and :numref:`tab_pid_251`
+
+.. _oru_in_obr:
 
 OBR - Observation Request segment
 ---------------------------------
-
 .. csv-table:: OBR - Observation Request segment (HL7 v2.3.1)
    :name: tab_obr_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
@@ -69,7 +74,7 @@ OBR - Observation Request segment
    10, 60, XCN, O, , 00244, Collection Identifier
    11, 1, ID, O, 0065, 00245, Specimen Action Code
    12, 60, CE, R2, , 00246, Danger Code
-   13, 300, ST, C, , 00247, Relevant Clinical Info**
+   13, 300, ST, C, , 00247, Relevant Clinical Info
    14, 26, TS, O, , 00248, Specimen Received Date/Time
    15, 300, CM, C, 0070, 00249, Specimen Source
    16, 80, XCN, R, , 00226, Ordering Provider
@@ -103,8 +108,69 @@ OBR - Observation Request segment
    44, 80, CE, O, 0088, 00393, Procedure Code
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
-.. csv-table:: OBX - Observation Request segment (HL7 v2.3.1)
-   :name: tab_obr_231
+.. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
+   :name: tab_obr_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 00237, SetID - OBR
+   2, 22, EI, R, , 00216, **Placer Order Number**
+   3, 22, EI, O, , 00217, **Filler Order Number**
+   4, 250, CE, R, , 00238, **Universal Service ID**
+   5, 2, ID, O, , 00239, Priority
+   6, 26, TS, O, , 00240, Requested Date/Time
+   7, 26, TS, O, , 00241, **Observation Date/Time**
+   8, 26, TS, O, , 00242, Observation End Date/Time
+   9, 20, CQ, O, , 00243, Collection Volume
+   10, 250, XCN, O, , 00244, Collection Identifier
+   11, 1, ID, O, 0065, 00245, Specimen Action Code
+   12, 250, CE, R2, , 00246, Danger Code
+   13, 300, ST, C, , 00247, Relevant Clinical Info
+   14, 26, TS, X, , 00248, Specimen Received Date/Time
+   15, 300, SPS, X, 0070, 00249, Specimen Source
+   16, 250, XCN, R, , 00226, Ordering Provider
+   17, 250, XTN, O, , 00250, Order Callback Phone Number
+   18, 60, ST, O, , 00251, **Placer Field 1**
+   19, 60, ST, O, , 00252, Placer Field 2
+   20, 60, ST, O, , 00253, Filler Field 1
+   21, 60, ST, O, , 00254, Filler Field 2
+   22, 26, TS, O, , 00255, Results Rpt/Status Chng - Date/Time
+   23, 40, MOC, O, , 00256, Charge to Practice
+   24, 10, ID, O, 0074, 00257, Diagnostic Service Sect ID
+   25, 1, ID, O, 0123, 00258, **Result Status**
+   26, 400, PRL, O, , 00259, Parent Result
+   27, 200, TQ, X, , 00221, Quantity/Timing
+   28, 250, XCN, O, , 00260, Result Copies To
+   29, 200, EIP, C, , 00261, Parent
+   30, 20, ID, R2, 0124, 00262, Transportation Mode
+   31, 250, CE, R2, , 00263, Reason For Study
+   32, 200, NDL, O, , 00264, **Principal Result Interpreter**
+   33, 200, NDL, O, , 00265, Assistant Result Interpreter
+   34, 200, NDL, O, , 00266, Technician
+   35, 200, NDL, O, , 00267, Transcriptionist
+   36, 26, TS, O, , 00268, Scheduled Date/Time
+   37, 4, NM, O, , 01028, Number of Sample Containers
+   38, 250, CE, O, , 01029, Transport Logistics of Collected Sample
+   39, 250, CE, O, , 01030, Collector's Comment
+   40, 250, CE, O, , 01031, Transport Arrangement Responsibility
+   41, 30, ID, R2, 0224, 01032, Transport Arranged
+   42, 1, ID, O, 0225, 01033, Escort Required
+   43, 250, CE, O, , 01034, Planned Patient Transport Comment
+   44, 250, CE, O, 0088, 00393, Procedure Code
+   45, 250, CE, O, 0340, 01036, Procedure Code Modifier
+   46, 250, CE, R2, 0411, 01474, Placer Supplemental Service Information
+   47, 250, CE, R2, 0411, 01475, Filler Supplemental Service Information
+   48, 250, CWE, R2, 0476, 01646, Medically Necessary Duplicate Procedure Reason
+   49, 2, IS, O, 0507, 01647, Result Handling
+   50, 250, CWE, O, , 02286, Parent Universal Service Identifier
+
+
+.. _oru_in_obx:
+
+OBX - Observation Request segment
+---------------------------------
+.. csv-table:: OBX - Observation/Result segment (HL7 v2.3.1)
+   :name: tab_obx_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -126,9 +192,32 @@ OBR - Observation Request segment
    16, 80, XCN, O, , 00584, Responsible Observer
    17, 60, CE, O, , 00936, Observation Method
 
+.. csv-table:: OBX - Observation/Result segment (HL7 v2.5.1)
+   :name: tab_obx_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 00569, SetID - OBX
+   2, 2, ID, C, 0125, 00570, Value Type
+   3, 250, CE, R, , 00571, **Observation Identifier**
+   4, 20, ST, C, , 00572, Observation Sub-ID
+   5, 99999, Varies, C, , 00573, **Observation Value**
+   6, 250, CE, O, , 00574, Units
+   7, 60, ST, O, , 00575, References Range
+   8, 5, IS, O, 0078, 00576, Abnormal Flags
+   9, 5, NM, O, , 00577, Probability
+   10, 2, ID, O, 0080, 00578, Nature of Abnormal Test
+   11, 1, ID, R, 0085, 00579, Observation Result Status
+   12, 26, TS, O, , 00580, Effective Date of Reference Range
+   13, 20, ST, O, , 00581, User Defined Access Checks
+   14, 26, TS, O, , 00582, Date/Time of the Observation
+   15, 250, CE, O, , 00583, Producer's ID
+   16, 250, XCN, O, , 00584, Responsible Observer
+   17, 250, CE, O, , 00936, Observation Method
+   18, 22, EI, O, , 01479, Equipment Instance Identifier
+   19, 26, TS, O, , 01480, Date/Time of Analysis
 
 Element names in **bold** indicates that the field is used by |product|.
-
 
 HL7 ORU to DICOM SR Mapping
 ===========================
@@ -231,21 +320,19 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Text Value,"(0040,A160)",,,OBX:3/component='SR Text'
 
 
-Notes :
+Note 1. If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
 
-1. If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
+Note 2. If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
 
-2. If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
+Note 3. This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
 
-3. This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
+Note 4. If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
 
-4. If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
+Note 5. If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
 
-5. If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
+Note 6. If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
 
-6. If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
-
-7. If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
+Note 7. If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
 Report Manager is able to obtain values.
 
-8. If absent "UNKNOWN" is used.
+Note 8. If absent "UNKNOWN" is used.

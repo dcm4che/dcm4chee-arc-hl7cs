@@ -504,6 +504,7 @@ PID - Patient Identification segment
    30, 1, ID, O, 0136, 00741, Patient Death Indicator
 
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5)
+   :name: tab_pid_251
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
