@@ -497,7 +497,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 
 .. csv-table:: HL7 order mapping to DICOM Modality Worklist Attributes for (HL7 v2.3.1)
-   :name: orm_to_dicom_231
+   :name: orm_to_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
@@ -558,7 +558,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 
 .. csv-table:: HL7 order mapping to DICOM Modality Worklist Attributes for (HL7 v2.5.1)
-   :name: orm_to_dicom_251
+   :name: omi_to_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
@@ -620,7 +620,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 
 .. csv-table:: HL7 order mapping to DICOM Modality Worklist Attributes for Eyecare
-   :name: orm_to_dicom_eyecare
+   :name: omg_to_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
