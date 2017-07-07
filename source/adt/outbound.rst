@@ -2,7 +2,7 @@ Outbound
 ########
 
 The HL7 messages mentioned below are sent to other HL7 applications/receivers if the feature Synchronize External Receivers
-explained in https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information) has been configured in the archive.
+explained in https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information has been configured in the archive.
 
 .. _adt_out_messages:
 
