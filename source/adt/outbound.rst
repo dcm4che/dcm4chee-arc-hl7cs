@@ -1,9 +1,8 @@
 Outbound
 ########
 
-The HL7 messages mentioned below are sent to other HL7 applications/receivers if the feature
-[Synchronize External Receivers](https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information) has been
-configured in the archive.
+The HL7 messages mentioned below are sent to other HL7 applications/receivers if the feature Synchronize External Receivers
+explained in https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information) has been configured in the archive.
 
 .. _adt_out_messages:
 
@@ -27,13 +26,6 @@ outgoing ADT message mapped from corresponding DICOM attributes as defined in :n
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are sent in an outgoing ADT^A28^ADT_A05 message:
-
-.. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.3.1)
-   :header: Segment, Meaning, HL7 Chapter
-   :widths: 25, 50, 25
-
-   MSH, Message Header, 2
-   PID, Patient Identification, 3
 
 .. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.5)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
