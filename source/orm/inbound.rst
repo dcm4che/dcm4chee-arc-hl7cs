@@ -1,18 +1,18 @@
 Inbound
 #######
 
-.. _orm_in_messages:
+.. _orm_messages:
 
 Inbound Messages
 ================
 
-.. _orm_in_orm_o01:
+.. _orm_o01:
 
 ORM - General Order Message (Event O01)
 ---------------------------------------
 Supported HL7 version: 2.3.1
 
-.. _orm_in_o01_event
+.. _orm_o01_event:
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -22,7 +22,7 @@ Note: This transaction shall be used the first time a particular Study Instance 
 Scheduler/Order Filler to the Image Manager or Report Manager. If the Study Instance UID has been sent previously, then
 Procedure Updated (Transaction RAD-13) shall be used.
 
-.. _orm_in_o01_segments:
+.. _orm_o01_segments:
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -33,13 +33,13 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID, Patient Identification, 3
-   PV1, Patient Visit, 3
-   ORC, Common Order, 4
-   OBR, Order Detail, 4
-   ZDS, Additional identification information (custom for IHE),
+   :numref:`orm_pid`, Patient Identification, 3
+   :numref:`orm_pv1`, Patient Visit, 3
+   :numref:`orm_omg_orc`, Common Order, 4
+   :numref:`orm_omg_obr`, Order Detail, 4
+   :numref:`orm_omg_zds`, Additional identification information
 
-.. _orm_in_o01_actions
+.. _orm_o01_actions:
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -54,7 +54,7 @@ system will generate a Study Instance UID for the Modality Worklist Item attribu
 .. [#hl7NoPatientCreateMessageType] The creation of new Patient records will be suppressed for message types which are
    listed by configuration parameter *HL7 No Patient Create Message Type(s)*  of |product|.
 
-.. _orm_in_omg_o19:
+.. _omg_o19:
 
 OMG - General Clinical Order Message (Event O19)
 ------------------------------------------------
@@ -62,7 +62,7 @@ Supported HL7 version: 2.5.1
 
 Trigger Event
 ^^^^^^^^^^^^^
-Same as specified in :numref:`orm_in_o01_event`. This message is sent for eyecare profile.
+Same as specified in :numref:`orm_o01_event`. This message is sent for eyecare profile.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -71,18 +71,18 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID, Patient Identification, 3
-   PV1, Patient Visit, 3
-   ORC, Common Order, 4
-   TQ1, Timing and Quantity, 4
-   OBR, Order Detail, 7
-   ZDS, Additional identification information (custom for IHE),
+   :numref:`orm_pid`, Patient Identification, 3
+   :numref:`orm_pv1`, Patient Visit, 3
+   :numref:`orm_omg_orc`, Common Order, 4
+   :numref:`omg_omi_tq1`, Timing and Quantity, 4
+   :numref:`orm_omg_obr`, Order Detail, 7
+   :numref:`orm_omg_zds`, Additional identification information
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
-Same as specified in :numref:`orm_in_o01_actions`.
+Same as specified in :numref:`orm_o01_actions`.
 
-.. _orm_in_o23:
+.. _omi_o23:
 
 OMI - Imaging Order Message (Event O23)
 ---------------------------------------
@@ -90,7 +90,7 @@ Supported HL7 version: 2.5.1
 
 Trigger Event
 ^^^^^^^^^^^^^
-Same as specified in :numref:`orm_in_o01_actions`.
+Same as specified in :numref:`orm_o01_event`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -99,35 +99,36 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID, Patient Identification, 3
-   PV1, Patient Visit, 3
-   ORC, Common Order, 4
-   TQ1, Timing and Quantity, 4
-   OBR, Order Detail, 7
-   IPC, Imaging Procedure Control, 4
+   :numref:`orm_pid`, Patient Identification, 3
+   :numref:`omi_pv1`, Patient Visit, 3
+   :numref:`omi_orc_hl7v2.5`, Common Order, 4
+   :numref:`omg_omi_tq1`, Timing and Quantity, 4
+   :numref:`omi_obr_hl7v2.5`, Order Detail, 7
+   :numref:`omi_ipc`, Imaging Procedure Control, 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
-Same as specified in :numref:`orm_in_orm_o01_actions`, with the exception that Study Instance UID will be taken from IPC
+Same as specified in :numref:`orm_o01_actions`, with the exception that Study Instance UID will be taken from IPC
 segment.
 
-.. _orm_in_segments:
+.. _orm_segments:
 
 Inbound Message Segments
 ========================
 
-.. _orm_in_pid:
+.. _orm_pid:
 
-PID - Patient Identification segment
-------------------------------------
-Same as specified in  :numref:`tab_pid_231` and :numref:`tab_pid_251`
+PID
+---
+Patient Identification segment is same as specified in  :numref:`tab_pid_231` and :numref:`tab_pid_251`
 
-.. _orm_in_pv1:
+.. _orm_pv1:
 
-PV1 - Patient Visit Information segment
----------------------------------------
+PV1
+---
+Patient Visit Information segment : HL7 v2.3.1
 
-.. csv-table:: PV1 - Patient Visit Information segment (HL7 v2.3.1)
+.. csv-table:: PV1 - Patient Visit Information segment
    :name: tab_pv1_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -185,7 +186,14 @@ PV1 - Patient Visit Information segment
    51, 1, IS, C, 0326, 01226, Visit Indicator
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
-.. csv-table:: PV1 - Patient Visit Information segment (HL7 v2.5.1)
+
+.. _omi_pv1:
+
+PV1
+---
+Patient Visit Information segment : HL7 v2.5.1
+
+.. csv-table:: PV1 - Patient Visit Information segment
    :name: tab_pv1_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -244,12 +252,13 @@ PV1 - Patient Visit Information segment
    52, 250, XCN, X, 0010, 01274, Other Healthcare Provider
 
 
-.. _orm_in_orc:
+.. _orm_omg_orc:
 
-ORC - Order Control segment
----------------------------
+ORC
+---
+Order Control segment : HL7 v2.3.1
 
-.. csv-table:: ORC - Order Control segment (HL7 v2.3.1)
+.. csv-table:: ORC - Order Control segment
    :name: tab_orc_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -273,6 +282,13 @@ ORC - Order Control segment
    17, 60, CE, R, , 00231, Entering Organization
    18, 60, CE, O, , 00232, **Entering Device**
    19, 120, XCN, O, , 00233, Action By
+
+
+.. _omi_orc_hl7v2.5:
+
+ORC
+---
+Order Control segment : HL7 v2.5.1
 
 .. csv-table:: ORC - Order Control segment (HL7 v2.5.1)
    :name: tab_orc_251
@@ -312,12 +328,13 @@ ORC - Order Control segment
    31, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
 
-.. _orm_in_tq1:
+.. _omg_omi_tq1:
 
-TQ1 - Timing/Quantity segment
------------------------------
+TQ1
+---
+Timing/Quantity segment
 
-.. csv-table:: TQ1 - Timing/Quantity segment (HL7 v2.5.1)
+.. csv-table:: TQ1
    :name: tab_tq1_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -338,12 +355,13 @@ TQ1 - Timing/Quantity segment
    14, 10, NM, O, , 01640, Total Occurrences
 
 
-.. _orm_in_obr:
+.. _orm_omg_obr:
 
-OBR - Observation Request segment
----------------------------------
+OBR
+---
+Observation Request segment : HL7 v2.3.1
 
-.. csv-table:: OBR - Observation Request segment (HL7 v2.3.1)
+.. csv-table:: OBR - Observation Request segment
    :name: tab_obr_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -394,7 +412,14 @@ OBR - Observation Request segment
    44, 80, CE, O, 0088, 00393, Procedure Code
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
-.. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
+
+.. _omi_obr_hl7v2.5:
+
+OBR
+---
+Observation Request segment : HL7 v2.5.1
+
+.. csv-table:: OBR - Observation Request segment
    :name: tab_obr_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -451,12 +476,13 @@ OBR - Observation Request segment
    50, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
 
-.. _orm_in_zds:
+.. _orm_omg_zds:
 
-ZDS - Z segment
----------------
+ZDS
+---
+Z segment : HL7 v2.3.1
 
-.. csv-table:: ZDS - Z segment (HL7 v2.3.1)
+.. csv-table:: ZDS - Z segment
    :name: tab_zds_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -464,12 +490,13 @@ ZDS - Z segment
    1, 200, RP, R, , Z0001, **Study Instance UID**
 
 
-.. _orm_in_ipc:
+.. _omi_ipc:
 
-IPC - Imaging Procedure Control segment
----------------------------------------
+IPC
+---
+Imaging Procedure Control segment : HL7 v2.5.1
 
-.. csv-table:: IPC - Imaging Procedure Control segment (HL7 v2.5.1)
+.. csv-table:: IPC - Imaging Procedure Control segment
    :name: tab_ipc_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -480,9 +507,9 @@ IPC - Imaging Procedure Control segment
    4, 22, EI, R, , 00238, **Scheduled Procedure Step ID**
    5, 16, CE, R+, , 00239, **Modality**
    6, 250, CE, R2, , 00246, **Protocol Code**
-   7, , EI, , , 01663, **Scheduled Station Name**
-   8, , CWE, , , 01664, **Scheduled Procedure Step Location**
-   9, , ST, , , 01665, **Scheduled Station AE Title**
+   7, 22, EI, , , 01663, **Scheduled Station Name**
+   8, 250, CE, , , 01664, **Scheduled Procedure Step Location**
+   9, 16, ST, , , 01665, **Scheduled Station AE Title**
 
 
 Element names in **bold** indicates that the field is used by |product|.
@@ -495,7 +522,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component / sub-component value is not listed if the HL7 element does not contain multiple components / sub-components.
 
-.. _orm_in_dicom:
+.. _orm_dicom:
 
 ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
@@ -512,60 +539,60 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    Same as Patient Demographic in :numref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
-   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, See note 8
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note 8]_
    Medical Alerts, "(0010, 2000)", Relevant Clinical Info, 00247, OBR:13
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Station AE Title, "(0040, 0001)", , , ORC:18, Generated by DSS
-   >Scheduled Procedure Step Start Date, "(0040, 0002)", Quantity/Timing, 00221.4, ORC:7.4, Generated by DSS
-   >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4, Generated by DSS
-   >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24, Generated by DSS
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, See note 4
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2, Generated by DSS
-   >Scheduled Station Name, "(0040, 0010)", , , , See note 5
+   >Scheduled Station AE Title, "(0040, 0001)", , , ORC:18
+   >Scheduled Procedure Step Start Date, "(0040, 0002)", Quantity/Timing, 00221.4, ORC:7.4
+   >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
+   >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note 4]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Station Name, "(0040, 0010)", , , , [#Note 5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)"
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1, Generated by DSS
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3, Generated by DSS
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2, Generated by DSS
-   >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20, Generated by DSS
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5, Generated by DSS
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
+   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
    **Requested Procedure**
-   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19, Generated by DSS
-   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, See note 6
-   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , See note 7
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note 6]_
+   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , [#Note 7]_
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
    Requested Procedure Code Sequence, "(0032, 1064)"
-   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1, Generated by DSS
-   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3, Generated by DSS
-   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
-   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1, Generated by DSS
-   Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.5, See note 1
+   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
+   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
+   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
+   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1
+   Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.5, [#Note 1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
-   Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18, Generated by DSS
+   Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
    Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
    Referring Physician's Name, "(0008, 0090)", Referring Doctor, 00138, PV1:8
-   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, See note 2
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note 2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
-   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, See note 2
-   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note 2]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note 2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
-   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note 2]_
    **Visit Identification**
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, See note 3
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note 3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, See note 3
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note 3]_
 
 
-.. _omi_in_dicom:
+.. _omi_dicom:
 
 OMI - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
@@ -582,64 +609,64 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    Same as Patient Demographic in :numref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
-   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, See note 8
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note 8]_
    Medical Alerts, "(0010, 2000)", Relevant Clinical Info, 00247, OBR:13
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Station AE Title, "(0040, 0001)", Scheduled Station AE Title, 01665, IPC:9, Generated by DSS
-   >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7, Generated by DSS
-   >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7, Generated by DSS
-   >Modality, "(0008, 0060)", Modality, 00239, IPC:5, Generated by DSS
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, See note 4
-   >Scheduled Procedure Step Description, "(0040, 0007)", Protocol Code, 00246.2, IPC:6.2, Generated by DSS
-   >Scheduled Station Name, "(0040, 0010)", Scheduled Station Name, 01663, IPC:7, Generated by DSS
-   >Scheduled Procedure Step Location, "(0040, 0011)", Scheduled Procedure Step Location, 01664, IPC:8, Generated by DSS
+   >Scheduled Station AE Title, "(0040, 0001)", Scheduled Station AE Title, 01665, IPC:9
+   >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
+   >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
+   >Modality, "(0008, 0060)", Modality, 00239, IPC:5
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note 4]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Protocol Code, 00246.2, IPC:6.2
+   >Scheduled Station Name, "(0040, 0010)", Scheduled Station Name, 01663, IPC:7
+   >Scheduled Procedure Step Location, "(0040, 0011)", Scheduled Procedure Step Location, 01664, IPC:8
    >Scheduled Protocol Code Sequence, "(0040, 0008)"
-   >>Code Value, "(0008, 0100)", Protocol Code, 00246.1, IPC:6.1, Generated by DSS
-   >>Code Scheme Designator, "(0008, 0102)", Protocol Code, 00246.3, IPC:6.3, Generated by DSS
-   >>Code Meaning, "(0008, 0104)", Protocol Code, 00246.2, IPC:6.2, Generated by DSS
-   >Scheduled Procedure Step ID, "(0040, 0009)", Scheduled Procedure Step ID, 00238, IPC:4, Generated by DSS
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5, Generated by DSS
+   >>Code Value, "(0008, 0100)", Protocol Code, 00246.1, IPC:6.1
+   >>Code Scheme Designator, "(0008, 0102)", Protocol Code, 00246.3, IPC:6.3
+   >>Code Meaning, "(0008, 0104)", Protocol Code, 00246.2, IPC:6.2
+   >Scheduled Procedure Step ID, "(0040, 0009)", Scheduled Procedure Step ID, 00238, IPC:4
+   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
    **Requested Procedure**
-   Requested Procedure ID, "(0040, 1001)", Requested Procedure ID, 00216, IPC:2, Generated by DSS
-   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, See note 6
-   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , See note 7
+   Requested Procedure ID, "(0040, 1001)", Requested Procedure ID, 00216, IPC:2
+   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note 6]_
+   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , [#Note 7]_
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
    Requested Procedure Code Sequence, "(0032, 1064)"
-   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1, Generated by DSS
-   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3, Generated by DSS
-   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
-   Study Instance UID, "(0020, 000D)", Study Instance UID, 00217, IPC:3, Generated by DSS
-   Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, See note 1
+   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
+   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
+   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
+   Study Instance UID, "(0020, 000D)", Study Instance UID, 00217, IPC:3
+   Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note 1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
-   Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1, Generated by DSS
+   Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1
    Issuer Of Accession Number Sequence, "(0008, 0051)"
-   >Local Namespace Entity ID, "(0040, 0031)", Accession Identifier, 01330.2, IPC:1.2, Generated by DSS
-   >Universal Entity ID, "(0040, 0032)", Accession Identifier, 01330.2, IPC:1.3, Generated by DSS
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 01330.2, IPC:1.4, Generated by DSS
+   >Local Namespace Entity ID, "(0040, 0031)", Accession Identifier, 01330.2, IPC:1.2
+   >Universal Entity ID, "(0040, 0032)", Accession Identifier, 01330.2, IPC:1.3
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 01330.2, IPC:1.4
    Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
    Referring Physician's Name, "(0008, 0090)", Referring Doctor, 00138, PV1:8
-   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, See note 2
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note 2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
-   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, See note 2
-   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note 2]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note 2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
-   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note 2]_
    **Visit Identification**
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, See note 3
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note 3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, See note 3
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note 3]_
 
-.. _omg_in_dicom:
+.. _omg_dicom:
 
 OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
@@ -656,61 +683,61 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Same as Patient Demographic in :numref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
-   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, See note 8
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note 8]_
    Medical Alerts, "(0010, 2000)", Relevant Clinical Info, 00247, OBR:13
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
    >Scheduled Station AE Title, "(0040, 0001)"
-   >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7, Generated by DSS
-   >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7, Generated by DSS
-   >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24, Generated by DSS
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, See note 4
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2, Generated by DSS
-   >Scheduled Station Name, "(0040, 0010)", , , , See note 5
+   >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
+   >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
+   >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note 4]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Station Name, "(0040, 0010)", , , , [#Note 5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)"
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1, Generated by DSS
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3, Generated by DSS
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2, Generated by DSS
-   >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20, Generated by DSS
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5, Generated by DSS
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
+   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
    **Requested Procedure**
-   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19, Generated by DSS
-   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, See note 6
-   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , See note 7
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note 6]_
+   Reason for Requested Procedure Code Sequence, "(0040, 100A)", , , , [#Note 7]_
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
    Requested Procedure Code Sequence, "(0032, 1064)"
-   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1, Generated by DSS
-   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3, Generated by DSS
-   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2, Generated by DSS
-   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1, Generated by DSS
-   Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, See note 1
+   >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
+   >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
+   >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
+   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1
+   Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note 1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
-   Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18, Generated by DSS
+   Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
    Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
    Referring Physician's Name, "(0008, 0090)", Referring Doctor, 00138, PV1:8
-   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, See note 2
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note 2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
-   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, See note 2
-   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note 2]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note 2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
-   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, See note 2
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, See note 2
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, See note 2
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note 2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note 2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note 2]_
    **Visit Identification**
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, See note 3
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note 3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, See note 3
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note 3]_
 
 
-Note 1 :  Only the suggested values of the HL7 Priority component of Quantity/Timing shall be used for IHE. These values
-shall be mapped to the DICOM enumerated fields for Priority as:
+.. [#Note 1] :  Only the suggested values of the HL7 Priority component of Quantity/Timing. These values shall be
+mapped to the DICOM enumerated fields for Priority as:
 
 .. csv-table:: HL7 status mapping to DICOM status
    :name: status_mapping
@@ -723,28 +750,28 @@ shall be mapped to the DICOM enumerated fields for Priority as:
    C - Callback, HIGH
    T - Timing, MEDIUM
 
-Note 2 : Attributes (0040,2016) and (0040, 2017) are designed to incorporate the HL7 components of Placer Issuer and
+.. [#Note 2] : Attributes (0040,2016) and (0040, 2017) are designed to incorporate the HL7 components of Placer Issuer and
 Number, and Filler Issuer and Number. In a healthcare enterprise with multiple issuers of patient identifiers, both the
 issuer name and number are required to guarantee uniqueness.
 
-Note 3 : either field PID-18 Patient Account Number or field PV1-19 Visit Number or both may be valued depending on the
+.. [#Note 3] : either field PID-18 Patient Account Number or field PV1-19 Visit Number or both may be valued depending on the
 specific national requirements. Whenever field PV1-19 Visit Number in an order message is valued, its components shall
 be used to populate Admission ID (0038,0010) and Issuer of Admission ID (0038,0011) attributes in the MWL responses. In
 the case where field PV1-19 Visit Number is not valued, these attributes shall be valued from components of field PID-18
 Patient Account Number. This requires that Visit Numbers be unique across all account numbers.
 
-Note 4 : For : HL7 v2.3.1 and v2.5.1 : Field OBR-34 Technician in ORM or OMG message is repeatable. Its data type is CM,
+.. [#Note 4] : For : HL7 v2.3.1 and v2.5.1 : Field OBR-34 Technician in ORM or OMG message is repeatable. Its data type is CM,
 with the following components: <name (CN)> ^ <start date/time (TS)> ^ <end date/time (TS)> ^ <point of care (IS)> ^
 <room(IS)> ^ <bed (IS)> ^ <facility (HD)> ^ <location status (IS)> ^ <patient location type (IS)> ^ <building (IS)> ^
 <floor (IS)>.
 - Thus, in mapping value to the DICOM attribute Scheduled Performing Physician (0040,0006), only sub-components of the
 first component of the first repetition of that field shall be used.
 
-Note 5 : Populated only if matching hl7OrderScheduledStation found in configured hl7OrderScheduledStation in archive device.
+.. [#Note 5] : Populated only if matching hl7OrderScheduledStation found in configured hl7OrderScheduledStation in archive device.
 
-Note 6 : Maybe either a code or text value; if a code, then the code meaning (display name) should be used; see also (0040,100A)
+.. [#Note 6] : Maybe either a code or text value; if a code, then the code meaning (display name) should be used; see also (0040,100A)
 
-Note 7 : OBR:31 may be either a code or text value; if a text value, then the DSS may map it to a code to use in the DICOM
+.. [#Note 7] : OBR:31 may be either a code or text value; if a text value, then the DSS may map it to a code to use in the DICOM
 attribute; see also (0040,1002).
 
-Note 8 : "B6" must be mapped to DICOM. Enumerated value "3" (definitely pregnant)
+.. [#Note 8] : "B6" must be mapped to DICOM. Enumerated value "3" (definitely pregnant)
