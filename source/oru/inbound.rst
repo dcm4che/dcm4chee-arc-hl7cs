@@ -246,9 +246,9 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
    Modality, "(0008, 0060)",,,, SR
-   SOP Instance UID, "(0008, 0018)",,, OBX[1]:5, [#Note 6]_
-   Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note 4]_
-   Series Instance UID, "(0020, 000E)",,, OBX[3]:5, [#Note 5]_
+   SOP Instance UID, "(0008, 0018)",,, OBX[1]:5, [#Note6]_
+   Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note4]_
+   Series Instance UID, "(0020, 000E)",,, OBX[3]:5, [#Note5]_
    Instance Number, "(0020, 0013)",,,, 1
    Value Type, "(0040, A040)",,,, CONTAINER
    Continuity Of Content, "(0040, A050)",,,, SEPARATE
@@ -258,20 +258,20 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Code Meaning, "(0008, 0104)",,,, Radiology Report
    Verifying Observer Sequence, "(0040, A073)"
    >Verifying Organization, "(0040, A027)",,,, Default Value : Verifying Organization
-   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32, [#Note 8]_
+   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32, [#Note8]_
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
-   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note 4]_
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
    >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
    >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
    >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
    >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
    >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
-   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note 7]_
-   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note 7]_
-   Completion Flag, "(0040, A491)", Result Status, 00258, OBR:25, [#Note 1]_
-   Verification Flag, "(0040, A493)", Result Status, 00258, OBR:25, [#Note 2]_
-   Content Sequence, "(0040, A730)",,,, [#Note 3]_
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
+   Completion Flag, "(0040, A491)", Result Status, 00258, OBR:25, [#Note1]_
+   Verification Flag, "(0040, A493)", Result Status, 00258, OBR:25, [#Note2]_
+   Content Sequence, "(0040, A730)",,,, [#Note3]_
    Item 1
    >Relationship Type, "(0040, A010)",,,, HAS CONCEPT MOD
    >Value Type, "(0040, A040)",,,, CODE
@@ -320,19 +320,19 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Text Value, "(0040, A160)",,, OBX:3/component='SR Text'
 
 
-.. [#Note 1] : If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
+.. [#Note1] : If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
 
-.. [#Note 2] : If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
+.. [#Note2] : If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
 
-.. [#Note 3] : This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
+.. [#Note3] : This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
 
-.. [#Note 4] : If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note4] : If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note 5] : If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note5] : If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note 6] : If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note6] : If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note 7] : If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
-Report Manager is able to obtain values.
+.. [#Note7] : If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
+    Report Manager is able to obtain values.
 
-.. [#Note 8] : If absent "UNKNOWN" is used.
+.. [#Note8] : If absent "UNKNOWN" is used.
