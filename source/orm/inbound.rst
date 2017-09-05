@@ -526,7 +526,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
    >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
+   >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note6]_
@@ -597,7 +597,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >>Code Scheme Designator, "(0008, 0102)", Protocol Code, 00246.3, IPC:6.3
    >>Code Meaning, "(0008, 0104)", Protocol Code, 00246.2, IPC:6.2
    >Scheduled Procedure Step ID, "(0040, 0009)", Scheduled Procedure Step ID, 00238, IPC:4
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
+   >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Requested Procedure ID, 00216, IPC:2
    Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note6]_
@@ -670,7 +670,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
    >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control_Order Status, 00215_00219, ORC:1_ORC:5
+   >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    Reason for Requested Procedure, "(0040, 1002)", Reason for Study, 00263.2, OBR:31.2, [#Note6]_
@@ -745,3 +745,11 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    attribute; see also (0040,1002).
 
 .. [#Note8] "B6" must be mapped to DICOM. Enumerated value "3" (definitely pregnant)
+
+.. [#Note9] The values present in ORC fields 1 and 5 decide the Scheduled Procedure Step Status that is applied to the MWL.
+   The enumerated combinations of values in fields 1 and 5 of ORC segment currently supported by the archive are
+   NW_SC, NW_IP, CA_CA, DC_CA, XO_SC, XO_CM, SC_CM, SC_DC, SC_IP, SC_A where the first two letters eg. "NW" represent value
+   in field 1 and the next letter(s) after the "_" eg. "SC" represent value in field 5.
+   These combinations can be mapped to different Scheduled Procedure Step Status supported by archive :
+   SCHEDULED, ARRIVED, READY, STARTED, DEPARTED, CANCELLED, DISCONTINUED, COMPLETED. One can map multiple combinations of
+   ORC:1_ORC:5 to a scheduled procedure step status.
