@@ -35,7 +35,7 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    MSH, Message Header, 2
    PID in :numref:`tab_pid_231`, Patient Identification, 3
    PV1 in :numref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC in :numref:`tab_orc_orm_omg`, Common Order, 4
+   ORC in :ref:`tab_orc_orm_omg`, Common Order, 4
    OBR in :numref:`tab_obr_orm_omg`, Order Detail, 4
    ZDS in :numref:`tab_zds_orm_omg`, Additional identification information
 
