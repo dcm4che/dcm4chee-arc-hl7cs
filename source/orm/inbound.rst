@@ -35,7 +35,7 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    MSH, Message Header, 2
    PID in :numref:`tab_pid_231`, Patient Identification, 3
    PV1 in :numref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC in :ref:`tab_orc_orm_omg`, Common Order, 4
+   :ref:`tab_orc_orm_omg`, Common Order, 4
    OBR in :numref:`tab_obr_orm_omg`, Order Detail, 4
    ZDS in :numref:`tab_zds_orm_omg`, Additional identification information
 
@@ -73,7 +73,7 @@ Supported Segments
    MSH, Message Header, 2
    PID in :numref:`tab_pid_231`, Patient Identification, 3
    PV1 in :numref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC in :numref:`tab_orc_orm_omg`, Common Order, 4
+   :ref:`tab_orc_orm_omg`, Common Order, 4
    TQ1 in :numref:`tab_tq1_omg_omi`, Timing and Quantity, 4
    OBR in :numref:`tab_obr_orm_omg`, Order Detail, 7
    ZDS in :numref:`tab_zds_orm_omg`, Additional identification information
@@ -101,7 +101,7 @@ Supported Segments
    MSH, Message Header, 2
    PID in :numref:`tab_pid_251`, Patient Identification, 3
    PV1 in :numref:`tab_pv1_omi`, Patient Visit, 3
-   ORC in :numref:`tab_orc_omi`, Common Order, 4
+   :ref:`tab_orc_omi`, Common Order, 4
    TQ1 in :numref:`tab_tq1_omg_omi`, Timing and Quantity, 4
    OBR in :numref:`tab_obr_omi`, Order Detail, 7
    IPC in :numref:`tab_ipc_omi`, Imaging Procedure Control, 4
@@ -244,8 +244,9 @@ PV1 - Patient Visit Information segment
 ORC - Order Control segment
 ---------------------------
 
-.. csv-table:: ORC - Order Control segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: ORC
    :name: tab_orc_orm_omg
+   :description: Order Control segment (HL7 v2.3.1 & Eyecare)
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -270,8 +271,9 @@ ORC - Order Control segment
    19, 120, XCN, O, , 00233, Action By
 
 
-.. csv-table:: ORC - Order Control segment (HL7 v2.5.1)
+.. csv-table:: ORC
    :name: tab_orc_omi
+   :description: Order Control segment (HL7 v2.5.1)
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
