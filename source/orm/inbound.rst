@@ -33,18 +33,18 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID in :numref:`tab_pid_231`, Patient Identification, 3
-   PV1 in :numref:`tab_pv1_orm_omg`, Patient Visit, 3
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
    ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
-   OBR in :numref:`tab_obr_orm_omg`, Order Detail, 4
-   ZDS in :numref:`tab_zds_orm_omg`, Additional identification information
+   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 4
+   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
 
 .. _orm_o01_actions:
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 Patient Demographic Information are extracted from the PID and PV1 segments of the received message and mapped
-into corresponding DICOM attributes as defined in :numref:`adt_in_pid_dicom`. If a Patient record with the extracted
+into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a Patient record with the extracted
 primary Patient ID already exists in the database, that Patient record will get updated. If there is no such Patient
 record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 Based on the information received in the ORC and OBR segments, Modality Worklist Item is created/updated in the archive
@@ -71,12 +71,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID in :numref:`tab_pid_231`, Patient Identification, 3
-   PV1 in :numref:`tab_pv1_orm_omg`, Patient Visit, 3
-   :ref:`tab_orc_orm_omg`, Common Order, 4
-   TQ1 in :numref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR in :numref:`tab_obr_orm_omg`, Order Detail, 7
-   ZDS in :numref:`tab_zds_orm_omg`, Additional identification information
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
+   ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
+   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
+   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 7
+   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -99,12 +99,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID in :numref:`tab_pid_251`, Patient Identification, 3
-   PV1 in :numref:`tab_pv1_omi`, Patient Visit, 3
-   :ref:`tab_orc_omi`, Common Order, 4
-   TQ1 in :numref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR in :numref:`tab_obr_omi`, Order Detail, 7
-   IPC in :numref:`tab_ipc_omi`, Imaging Procedure Control, 4
+   PID - :ref:`tab_pid_251`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_omi`, Patient Visit, 3
+   ORC - :ref:`tab_orc_omi`, Common Order, 4
+   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
+   OBR - :ref:`tab_obr_omi`, Order Detail, 7
+   IPC - :ref:`tab_ipc_omi`, Imaging Procedure Control, 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -121,7 +121,7 @@ Inbound Message Segments
 PV1 - Patient Visit Information segment
 ---------------------------------------
 
-.. csv-table:: PV1 - Patient Visit Information segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Patient Visit Information segment (HL7 v2.3.1 & Eyecare)
    :name: tab_pv1_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -180,7 +180,7 @@ PV1 - Patient Visit Information segment
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
 
-.. csv-table:: PV1 - Patient Visit Information segment (HL7 v2.5.1)
+.. csv-table:: Patient Visit Information segment (HL7 v2.5.1)
    :name: tab_pv1_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -244,7 +244,7 @@ PV1 - Patient Visit Information segment
 ORC - Order Control segment
 ---------------------------
 
-.. csv-table:: Order Control segment - (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Order Control segment (HL7 v2.3.1 & Eyecare)
    :name: tab_orc_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -270,9 +270,8 @@ ORC - Order Control segment
    19, 120, XCN, O, , 00233, Action By
 
 
-.. csv-table:: ORC - (HL7 v2.5.1)
+.. csv-table:: Order Control segment (HL7 v2.5.1)
    :name: tab_orc_omi
-   :description: Order Control segment
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -314,7 +313,7 @@ ORC - Order Control segment
 TQ1 - Timing/Quantity segment
 -----------------------------
 
-.. csv-table:: TQ1 - Timing/Quantity segment (HL7 v2.5.1 & Eyecare)
+.. csv-table:: Timing/Quantity segment (HL7 v2.5.1 & Eyecare)
    :name: tab_tq1_omg_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -340,7 +339,7 @@ TQ1 - Timing/Quantity segment
 OBR - Observation Request segment
 ---------------------------------
 
-.. csv-table:: OBR - Observation Request segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Observation Request segment (HL7 v2.3.1 & Eyecare)
    :name: tab_obr_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -392,7 +391,7 @@ OBR - Observation Request segment
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
 
-.. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
+.. csv-table:: Observation Request segment (HL7 v2.5.1)
    :name: tab_obr_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -454,7 +453,7 @@ OBR - Observation Request segment
 ZDS - Z segment
 ---------------
 
-.. csv-table:: ZDS - Z segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Z segment (HL7 v2.3.1 & Eyecare)
    :name: tab_zds_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -467,7 +466,7 @@ ZDS - Z segment
 IPC - Imaging Procedure Control segment
 ---------------------------------------
 
-.. csv-table:: IPC - Imaging Procedure Control segment (HL7 v2.5.1)
+.. csv-table:: Imaging Procedure Control segment (HL7 v2.5.1)
    :name: tab_ipc_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -503,11 +502,11 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
-   Same as Patient Identification in :numref:`adt_in_pid_dicom`
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
-   Same as Patient Demographic in :numref:`adt_in_pid_dicom`
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -573,11 +572,11 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
-   Same as Patient Identification in :numref:`adt_in_pid_dicom`
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
-   Same as Patient Demographic in :numref:`adt_in_pid_dicom`
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -647,11 +646,11 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
-   Same as Patient Identification in :numref:`adt_in_pid_dicom`
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
-   Same as Patient Demographic in :numref:`adt_in_pid_dicom`
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_

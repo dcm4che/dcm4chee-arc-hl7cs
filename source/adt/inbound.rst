@@ -44,7 +44,7 @@ The following segments are processed from an incoming ADT^A01^ADT_A01 message:
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 Patient IDs and other Patient Information are extracted from the PID segment of the received ADT message and mapped
-into corresponding DICOM attributes as defined in :numref:`adt_in_pid_dicom`. If a Patient record with the extracted
+into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a Patient record with the extracted
 primary Patient ID already exists in the database, that Patient record will get updated. If there is no such Patient
 record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 
@@ -371,12 +371,12 @@ merged with the required "correct target identifier" in the PID segment (*PID-3 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 Patient IDs and other Patient Information for the dominant Patient record are extracted from the PID segment of the
-received ADT message and mapped into corresponding DICOM attributes as defined in :numref:`adt_in_pid_dicom`. If a
+received ADT message and mapped into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a
 Patient record with the extracted primary Patient ID already exists in the database, that Patient record will get updated.
 If there is no such Patient record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 
 Patient ID and the Patient name for the old Patient record are extracted from the MRG segment of the received ADT
-message and mapped into corresponding DICOM attributes as defined in :numref:`adt_in_mrg_dicom`. If a Patient record
+message and mapped into corresponding DICOM attributes as defined in :ref:`adt_in_mrg_dicom`. If a Patient record
 with the extracted primary Patient ID already exists in the database, all associated Study, MPPS and MWL records
 will be moved to the Patient record with the Patient ID from the PID segment. If there is no such Patient record a
 new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_. Therefore there will be always
@@ -423,11 +423,11 @@ to be changed to the "correct target patient ID" value stored in the PID segment
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 The "correct" Patient IDs and other Patient Information for the Patient record are extracted from the PID segment of
-the received ADT message and mapped into corresponding DICOM attributes as defined in :numref:`adt_in_pid_dicom`. If a
+the received ADT message and mapped into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a
 Patient record with the extracted primary Patient ID already exists in the database, the message will be rejected.
 
 The "incorrect" Patient ID and the prior Patient name are extracted from the MRG segment of the received ADT message
-and mapped into corresponding DICOM attributes as defined in :numref:`adt_in_mrg_dicom`.
+and mapped into corresponding DICOM attributes as defined in :ref:`adt_in_mrg_dicom`.
 
 Further behavior depends on if *HL7 Track Changed Patient ID* is enabled/disabled by a correspondent configuration
 parameter of |product|:
@@ -601,7 +601,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
    Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
@@ -648,7 +648,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1

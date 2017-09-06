@@ -34,7 +34,7 @@ The following segments are processed from an incoming ORU^R01^ORU_R01 message:
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 Patient Demographic Information are extracted from the PID segment of the received message and mapped into corresponding
-DICOM attributes as defined in :numref:`adt_in_pid_dicom`. If a Patient record with the extracted primary Patient ID
+DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a Patient record with the extracted primary Patient ID
 already exists in the database, that Patient record will get updated. If there is no such Patient record a new Patient
 record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 Based on the information received in the OBR and OBX segments, a SR object is stored to the study.
@@ -51,7 +51,7 @@ Inbound Message Segments
 
 PID - Patient Identification segment
 ------------------------------------
-Same as specified in :numref:`tab_pid_231` and :numref:`tab_pid_251`
+Same as specified in :ref:`tab_pid_231` and :ref:`tab_pid_251`
 
 .. _oru_obr:
 
@@ -237,9 +237,9 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
-   Same as Patient Identification in :numref:`adt_in_pid_dicom`
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Structured Report Export**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7

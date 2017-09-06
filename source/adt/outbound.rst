@@ -19,7 +19,7 @@ Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when a new patient is created in the archive by using archive UI and RESTful service.
 Patient IDs and other Patient Information for the new Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :numref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
 
 .. _adt_in_a28_segments:
 
@@ -53,7 +53,7 @@ Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when an existing patient is updated in the archive by using archive UI and RESTful service.
 Patient IDs and other Patient Information for the updated Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :numref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -77,9 +77,9 @@ Trigger Event
 This message is sent when a one or more patients are merged with a target patient in the archive by using archive UI
 and RESTful service.
 Patient IDs and other Patient Information for the target Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :numref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
 Patient ID and the Patient name for the old Patient record are sent in the MRG segment of the outgoing ADT
-message and mapped from corresponding DICOM attributes as defined in :numref:`dicom_in_mrg_adt`.
+message and mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_mrg_adt`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -126,7 +126,7 @@ Trigger Event
 This message is sent when an patient ID of an existing patient is updated in the archive by using archive UI and RESTful
 service. Patient IDs and other Patient Information for the Patient record with changed patient identifiers are sent in
 the PID segment of the outgoing ADT message mapped from corresponding DICOM attributes as defined in
-:numref:`dicom_in_pid_adt`.
+:ref:`dicom_in_pid_adt`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -229,7 +229,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
    Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
@@ -250,7 +250,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :numref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1
