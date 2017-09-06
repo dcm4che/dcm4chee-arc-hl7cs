@@ -244,9 +244,9 @@ PV1 - Patient Visit Information segment
 ORC - Order Control segment
 ---------------------------
 
-.. csv-table:: ORC
+.. csv-table:: ORC - (HL7 v2.3.1 & Eyecare)
    :name: tab_orc_orm_omg
-   :description: Order Control segment (HL7 v2.3.1 & Eyecare)
+   :description: Order Control segment
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -271,9 +271,9 @@ ORC - Order Control segment
    19, 120, XCN, O, , 00233, Action By
 
 
-.. csv-table:: ORC
+.. csv-table:: ORC - (HL7 v2.5.1)
    :name: tab_orc_omi
-   :description: Order Control segment (HL7 v2.5.1)
+   :description: Order Control segment
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
