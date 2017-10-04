@@ -762,4 +762,5 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    components 1 and 3 respectively.
 
 .. [#Note11] Although OBR:44 field is optional in HL7 order message, it is required to be supported by the archive which acts
-   as a SCP when queried for Modality Worklist entries. Refer `Attributes for the Modality Worklist Information Model <http://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_K.6-1>`_
+   as a SCP when queried for Modality Worklist entries. Refer `Attributes for the Modality Worklist Information Model <http://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_K.6-1>`_.
+   Currently archive does not set any default value to these attributes when this field is missing in HL7 order message.
