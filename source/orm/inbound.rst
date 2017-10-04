@@ -534,8 +534,8 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
-   Requested Procedure Code Sequence, "(0032, 1064)"
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, [#Note11]_
+   Requested Procedure Code Sequence, "(0032, 1064)", , , , [#Note11]_
    >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
@@ -605,8 +605,8 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
-   Requested Procedure Code Sequence, "(0032, 1064)"
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, [#Note11]_
+   Requested Procedure Code Sequence, "(0032, 1064)", , , , [#Note11]_
    >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
@@ -678,8 +678,8 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Value, "(0008, 0100)", Reason for Study, 00263.1, OBR:31.1
    >Code Scheme Designator, "(0008, 0102)", Reason for Study, 00263.3, OBR:31.3
    >Code Meaning, "(0008, 0104)", Reason for Study, 00263.2, OBR:31.2
-   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2
-   Requested Procedure Code Sequence, "(0032, 1064)"
+   Requested Procedure Description, "(0032, 1060)", Procedure Code, 00393.2, OBR:44.2, [#Note11]_
+   Requested Procedure Code Sequence, "(0032, 1064)", , , , [#Note11]_
    >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
@@ -760,3 +760,6 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Then it implies that Scheduled Procedure Step Description & Code Meaning in Scheduled Protocol Code Sequence will be
    read from component 2, Code Value and Code Scheme Designator in Scheduled Protocol Code Sequence will be read from
    components 1 and 3 respectively.
+
+.. [#Note11] Although OBR:44 field is optional in HL7 order message, it is required to be supported by the archive which acts
+   as a SCP when queried for Modality Worklist entries. Refer `Attributes for the Modality Worklist Information Model <http://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_K.6-1>`_
