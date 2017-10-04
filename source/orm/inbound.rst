@@ -387,7 +387,7 @@ OBR - Observation Request segment
    41, 30, ID, R2, 0224, 01032, Transport Arranged
    42, 1, ID, O, 0225, 01033, Escort Required
    43, 200, CE, O, , 01034, Planned Patient Transport Comment
-   44, 80, CE, O, 0088, 00393, Procedure Code
+   44, 80, CE, O, 0088, 00393, **Procedure Code**
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
 
@@ -439,7 +439,7 @@ OBR - Observation Request segment
    41, 30, ID, R2, 0224, 01032, Transport Arranged
    42, 1, ID, O, 0225, 01033, Escort Required
    43, 250, CE, O, , 01034, Planned Patient Transport Comment
-   44, 250, CE, O, 0088, 00393, Procedure Code
+   44, 250, CE, O, 0088, 00393, **Procedure Code**
    45, 250, CE, O, 0340, 01036, Procedure Code Modifier
    46, 250, CE, R2, 0411, 01474, Placer Supplemental Service Information
    47, 250, CE, R2, 0411, 01475, Filler Supplemental Service Information

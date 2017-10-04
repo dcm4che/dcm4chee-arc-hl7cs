@@ -159,7 +159,7 @@ Acknowledgement Message
 
 Each HL7 message shall be acknowledged by the HL7 ACK message sent by the receiver of an HL7 message to its sender.
 The segments of the ACK message listed below are required, and their detailed descriptions are provided in the
-following subsections. The ERR segment is optional and will not be included in ACK messages sent by |product|.
+following subsections. The ERR segment is optional and will be included in ACK messages sent by |product| from version 5.10.6 onwards.
 
 .. csv-table:: Common ACK Message static definition
    :header: Segment,Meaning,Usage,Card.,HL7 chapter
