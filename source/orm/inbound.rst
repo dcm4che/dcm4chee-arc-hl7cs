@@ -519,12 +519,12 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.2.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
-   >Scheduled Protocol Code Sequence, "(0040, 0008)"
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.2.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.2.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.2.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
@@ -539,7 +539,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
-   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1
+   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001.1, ZDS:1.1
    Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.5, [#Note1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
@@ -663,12 +663,12 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.2.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
-   >Scheduled Protocol Code Sequence, "(0040, 0008)"
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.1, OBR:4.2.1
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.3, OBR:4.2.3
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.2, OBR:4.2.2
+   >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.2.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.2.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.2.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
@@ -683,7 +683,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Value, "(0008, 0100)", Procedure Code, 00393.1, OBR:44.1
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
-   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001, ZDS:1
+   Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001.1, ZDS:1.1
    Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
@@ -753,3 +753,10 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    These combinations can be mapped to different Scheduled Procedure Step Status supported by archive :
    SCHEDULED, ARRIVED, READY, STARTED, DEPARTED, CANCELLED, DISCONTINUED, COMPLETED. One can map multiple combinations of
    ORC:1_ORC:5 to a scheduled procedure step status.
+
+.. [#Note10] Alternatively, it may be read from OBR:4 Components 1 to 3 by configuring it on
+   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_
+   or on `Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_.
+   Then it implies that Scheduled Procedure Step Description & Code Meaning in Scheduled Protocol Code Sequence will be
+   read from component 2, Code Value and Code Scheme Designator in Scheduled Protocol Code Sequence will be read from
+   components 1 and 3 respectively.
