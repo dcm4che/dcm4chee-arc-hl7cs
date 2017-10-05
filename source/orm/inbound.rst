@@ -477,9 +477,9 @@ IPC - Imaging Procedure Control segment
    4, 22, EI, R, , 00238, **Scheduled Procedure Step ID**
    5, 16, CE, R+, , 00239, **Modality**
    6, 250, CE, R2, , 00246, **Protocol Code**
-   7, 22, EI, , , 01663, **Scheduled Station Name**
-   8, 250, CE, , , 01664, **Scheduled Procedure Step Location**
-   9, 16, ST, , , 01665, **Scheduled Station AE Title**
+   7, 22, EI, O, , 01663, **Scheduled Station Name**
+   8, 250, CE, O, , 01664, **Scheduled Procedure Step Location**
+   9, 16, ST, O, , 01665, **Scheduled Station AE Title**
 
 
 Element names in **bold** indicates that the field is used by |product|.
@@ -514,7 +514,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Station AE Title, "(0040, 0001)", , , ORC:18
+   >Scheduled Station AE Title, "(0040, 0001)", , , , [#Note13]_
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Quantity/Timing, 00221.4, ORC:7.4
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
@@ -584,7 +584,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Station AE Title, "(0040, 0001)", Scheduled Station AE Title, 01665, IPC:9
+   >Scheduled Station AE Title, "(0040, 0001)", Scheduled Station AE Title, 01665, IPC:9, [#Note12]_
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Modality, 00239, IPC:5
@@ -658,7 +658,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'='ALTERED', 'N'='UNALTERED'"
    **Scheduled Procedure Step**
    Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Station AE Title, "(0040, 0001)"
+   >Scheduled Station AE Title, "(0040, 0001)", , , , [#Note13]_
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
@@ -755,7 +755,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    ORC:1_ORC:5 to a scheduled procedure step status.
 
 .. [#Note10] Alternatively, it may be read from OBR:4 Components 1 to 3 by configuring it on
-   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_
+   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7scheduledprotocolcodeinorder>`_
    or on `Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_.
    Then it implies that Scheduled Procedure Step Description & Code Meaning in Scheduled Protocol Code Sequence will be
    read from component 2, Code Value and Code Scheme Designator in Scheduled Protocol Code Sequence will be read from
@@ -764,3 +764,18 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 .. [#Note11] Although OBR:44 field is optional in HL7 order message, it is required to be supported by the archive which acts
    as a SCP when queried for Modality Worklist entries. Refer `Attributes for the Modality Worklist Information Model <http://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_K.6-1>`_.
    Currently archive does not set any default value to these attributes when this field is missing in HL7 order message.
+
+.. [#Note12] Although IPC:9 field is optional in HL7 order message, it is required to be supported by the archive which acts
+   as a SCP when queried for Modality Worklist entries. Refer `Attributes for the Modality Worklist Information Model <http://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_K.6-1>`_.
+   Currently if this field is missing in HL7 order message, the Scheduled Station AE Title is selected according configured rule
+   `Default Scheduled Station <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7OrderScheduledStation.html>`_
+   configured on archive device level. One must note that, if this configuration is deleted as well by the user then no value will be set
+   for Scheduled Station AE Title by the archive.
+
+.. [#Note13] This attribute may be configured to be read from field 18 of ORC segment for HL7 v3 and eyecare messages. The configuration can be done on
+   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7ScheduledStationAETInOrder>`_
+   or on `Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7ScheduledStationAETInOrder>`_.
+   Currently if not configured as explained above or if this field is missing in HL7 order message, then the Scheduled
+   Station AE Title is selected according configured rule `Default Scheduled Station <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7OrderScheduledStation.html>`_
+   configured on archive device level. One must note that, if this default configuration is deleted as well by the user then no value will be set
+   for Scheduled Station AE Title by the archive.

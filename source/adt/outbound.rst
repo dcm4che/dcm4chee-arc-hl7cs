@@ -154,14 +154,14 @@ PID - Patient Identification Segment
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
    1, 4, SI, O, [0..1], , 00104, Set ID - PID
-   2, 20, CX, O, [0..0], , 00105, Patient ID
+   2, 20, CX, O, [0..0], , 00105, **Patient ID**
    3, 250, CX, R, [1..*], , 00106, **Patient Identifier List**
-   4, 20, CX, O, [0..0], , 00107, Alternate Patient ID - PID
+   4, 20, CX, O, [0..0], , 00107, **Alternate Patient ID - PID**
    5, 250, XPN, R, [1..*], , 00108, **Patient Name**
    6, 250, XPN, O, [0..1], , 00109, **Mother’s Maiden Name**
    7, 26, TS, CE, [0..1], , 00110, **Date/Time of Birth**
    8, 1, IS, CE, [1..1], 0001, 00111, **Administrative Sex**
-   9, 250, XPN, O, [0..1], , 00112, Patient Alias
+   9, 250, XPN, O, [0..1], , 00112, **Patient Alias**
    10, 250, CE, O, [0..1], 0005, 00113, Race
    11, 250, XAD, CE, [0..*], , 00114, Patient Address
    12, 4, IS, X, [0..1], 0289, 00115, County Code
@@ -187,8 +187,8 @@ PID - Patient Identification Segment
    32, 20, IS, CE, [0..*], 0445, 01536, Identity Reliability Code
    33, 26, TS, CE, [0..1], , 01537, Last Update Date/Time
    34, 241, HD, O, [0..1], , 01538, Last Update Facility
-   35, 250, CE, CE, [0..1], 0446, 01539, Species Code
-   36, 250, CE, C, [0..1], 0447, 01540, Breed Code
+   35, 250, CE, CE, [0..1], 0446, 01539, **Species Code**
+   36, 250, CE, C, [0..1], 0447, 01540, **Breed Code**
    37, 80, ST, O, [0..1], , 01541, Strain
    38, 250, CE, O, [0..2], , 01542, Production Class Code
    39, 250, CWE, O, [0..*], , 01840, Tribal Citizenship
@@ -239,6 +239,24 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
    Patient's Mother's Birth Name, "(0010, 1060)", Mother’s Maiden Name, 00109, PID:6
+   OtherPatientIDsSequence, "(0010,1002)"
+   >Item # 1
+   >Patient ID, "(0010, 0020)", Patient Identifier List, 00105.1, PID:2.1
+   >Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00105.4.1, PID:2.4.1
+   >Item # 2
+   >Patient ID, "(0010, 0020)", Patient Identifier List, 00107.1, PID:4.1
+   >Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00107.4.1, PID:4.4.1
+   Responsible Person, "(0010, 2297)", Patient Alias, 00112, PID:9
+   Patient Species Description, "(0010, 2201)", Species Code, 01539.2, PID:35.2, [#Note1]_
+   Patient Species Code Sequence, "(0010, 2202)"
+   >Code Value, "(0008, 0100)", Species Code, , 01539.1, PID:35.1
+   >Code Scheme Designator, "(0008, 0102)", Species Code, , 01539.3, PID:35.3
+   >Code Meaning, "(0008, 0103)", Species Code, 01539.2, PID:35.2
+   Patient Breed Description, "(0010, 2292)", Breed Code, 01540.2, PID:36.2, [#Note2]_
+   Patient Breed Code Sequence, "(0010, 2293)"
+   >Code Value, "(0008, 0100)", Breed Code, 01540.1, PID:36.1
+   >Code Scheme Designator, "(0008, 0102)", Breed Code, 01540.3, PID:36.3
+   >Code Meaning, "(0008, 0103)", Breed Code, 01540.2, PID:36.2
    **Patient Demographic**
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
@@ -258,3 +276,10 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.1.2, MRG:1.1.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.1.3, MRG:1.1.3
+
+
+.. [#Note1] If the Patient Species Code Sequence is present in the attributes, then the value is taken from the Code Meaning of the sequence
+   else if only the Patient Species Description is present then the description value is used in component 2 of this field.
+
+.. [#Note2] If the Patient Breed Code Sequence is present in the attributes, then the value is taken from the Code Meaning of the sequence
+   else if only the Patient Breed Description is present then the description value is used in component 2 of this field.
