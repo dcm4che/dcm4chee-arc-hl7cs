@@ -28,12 +28,12 @@ The following segments are sent in an outgoing OMG^O19^OMG_O19 message:
 
 .. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.5)
    :header: Segment, Meaning, Usage, HL7 chapter
-   :widths: 15, 40, 15, 15, 15
+   :widths: 15, 40, 15, 15
 
    MSH, Message Header, R, 2
-   ORC, Common Order, R, 4
-   TQ1, Timing and Quantity, R, 4
-   OBR, Order Detail, R, 7
+   ORC - :ref:`tab_orc_251`, Common Order, R, 4
+   TQ1 - :ref:`tab_tq1_251`, Timing and Quantity, R, 4
+   OBR - :ref:`tab_obr_251`, Order Detail, R, 7
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -63,15 +63,15 @@ ORC - Order Control segment
    6, 1, ID, O, 0121, 00220, Response Flag
    7, 200, TQ, X, , 00221, Quantity/Timing
    8, 200, EIP, C, , 00222, Parent
-   9, 26, TS, R, , 00223, Date/Time of Transaction
-   10, 250, XCN, R2, , 00224, Entered By
+   9, 26, TS, O, , 00223, Date/Time of Transaction
+   10, 250, XCN, O, , 00224, Entered By
    11, 250, XCN, O, , 00225, Verified By
-   12, 250, XCN, R, , 00226, Ordering Provider
+   12, 250, XCN, O, , 00226, Ordering Provider
    13, 80, PL, O, , 00227, Enterer's Location
-   14, 250, XTN, R2, , 00228, Callback Phone Number
+   14, 250, XTN, O, , 00228, Callback Phone Number
    15, 26, TS, O, , 00229, Order Effective Date/Time
    16, 250, CE, O, , 00230, Order Control Code Reason
-   17, 250, CE, R, , 00231, Entering Organization
+   17, 250, CE, O, , 00231, Entering Organization
    18, 250, CE, O, , 00232, Entering Device
    19, 250, XCN, O, , 00233, Action By
    20, 250, CE, O, 0339, 01310, Advanced Beneficiary Notice Code
@@ -125,7 +125,7 @@ OBR - Observation Request segment
    1, 4, SI, O, , 00237, SetID - OBR
    2, 22, EI, R, , 00216, **Placer Order Number**
    3, 22, EI, O, , 00217, **Filler Order Number**
-   4, 250, CE, R, , 00238, Universal Service ID
+   4, 250, CE, O, , 00238, Universal Service ID
    5, 2, ID, O, , 00239, Priority
    6, 26, TS, O, , 00240, Requested Date/Time
    7, 26, TS, O, , 00241, Observation Date/Time
@@ -133,11 +133,11 @@ OBR - Observation Request segment
    9, 20, CQ, O, , 00243, Collection Volume
    10, 250, XCN, O, , 00244, Collection Identifier
    11, 1, ID, O, 0065, 00245, Specimen Action Code
-   12, 250, CE, R2, , 00246, Danger Code
+   12, 250, CE, O, , 00246, Danger Code
    13, 300, ST, C, , 00247, Relevant Clinical Info
    14, 26, TS, X, , 00248, Specimen Received Date/Time
    15, 300, SPS, X, 0070, 00249, Specimen Source
-   16, 250, XCN, R, , 00226, Ordering Provider
+   16, 250, XCN, O, , 00226, Ordering Provider
    17, 250, XTN, O, , 00250, Order Callback Phone Number
    18, 60, ST, O, , 00251, **Placer Field 1**
    19, 60, ST, O, , 00252, **Placer Field 2**
@@ -151,8 +151,8 @@ OBR - Observation Request segment
    27, 200, TQ, X, , 00221, Quantity/Timing
    28, 250, XCN, O, , 00260, Result Copies To
    29, 200, EIP, C, , 00261, Parent
-   30, 20, ID, R2, 0124, 00262, Transportation Mode
-   31, 250, CE, R2, , 00263, Reason For Study
+   30, 20, ID, O, 0124, 00262, Transportation Mode
+   31, 250, CE, O, , 00263, Reason For Study
    32, 200, NDL, O, , 00264, Principal Result Interpreter
    33, 200, NDL, O, , 00265, Assistant Result Interpreter
    34, 200, NDL, O, , 00266, Technician
@@ -162,14 +162,14 @@ OBR - Observation Request segment
    38, 250, CE, O, , 01029, Transport Logistics of Collected Sample
    39, 250, CE, O, , 01030, Collector's Comment
    40, 250, CE, O, , 01031, Transport Arrangement Responsibility
-   41, 30, ID, R2, 0224, 01032, Transport Arranged
+   41, 30, ID, O, 0224, 01032, Transport Arranged
    42, 1, ID, O, 0225, 01033, Escort Required
    43, 250, CE, O, , 01034, Planned Patient Transport Comment
    44, 250, CE, O, 0088, 00393, Procedure Code
    45, 250, CE, O, 0340, 01036, Procedure Code Modifier
-   46, 250, CE, R2, 0411, 01474, Placer Supplemental Service Information
-   47, 250, CE, R2, 0411, 01475, Filler Supplemental Service Information
-   48, 250, CWE, R2, 0476, 01646, Medically Necessary Duplicate Procedure Reason
+   46, 250, CE, O, 0411, 01474, Placer Supplemental Service Information
+   47, 250, CE, O, 0411, 01475, Filler Supplemental Service Information
+   48, 250, CWE, O, 0476, 01646, Medically Necessary Duplicate Procedure Reason
    49, 2, IS, O, 0507, 01647, Result Handling
    50, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
@@ -197,11 +197,10 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Scheduled Procedure Step**
-   Scheduled Procedure Step Sequence, "(0040, 0100)"
-   >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
-   >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
-   >Scheduled Procedure Step Status, "(0040, 0020)", Order Status, 00219, ORC:5, Set to CM
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   , , Start Date/Time, 01633, TQ1:7, [#Note1]_
+   , , Start Date/Time, 01633, TQ1:7, [#Note1]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -212,3 +211,10 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2
+
+
+.. [#Note1] If the Procedure Status Update is triggered by MPPS, this value is populated from the
+   `Performed Procedure Step Start Date and Time` of MPPS attributes. Alternatively, if the Procedure Status Update is
+   triggered when a Study (which has MWL entries referencing it) is completely received, then this value is populated
+   from the created time of the task. (The `task` here refers to a task created in database for sending out the HL7 notification.)
+   Refer `Synchronize external HL7 receivers on updates of Requested Procedures <https://github.com/dcm4che/dcm4chee-arc-light/wiki/Requested-Procedures>`_

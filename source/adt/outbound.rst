@@ -249,8 +249,8 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Responsible Person, "(0010, 2297)", Patient Alias, 00112, PID:9
    Patient Species Description, "(0010, 2201)", Species Code, 01539.2, PID:35.2, [#Note1]_
    Patient Species Code Sequence, "(0010, 2202)"
-   >Code Value, "(0008, 0100)", Species Code, , 01539.1, PID:35.1
-   >Code Scheme Designator, "(0008, 0102)", Species Code, , 01539.3, PID:35.3
+   >Code Value, "(0008, 0100)", Species Code, 01539.1, PID:35.1
+   >Code Scheme Designator, "(0008, 0102)", Species Code, 01539.3, PID:35.3
    >Code Meaning, "(0008, 0103)", Species Code, 01539.2, PID:35.2
    Patient Breed Description, "(0010, 2292)", Breed Code, 01540.2, PID:36.2, [#Note2]_
    Patient Breed Code Sequence, "(0010, 2293)"
