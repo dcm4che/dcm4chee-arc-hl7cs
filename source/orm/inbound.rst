@@ -247,7 +247,7 @@ ORC - Order Control segment
 .. csv-table:: Order Control segment (HL7 v2.3.1 & Eyecare)
    :name: tab_orc_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
-   :widths: 8, 8, 8, 8, 8, 12, 48
+   :widths: 8, 8, 8, 8, 8, 12, 48, 8
 
    1, 2, ID, R, 0119, 00215, **Order Control**
    2, 22, EI, R, , 00216, **Placer Order Number**
