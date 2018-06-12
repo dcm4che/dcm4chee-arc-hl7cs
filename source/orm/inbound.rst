@@ -780,5 +780,5 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    configured on archive device level. One must note that, if this default configuration is deleted as well by the user then no value will be set
    for Scheduled Station AE Title by the archive.
 
-.. [#Note14] This field may contain multiple values encoded as HL7 repeating field despite `current HL7v2 <http://www.hl7.eu/refactored/segIPC.html>_`
+.. [#Note14] This field may contain multiple values encoded as HL7 repeating field despite `current HL7v2 <http://www.hl7.eu/refactored/segIPC.html>`_
    not allowing multiple values for this field.
