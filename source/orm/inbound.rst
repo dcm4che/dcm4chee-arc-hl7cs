@@ -246,7 +246,7 @@ ORC - Order Control segment
 
 .. csv-table:: Order Control segment (HL7 v2.3.1 & Eyecare)
    :name: tab_orc_orm_omg
-   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
    :widths: 8, 8, 8, 8, 8, 12, 48
 
    1, 2, ID, R, 0119, 00215, **Order Control**
@@ -266,7 +266,7 @@ ORC - Order Control segment
    15, 26, TS, O, , 00229, Order Effective Date/Time
    16, 200, CE, O, , 00230, Order Control Code Reason
    17, 60, CE, R, , 00231, Entering Organization
-   18, 60, CE, O, , 00232, **Entering Device**
+   18, , CE, O, , 00232, **Entering Device**, [#Note14]_
    19, 120, XCN, O, , 00233, Action By
 
 
@@ -468,8 +468,8 @@ IPC - Imaging Procedure Control segment
 
 .. csv-table:: Imaging Procedure Control segment (HL7 v2.5.1)
    :name: tab_ipc_omi
-   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
-   :widths: 8, 8, 8, 8, 8, 12, 48
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
+   :widths: 8, 8, 8, 8, 8, 12, 48, 8
 
    1, 80, EI, R, , 00237, **Accession Identifier**
    2, 22, EI, R, , 00216, **Requested Procedure ID**
@@ -477,9 +477,9 @@ IPC - Imaging Procedure Control segment
    4, 22, EI, R, , 00238, **Scheduled Procedure Step ID**
    5, 16, CE, R+, , 00239, **Modality**
    6, 250, CE, R2, , 00246, **Protocol Code**
-   7, 22, EI, O, , 01663, **Scheduled Station Name**
+   7, , EI, O, , 01663, **Scheduled Station Name**, [#Note14]_
    8, 250, CE, O, , 01664, **Scheduled Procedure Step Location**
-   9, 16, ST, O, , 01665, **Scheduled Station AE Title**
+   9, , ST, O, , 01665, **Scheduled Station AE Title**, [#Note14]_
 
 
 Element names in **bold** indicates that the field is used by |product|.
@@ -779,3 +779,6 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Station AE Title is selected according configured rule `Default Scheduled Station <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7OrderScheduledStation.html>`_
    configured on archive device level. One must note that, if this default configuration is deleted as well by the user then no value will be set
    for Scheduled Station AE Title by the archive.
+
+.. [#Note14] This field may contain multiple values encoded as HL7 repeating field despite `current HL7v2 <http://www.hl7.eu/refactored/segIPC.html>_`
+   not allowing multiple values for this field.
