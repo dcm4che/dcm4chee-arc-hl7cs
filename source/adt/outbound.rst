@@ -270,7 +270,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Patient Identification**
-   Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
+   Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7, [#Note3]_
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1
    Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.1.1, MRG:1.1.1
    Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
@@ -283,3 +283,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 .. [#Note2] If the Patient Breed Code Sequence is present in the attributes, then the value is taken from the Code Meaning of the sequence
    else if only the Patient Breed Description is present then the description value is used in component 2 of this field.
+
+.. [#Note3] This field value, if available, shall be present only in HL7 messages sent out of the archive for HL7
+Forwarding case and IOCM triggered HL7 messages. For External Archive HL7 services case, this field value shall not
+be present in HL7 messages sent out of the archive.
