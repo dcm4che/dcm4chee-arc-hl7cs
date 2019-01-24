@@ -222,6 +222,9 @@ Element names in **bold** indicates that the field is used by |product|.
 HL7 ORU to DICOM SR Mapping
 ===========================
 
+Inverse of the mapping specified by `IHE Transaction Structured Report Export <http://ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=283>`_
+has been used.
+
 Mappings between HL7 and DICOM are illustrated in the following manner:
 
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
