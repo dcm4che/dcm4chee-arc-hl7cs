@@ -519,12 +519,12 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.2.5, [#Note10]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.2.4
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.2.6
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.2.5
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
@@ -663,12 +663,12 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.2.5, [#Note10]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.2.4
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.2.6
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.2.5
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
