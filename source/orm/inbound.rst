@@ -502,7 +502,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
@@ -572,7 +572,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
@@ -646,7 +646,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
@@ -782,3 +782,9 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 .. [#Note14] This field may contain multiple values encoded as HL7 repeating field despite `current HL7v2 <http://www.hl7.eu/refactored/segIPC.html>`_
    not allowing multiple values for this field.
+
+.. [#Note15] `HL7 DICOM Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7dicomcharacterset>`_
+   if configured, is selected to specify Specific Character Set. Else, MSH-18 if present in the incoming HL7 message, :ref:`tab_hl7_dicom_charset` 
+   is selected to specify Specific Character Set. If MSH-18 is absent, then
+   `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
+   is selected to specify Specific Character Set.

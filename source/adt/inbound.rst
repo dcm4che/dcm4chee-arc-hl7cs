@@ -601,7 +601,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note1]_
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
    Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
@@ -648,7 +648,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
-   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note1]_
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1
@@ -656,3 +656,10 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.1.2, MRG:1.1.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.1.3, MRG:1.1.3
+
+
+.. [#Note1] `HL7 DICOM Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7dicomcharacterset>`_
+   if configured, is selected to specify Specific Character Set. Else, MSH-18 if present in the incoming HL7 message, :ref:`tab_hl7_dicom_charset` 
+   is selected to specify Specific Character Set. If MSH-18 is absent, then
+   `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
+   is selected to specify Specific Character Set.
