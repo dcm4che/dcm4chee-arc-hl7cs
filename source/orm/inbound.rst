@@ -519,12 +519,12 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.5, [#Note10]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.4.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.4
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.6
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.5
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.4.4, OBR:4.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.4.6, OBR:4.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.4.5, OBR:4.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
@@ -540,7 +540,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Scheme Designator, "(0008, 0102)", Procedure Code, 00393.3, OBR:44.3
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
    Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001.1, ZDS:1.1
-   Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.5, [#Note1]_
+   Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.6, [#Note1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    **Imaging Request**
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
@@ -549,13 +549,13 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note2]_
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
@@ -624,13 +624,13 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note2]_
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
@@ -663,12 +663,12 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
    >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
-   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.2.5, OBR:4.5, [#Note10]_
+   >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.4.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
-   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.2.4, OBR:4.4
-   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.2.6, OBR:4.6
-   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.2.5, OBR:4.5
+   >>Code Value, "(0008, 0100)", Universal Service ID, 00238.4.4, OBR:4.4
+   >>Code Scheme Designator, "(0008, 0102)", Universal Service ID, 00238.4.6, OBR:4.6
+   >>Code Meaning, "(0008, 0104)", Universal Service ID, 00238.4.5, OBR:4.5
    >Scheduled Procedure Step ID, "(0040, 0009)", Filler Field 1, 00253, OBR:20
    >Scheduled Procedure Step Status, "(0040, 0020)", "Order Control, Order Status", "00215, 00219", "ORC:1, ORC:5", [#Note9]_
    **Requested Procedure**
@@ -693,13 +693,13 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note2]_
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.2, ORC:2.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.2, ORC:2.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note2]_
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note2]_
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note2]_
-   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.2, ORC:3.3, [#Note2]_
-   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.2, ORC:3.4, [#Note2]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
