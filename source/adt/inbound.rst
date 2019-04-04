@@ -652,10 +652,10 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1
-   Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.1.1, MRG:1.1.1
+   Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.4.1, MRG:1.4.1
    Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
-   >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.1.2, MRG:1.1.2
-   >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.1.3, MRG:1.1.3
+   >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.4.2, MRG:1.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.4.3, MRG:1.4.3
 
 
 .. [#Note1] `HL7 DICOM Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7dicomcharacterset>`_
