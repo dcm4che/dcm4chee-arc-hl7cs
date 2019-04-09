@@ -514,7 +514,10 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-
+   **Patient Identification**
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -581,7 +584,10 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-
+   **Patient Identification**
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
