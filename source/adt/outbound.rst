@@ -149,7 +149,7 @@ Outbound Message Segments
 PID - Patient Identification Segment
 ------------------------------------
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5)
-   :name: tab_pid_251
+   :name: tab_pid_251_out
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 

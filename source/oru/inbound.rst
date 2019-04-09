@@ -109,7 +109,7 @@ OBR - Observation Request segment
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
 .. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
-   :name: tab_obr_251
+   :name: tab_obr_251_oru
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -230,12 +230,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component / sub-component value is not listed if the HL7 element does not contain multiple components / sub-components.
 
-.. csv-table:: HL7 ORU mapping of MSH segment to DICOM Structured Report Attributes
-   :name: oru_msh_dicom
-   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
-
-
-.. csv-table:: HL7 ORU mapping of OBR/OBX segment to DICOM Structured Report Attributes
+.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
