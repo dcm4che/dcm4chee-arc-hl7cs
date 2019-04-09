@@ -709,18 +709,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 
 .. [#Note1] Only the suggested values of the HL7 Priority component of Quantity/Timing. These values shall be
-   mapped to the DICOM enumerated fields for Priority as:
-
-    .. csv-table:: HL7 status mapping to DICOM status
-       :name: status_mapping
-       :header: HL7 Status, DICOM Status
-
-       S - STAT, STAT
-       A - ASAP, HIGH
-       R - Routine, ROUTINE
-       P - Pre-op, HIGH
-       C - Callback, HIGH
-       T - Timing, MEDIUM
+   mapped to the DICOM enumerated fields for Priority as
 
 .. [#Note2] Attributes (0040,2016) and (0040, 2017) are designed to incorporate the HL7 components of Placer Issuer and
     Number, and Filler Issuer and Number. In a healthcare enterprise with multiple issuers of patient identifiers, both the
