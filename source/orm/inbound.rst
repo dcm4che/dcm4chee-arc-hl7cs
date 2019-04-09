@@ -1,12 +1,12 @@
 Inbound
 #######
 
-.. _orm_messages:
+.. _orm_in_messages:
 
 Inbound Messages
 ================
 
-.. _orm_o01:
+.. _orm_in_orm_o01:
 
 ORM - General Order Message (Event O01)
 ---------------------------------------
@@ -54,7 +54,7 @@ system will generate a Study Instance UID for the Modality Worklist Item attribu
 .. [#hl7NoPatientCreateMessageType] The creation of new Patient records will be suppressed for message types which are
    listed by configuration parameter *HL7 No Patient Create Message Type(s)*  of |product|.
 
-.. _omg_o19:
+.. _orm_in_omg_o19:
 
 OMG - General Clinical Order Message (Event O19)
 ------------------------------------------------
@@ -82,7 +82,7 @@ Performed Actions
 ^^^^^^^^^^^^^^^^^
 Same as specified in :numref:`orm_o01_actions`.
 
-.. _omi_o23:
+.. _orm_in_omi_o23:
 
 OMI - Imaging Order Message (Event O23)
 ---------------------------------------
@@ -111,12 +111,12 @@ Performed Actions
 Same as specified in :numref:`orm_o01_actions`, with the exception that Study Instance UID will be taken from IPC
 segment.
 
-.. _orm_segments:
+.. _orm_in_segments:
 
 Inbound Message Segments
 ========================
 
-.. _orm_pv1:
+.. _orm_in_pv1:
 
 PV1 - Patient Visit Information segment
 ---------------------------------------
@@ -239,7 +239,7 @@ PV1 - Patient Visit Information segment
    52, 250, XCN, X, 0010, 01274, Other Healthcare Provider
 
 
-.. _orm_omg_orc:
+.. _orm_in_orc:
 
 ORC - Order Control segment
 ---------------------------
@@ -308,7 +308,7 @@ ORC - Order Control segment
    31, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
 
-.. _omg_omi_tq1:
+.. _orm_in_tq1:
 
 TQ1 - Timing/Quantity segment
 -----------------------------
@@ -334,7 +334,7 @@ TQ1 - Timing/Quantity segment
    14, 10, NM, O, , 01640, Total Occurrences
 
 
-.. _orm_omg_obr:
+.. _orm_in_obr:
 
 OBR - Observation Request segment
 ---------------------------------
@@ -448,7 +448,7 @@ OBR - Observation Request segment
    50, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
 
-.. _orm_omg_zds:
+.. _orm_in_zds:
 
 ZDS - Z segment
 ---------------
@@ -461,7 +461,7 @@ ZDS - Z segment
    1, 200, RP, R, , Z0001, **Study Instance UID**
 
 
-.. _omi_ipc:
+.. _orm_in_ipc:
 
 IPC - Imaging Procedure Control segment
 ---------------------------------------
@@ -484,6 +484,8 @@ IPC - Imaging Procedure Control segment
 
 Element names in **bold** indicates that the field is used by |product|.
 
+.. _orm_in_dicom:
+
 HL7 Order to DICOM MWL Mapping
 ==============================
 
@@ -492,7 +494,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component / sub-component value is not listed if the HL7 element does not contain multiple components / sub-components.
 
-.. _orm_dicom:
+.. _orm_in_orm_o01_dicom:
 
 ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
@@ -562,7 +564,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_
 
 
-.. _omi_dicom:
+.. _orm_in_omi_o23_dicom:
 
 OMI - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
@@ -636,7 +638,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_
 
-.. _omg_dicom:
+.. _orm_in_omg_o19_dicom:
 
 OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------

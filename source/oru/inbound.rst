@@ -1,12 +1,12 @@
 Inbound
 #######
 
-.. _oru_messages:
+.. _oru_in_messages:
 
 Inbound Messages
 ================
 
-.. _oru_r01:
+.. _oru_in_r01:
 
 ORU - Unsolicited Observation Result Message (Event R01)
 --------------------------------------------------------
@@ -17,6 +17,8 @@ Trigger Event
 When DICOM Structured Reports are verified and finalized by the Report Manager, the Report Manager sends unsolicited
 ORU transactions to the Image Manager. Image Manager creates/updates the study with the referenced Structured Report in
 the HL7 message.
+
+.. _oru_in_segments:
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -47,13 +49,13 @@ Based on the information received in the OBR and OBX segments, a SR object is st
 Inbound Message Segments
 ========================
 
-.. _oru_pid:
+.. _oru_in_pid:
 
 PID - Patient Identification segment
 ------------------------------------
 Same as specified in :ref:`tab_pid_231` and :ref:`tab_pid_251`
 
-.. _oru_obr:
+.. _oru_in_obr:
 
 OBR - Observation Request segment
 ---------------------------------
@@ -165,7 +167,7 @@ OBR - Observation Request segment
    50, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
 
-.. _oru_obx:
+.. _oru_in_obx:
 
 OBX - Observation Request segment
 ---------------------------------
@@ -218,6 +220,8 @@ OBX - Observation Request segment
    19, 26, TS, O, , 01480, Date/Time of Analysis
 
 Element names in **bold** indicates that the field is used by |product|.
+
+.. _oru_in_dicom:
 
 HL7 ORU to DICOM SR Mapping
 ===========================

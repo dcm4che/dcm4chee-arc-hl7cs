@@ -45,7 +45,7 @@ and is ready for interpretation). The DSS/Order Filler is recommended to convey 
 Outbound Message Segments
 =========================
 
-.. _omg_in_orc:
+.. _orm_out_orc:
 
 ORC - Order Control segment
 ---------------------------
@@ -87,7 +87,7 @@ ORC - Order Control segment
    30, 250, CNE, O, 0483, 01644, Enterer Authorization Mode
    31, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
-.. _omg_in_tq1:
+.. _orm_out_tq1:
 
 TQ1 - Timing/Quantity segment
 -----------------------------
@@ -112,7 +112,7 @@ TQ1 - Timing/Quantity segment
    13, 20, CQ, O, , 01639, Occurrence Duration
    14, 10, NM, O, , 01640, Total Occurrences
 
-.. _omg_in_obr:
+.. _orm_out_obr:
 
 OBR - Observation Request segment
 ---------------------------------
@@ -185,7 +185,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component/sub-component value is not listed if the HL7 element should not contain multiple components/sub-components.
 
-.. _dicom_in_omg:
+.. _orm_out_omg_o19_dicom:
 
 OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
