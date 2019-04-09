@@ -285,5 +285,5 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    else if only the Patient Breed Description is present then the description value is used in component 2 of this field.
 
 .. [#Note3] This field value, if available, shall be present only in HL7 messages sent out of the archive for HL7
-Forwarding case and IOCM triggered HL7 messages. For External Archive HL7 services case, this field value shall not
-be present in HL7 messages sent out of the archive.
+   Forwarding case and IOCM triggered HL7 messages. For External Archive HL7 services case, this field value shall not
+   be present in HL7 messages sent out of the archive.
