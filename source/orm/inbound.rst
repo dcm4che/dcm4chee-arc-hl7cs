@@ -241,10 +241,10 @@ PV1 - Patient Visit Information segment
 
 .. _orm_in_orc:
 
-ORC - Order Control segment - (HL7 v2.3.1 & Eyecare)
-----------------------------------------------------
+ORC - Order Control segment
+---------------------------
 
-.. csv-table:: Order Control segment
+.. csv-table:: Order Control segment - (HL7 v2.3.1 & Eyecare)
    :name: tab_orc_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
    :widths: 8, 8, 8, 8, 8, 12, 48, 8
@@ -270,10 +270,10 @@ ORC - Order Control segment - (HL7 v2.3.1 & Eyecare)
    19, 120, XCN, O, , 00233, Action By
 
 
-ORC - Patient Visit Information segment - (HL7 v2.5.1)
-------------------------------------------------------
+ORC - Patient Visit Information segment
+---------------------------------------
 
-.. csv-table:: Order Control segment
+.. csv-table:: Order Control segment - (HL7 v2.5.1)
    :name: tab_orc_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -313,10 +313,10 @@ ORC - Patient Visit Information segment - (HL7 v2.5.1)
 
 .. _orm_in_tq1:
 
-TQ1 - Timing/Quantity segment - (HL7 v2.5.1 & Eyecare)
-------------------------------------------------------
+TQ1 - Timing/Quantity segment
+-----------------------------
 
-.. csv-table:: Timing/Quantity segment
+.. csv-table:: Timing/Quantity segment - (HL7 v2.5.1 & Eyecare)
    :name: tab_tq1_omg_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -339,10 +339,10 @@ TQ1 - Timing/Quantity segment - (HL7 v2.5.1 & Eyecare)
 
 .. _orm_in_obr:
 
-OBR - Observation Request segment -  (HL7 v2.3.1 & Eyecare)
------------------------------------------------------------
+OBR - Observation Request segment
+---------------------------------
 
-.. csv-table:: Observation Request segment
+.. csv-table:: Observation Request segment - (HL7 v2.3.1 & Eyecare)
    :name: tab_obr_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -394,10 +394,10 @@ OBR - Observation Request segment -  (HL7 v2.3.1 & Eyecare)
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
 
-OBR - Observation Request segment -  (HL7 v2.5.1)
--------------------------------------------------
+OBR - Observation Request segment
+---------------------------------
 
-.. csv-table:: Observation Request segment
+.. csv-table:: Observation Request segment - (HL7 v2.5.1)
    :name: tab_obr_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -714,8 +714,20 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_
 
 
+.. csv-table:: HL7 status mapping to DICOM status
+   :name: status_mapping
+   :header: HL7 Status, DICOM Status
+
+   S - STAT, STAT
+   A - ASAP, HIGH
+   R - Routine, ROUTINE
+   P - Pre-op, HIGH
+   C - Callback, HIGH
+   T - Timing, MEDIUM
+
+
 .. [#Note1] Only the suggested values of the HL7 Priority component of Quantity/Timing. These values shall be
-   mapped to the DICOM enumerated fields for Priority as
+   mapped to the DICOM enumerated fields for Priority. See :ref:`status_mapping`
 
 .. [#Note2] Attributes (0040,2016) and (0040, 2017) are designed to incorporate the HL7 components of Placer Issuer and
     Number, and Filler Issuer and Number. In a healthcare enterprise with multiple issuers of patient identifiers, both the
