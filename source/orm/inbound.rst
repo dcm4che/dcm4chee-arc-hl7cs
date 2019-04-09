@@ -33,7 +33,11 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-
+   PID, Patient Identification, 3
+   PV1, Patient Visit, 3
+   ORC, Common Order, 4
+   OBR, Order Detail, 4
+   ZDS, Additional identification information
 
 .. _orm_o01_actions:
 
@@ -67,12 +71,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID - :ref:`tab_pid_231`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
-   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 7
-   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
+   PID, Patient Identification, 3
+   PV1, Patient Visit, 3
+   ORC, Common Order, 4
+   TQ1, Timing and Quantity, 4
+   OBR, Order Detail, 7
+   ZDS, Additional identification information
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -95,12 +99,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID - :ref:`tab_pid_251`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_omi`, Patient Visit, 3
-   ORC - :ref:`tab_orc_omi`, Common Order, 4
-   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR - :ref:`tab_obr_omi`, Order Detail, 7
-   IPC - :ref:`tab_ipc_omi`, Imaging Procedure Control, 4
+   PID, Patient Identification, 3
+   PV1, Patient Visit, 3
+   ORC, Common Order, 4
+   TQ1, Timing and Quantity, 4
+   OBR, Order Detail, 7
+   IPC, Imaging Procedure Control, 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -501,10 +505,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-   **Patient Identification**
-   Same as Patient Identification in :ref:`adt_in_pid_dicom`
-   **Patient Demographic**
-   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
+   
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -571,10 +572,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-   **Patient Identification**
-   Same as Patient Identification in :ref:`adt_in_pid_dicom`
-   **Patient Demographic**
-   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
+
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -645,10 +643,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-   **Patient Identification**
-   Same as Patient Identification in :ref:`adt_in_pid_dicom`
-   **Patient Demographic**
-   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
+
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
