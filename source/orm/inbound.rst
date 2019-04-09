@@ -71,12 +71,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID, Patient Identification, 3
-   PV1, Patient Visit, 3
-   ORC, Common Order, 4
-   TQ1, Timing and Quantity, 4
-   OBR, Order Detail, 7
-   ZDS, Additional identification information
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
+   ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
+   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
+   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 7
+   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -99,12 +99,12 @@ Supported Segments
    :widths: 25, 50, 25
 
    MSH, Message Header, 2
-   PID, Patient Identification, 3
-   PV1, Patient Visit, 3
-   ORC, Common Order, 4
-   TQ1, Timing and Quantity, 4
-   OBR, Order Detail, 7
-   IPC, Imaging Procedure Control, 4
+   PID - :ref:`tab_pid_251`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_omi`, Patient Visit, 3
+   ORC - :ref:`tab_orc_omi`, Common Order, 4
+   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
+   OBR - :ref:`tab_obr_omi`, Order Detail, 7
+   IPC - :ref:`tab_ipc_omi`, Imaging Procedure Control, 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -118,10 +118,10 @@ Inbound Message Segments
 
 .. _orm_in_pv1:
 
-PV1 - Patient Visit Information segment - (HL7 v2.3.1 & Eyecare)
-----------------------------------------------------------------
+PV1 - Patient Visit Information segment
+---------------------------------------
 
-.. csv-table:: Patient Visit Information segment
+.. csv-table:: Patient Visit Information segment (HL7 v2.3.1 & Eyecare)
    :name: tab_pv1_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -179,9 +179,6 @@ PV1 - Patient Visit Information segment - (HL7 v2.3.1 & Eyecare)
    51, 1, IS, C, 0326, 01226, Visit Indicator
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
-
-PV1 - Patient Visit Information segment - (HL7 v2.5.1)
-------------------------------------------------------
 
 .. csv-table:: Patient Visit Information segment (HL7 v2.5.1)
    :name: tab_pv1_omi
