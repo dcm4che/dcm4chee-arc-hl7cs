@@ -118,10 +118,10 @@ Inbound Message Segments
 
 .. _orm_in_pv1:
 
-PV1 - Patient Visit Information segment
----------------------------------------
+PV1 - Patient Visit Information segment - (HL7 v2.3.1 & Eyecare)
+----------------------------------------------------------------
 
-.. csv-table:: Patient Visit Information segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Patient Visit Information segment
    :name: tab_pv1_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -179,6 +179,9 @@ PV1 - Patient Visit Information segment
    51, 1, IS, C, 0326, 01226, Visit Indicator
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
+
+PV1 - Patient Visit Information segment - (HL7 v2.5.1)
+------------------------------------------------------
 
 .. csv-table:: Patient Visit Information segment (HL7 v2.5.1)
    :name: tab_pv1_omi
@@ -241,10 +244,10 @@ PV1 - Patient Visit Information segment
 
 .. _orm_in_orc:
 
-ORC - Order Control segment
----------------------------
+ORC - Order Control segment - (HL7 v2.3.1 & Eyecare)
+----------------------------------------------------
 
-.. csv-table:: Order Control segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Order Control segment
    :name: tab_orc_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
    :widths: 8, 8, 8, 8, 8, 12, 48, 8
@@ -270,7 +273,10 @@ ORC - Order Control segment
    19, 120, XCN, O, , 00233, Action By
 
 
-.. csv-table:: Order Control segment (HL7 v2.5.1)
+ORC - Patient Visit Information segment - (HL7 v2.5.1)
+------------------------------------------------------
+
+.. csv-table:: Order Control segment
    :name: tab_orc_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -310,10 +316,10 @@ ORC - Order Control segment
 
 .. _orm_in_tq1:
 
-TQ1 - Timing/Quantity segment
------------------------------
+TQ1 - Timing/Quantity segment - (HL7 v2.5.1 & Eyecare)
+------------------------------------------------------
 
-.. csv-table:: Timing/Quantity segment (HL7 v2.5.1 & Eyecare)
+.. csv-table:: Timing/Quantity segment
    :name: tab_tq1_omg_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -336,10 +342,10 @@ TQ1 - Timing/Quantity segment
 
 .. _orm_in_obr:
 
-OBR - Observation Request segment
----------------------------------
+OBR - Observation Request segment -  (HL7 v2.3.1 & Eyecare)
+-----------------------------------------------------------
 
-.. csv-table:: Observation Request segment (HL7 v2.3.1 & Eyecare)
+.. csv-table:: Observation Request segment
    :name: tab_obr_orm_omg
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -391,7 +397,10 @@ OBR - Observation Request segment
    45, 80, CE, O, 0340, 01036, Procedure Code Modifier
 
 
-.. csv-table:: Observation Request segment (HL7 v2.5.1)
+OBR - Observation Request segment -  (HL7 v2.5.1)
+-------------------------------------------------
+
+.. csv-table:: Observation Request segment
    :name: tab_obr_omi
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -505,7 +514,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note15]_
-   
+
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -747,9 +756,9 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    SCHEDULED, ARRIVED, READY, STARTED, DEPARTED, CANCELLED, DISCONTINUED, COMPLETED. One can map multiple combinations of
    ORC:1_ORC:5 to a scheduled procedure step status.
 
-.. [#Note10] Alternatively, it may be read from OBR:4 Components 1 to 3 by configuring it on
-   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7scheduledprotocolcodeinorder>`_
-   or on `Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_.
+.. [#Note10] Alternatively, it may be read from OBR:4 Components 1 to 3 by configuring it as
+   `hl7scheduledprotocolcodeinorder on Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7scheduledprotocolcodeinorder>`_
+   or as `hl7scheduledprotocolcodeinorder on Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7scheduledprotocolcodeinorder>`_.
    Then it implies that Scheduled Procedure Step Description & Code Meaning in Scheduled Protocol Code Sequence will be
    read from component 2, Code Value and Code Scheme Designator in Scheduled Protocol Code Sequence will be read from
    components 1 and 3 respectively.
@@ -765,9 +774,9 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    configured on archive device level. One must note that, if this configuration is deleted as well by the user then no value will be set
    for Scheduled Station AE Title by the archive.
 
-.. [#Note13] This attribute may be configured to be read from field 18 of ORC segment for HL7 v3 and eyecare messages. The configuration can be done on
-   `Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7ScheduledStationAETInOrder>`_
-   or on `Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7ScheduledStationAETInOrder>`_.
+.. [#Note13] This attribute may be configured to be read from field 18 of ORC segment for HL7 v3 and eyecare messages. The configuration can be done as
+   `hl7ScheduledStationAETInOrder on Archive device level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7ScheduledStationAETInOrder>`_
+   or as `hl7ScheduledStationAETInOrder on Archive HL7 Application Extension level <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7ScheduledStationAETInOrder>`_.
    Currently if not configured as explained above or if this field is missing in HL7 order message, then the Scheduled
    Station AE Title is selected according configured rule `Default Scheduled Station <http://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7OrderScheduledStation.html>`_
    configured on archive device level. One must note that, if this default configuration is deleted as well by the user then no value will be set
