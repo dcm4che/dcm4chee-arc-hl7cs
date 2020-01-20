@@ -50,7 +50,7 @@ Outbound Message Segments
 .. _orm_out_pid:
 
 PID - Patient Identification segment
----------------------------
+------------------------------------
 
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
    :name: tab_pid_omg_251
