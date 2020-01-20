@@ -54,10 +54,10 @@ PID - Patient Identification segment
 
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
    :name: tab_pid_omg_251
-   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
-   :widths: 8, 8, 8, 8, 8, 12, 48
+   :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
-   1, 4, SI, O, , 01627, Set ID - PID
+   1, 4, SI, O, [0..1], , 00104, Set ID - PID
    2, 20, CX, O, [0..0], , 00105, Patient ID
    3, 250, CX, R, [1..*], , 00106, **Patient Identifier List**
    4, 20, CX, O, [0..0], , 00107, Alternate Patient ID - PID
