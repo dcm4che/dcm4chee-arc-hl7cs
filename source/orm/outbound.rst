@@ -45,6 +45,119 @@ and is ready for interpretation). The DSS/Order Filler is recommended to convey 
 Outbound Message Segments
 =========================
 
+.. _orm_out_pid:
+
+PID - Patient Identification segment
+---------------------------
+
+.. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
+   :name: tab_pid_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 01627, Set ID - PID
+   2, 20, CX, O, [0..0], , 00105, Patient ID
+   3, 250, CX, R, [1..*], , 00106, **Patient Identifier List**
+   4, 20, CX, O, [0..0], , 00107, Alternate Patient ID - PID
+   5, 250, XPN, R, [1..*], , 00108, **Patient Name**
+   6, 250, XPN, O, [0..1], , 00109, Mother’s Maiden Name
+   7, 26, TS, CE, [0..1], , 00110, **Date/Time of Birth**
+   8, 1, IS, CE, [1..1], 0001, 00111, **Administrative Sex**
+   9, 250, XPN, O, [0..1], , 00112, Patient Alias
+   10, 250, CE, O, [0..1], 0005, 00113, Race
+   11, 250, XAD, CE, [0..*], , 00114, Patient Address
+   12, 4, IS, X, [0..1], 0289, 00115, County Code
+   13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
+   14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
+   15, 250, CE, O, [0..1], 0296, 00118, Primary Language
+   16, 250, CE, O, [0..1], 0002, 00119, Marital Status
+   17, 250, CE, O, [0..1], 0006, 00120, Religion
+   18, 250, CX, C, [0..1], , 00121, Patient Account Number
+   19, 16, ST, X, [0..1], , 00122, SSN Number - Patient
+   20, 25, DLN, X, [0..1], , 00123, Driver's License Number - Patient
+   21, 250, CX, O, [0..*], , 00124, Mother's Identifier
+   22, 250, CE, O, [0..1], 0189, 00125, Ethnic Group
+   23, 250, ST, O, [0..1], , 00126, Birth Place
+   24, 1, ID, O, [0..1], 0136, 00127, Multiple Birth Indicator
+   25, 2, NM, O, [0..1], , 00128, Birth Order
+   26, 250, CE, O, [0..1], 0171, 00129, Citizenship
+   27, 250, CE, O, [0..1], 0172, 00130, Veterans Military Status
+   28, 250, CE, X, [0..0], 0212, 00739, Nationality
+   29, 26, TS, CE, [0..1], , 00740, Patient Death Date and Time
+   30, 1, ID, C, [0..1], 0136, 00741, Patient Death Indicator
+   31, 1, ID, CE, [0..1], 0136, 01535, Identity Unknown Indicator
+   32, 20, IS, CE, [0..*], 0445, 01536, Identity Reliability Code
+   33, 26, TS, CE, [0..1], , 01537, Last Update Date/Time
+   34, 241, HD, O, [0..1], , 01538, Last Update Facility
+   35, 250, CE, CE, [0..1], 0446, 01539, Species Code
+   36, 250, CE, C, [0..1], 0447, 01540, Breed Code
+   37, 80, ST, O, [0..1], , 01541, Strain
+   38, 250, CE, O, [0..2], , 01542, Production Class Code
+   39, 250, CWE, O, [0..*], , 01840, Tribal Citizenship
+
+.. _orm_out_pv1:
+
+PV1 - Patient Visit segment
+---------------------------
+
+.. csv-table:: PV1 - Patient Visit segment (HL7 v2.5.1)
+   :name: tab_pv1_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 01627, Set ID - PV1
+   2, 1, IS, R, , 00132, **Patient Class**
+   3, 80, PL, C, , 00133, Assigned Patient Location
+   4, 2, IS, O, 0007, 00134, Admission Type
+   5, 20, CX, O, , 00135, Preadmit Number
+   6, 80, PL, O, , 00136, Prior Patient Location
+   7, 60, XCN, C, 0010, 00137, Attending Doctor
+   8, 60, XCN, C, 0010, 00138, Referring Doctor
+   9, 60, XCN, R2, 0010, 00139, Consulting Doctor
+   10, 3, IS, C, 0069, 00140, Hospital Service
+   11, 80, PL, O, , 00141, Temporary Location
+   12, 2, IS, O, 0087, 00142, Preadmit Test Indicator
+   13, 2, IS, O, 0092, 00143, Readmission Indicator
+   14, 3, IS, O, 0023, 00144, Admit Source
+   15, 2, IS, C, 0009, 00145, Ambulatory Status
+   16, 2 , IS, O, 0099, 00146, VIP Indicator
+   17, 60, XCN, C, 0010, 00147, Admitting Doctor
+   18, 2, IS, O, 0018, 00148, Patient Type
+   19, 20, CX, C, , 00149, Visit Number
+   20, 50, FC, O, 0064, 00150, Financial Class
+   21, 2, IS, O, 0032, 00151, Charge Price Indicator
+   22, 2, IS, O, 0045, 00152, Courtesy Code
+   23, 2, IS, O, 0046, 00153, Credit Rating
+   24, 2, IS, O, 0044, 00154, Contract Code
+   25, 8, DT, O, , 00155, Contract Effective Date
+   26, 12, NM, O, , 00156, Contract Amount
+   27, 3, NM, O, , 00157, Contract Period
+   28, 2, IS, O, 0073, 00158, Interest Code
+   29, 1, IS, O, 0110, 00159, Transfer to Bad Debt Code
+   30, 8, DT, O, , 00160, Transfer to Bad Debt Date
+   31, 10, IS, O, 0021, 00161, Bad Debt Agency Code
+   32, 12, NM, O, , 00162, Bad Debt Transfer Amount
+   33, 12, NM, O, , 00163, Bad Debt Recovery Amount
+   34, 1, IS, O, 0111, 00164, Delete Account Indicator
+   35, 8, DT, O, , 00165, Delete Account Date
+   36, 3, IS, O, 0112, 00166, Discharge Disposition
+   37, 25, CM, O, 0113, 00167, Discharge to Location
+   38, 80, CE, O, 0114, 00168, Diet Type
+   39, 2, IS, O, 0115, 00169, Servicing Facility
+   40, 1, IS, O, 0116, 00170, Bed Status
+   41, 2, IS, O, 0117, 00171, Account Status
+   42, 80, PL, O, , 00172, Pending Location
+   43, 80, PL, O, , 00173, Prior Temporary Location
+   44, 26, TS, O, , 00174, Admit Date/Time
+   45, 26, TS, O, , 00175, Discharge Date/Time
+   46, 12, NM, O, , 00176, Current Patient Balance
+   47, 12, NM, O, , 00177, Total Charges
+   48, 12, NM, O, , 00178, Total Adjustments
+   49, 12, NM, O, , 00179, Total Payments
+   50, 20, CX, O, 0203, 00180, Alternate Visit ID
+   51, 1, IS, C, 0326, 01226, Visit Indicator
+   52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
+
 .. _orm_out_orc:
 
 ORC - Order Control segment
