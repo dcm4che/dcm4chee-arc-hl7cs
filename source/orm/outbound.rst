@@ -31,6 +31,8 @@ The following segments are sent in an outgoing OMG^O19^OMG_O19 message:
    :widths: 15, 40, 15, 15
 
    MSH, Message Header, R, 2
+   PID - :ref:`tab_pid_omg_251`, Patient Identification, O, 3
+   PV1 - :ref:`tab_pv1_251`, Patient Visit, O, 3
    ORC - :ref:`tab_orc_251`, Common Order, R, 4
    TQ1 - :ref:`tab_tq1_251`, Timing and Quantity, R, 4
    OBR - :ref:`tab_obr_251`, Order Detail, R, 7
@@ -51,7 +53,7 @@ PID - Patient Identification segment
 ---------------------------
 
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
-   :name: tab_pid_251
+   :name: tab_pid_omg_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
