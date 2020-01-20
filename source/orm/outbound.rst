@@ -197,7 +197,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
    **Scheduled Procedure Step**
-   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Control, 00215, ORC:1, Set to XO
    , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
