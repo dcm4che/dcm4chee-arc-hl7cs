@@ -71,7 +71,7 @@ Table of Content
 |     8.2.3. :ref:`orm_out_dicom`
 |       8.2.3.1. :ref:`orm_out_omg_o19_dicom`
 | 9. :doc:`oru/index`
-|   9.1. :doc:`orm/inbound`
+|   9.1. :doc:`oru/inbound`
 |     9.1.1. :ref:`oru_in_messages`
 |       9.1.1.1. :ref:`oru_in_r01`
 |     9.1.2. :ref:`oru_in_segments`
@@ -79,5 +79,17 @@ Table of Content
 |       9.1.2.2. :ref:`oru_in_obr`
 |       9.1.2.3. :ref:`oru_in_obx`
 |     9.1.3. :ref:`oru_in_dicom`
+|   9.2. :doc:`oru/outbound`
+|     9.2.1. :ref:`oru_out_messages`
+|       9.2.1.1. :ref:`oru_out_oru_r01`
+|     9.2.2. :ref:`oru_out_segments`
+|       9.2.2.1. :ref:`oru_out_pid`
+|       9.2.2.2. :ref:`oru_out_pv1`
+|       9.2.2.3. :ref:`oru_out_orc`
+|       9.2.2.4. :ref:`oru_out_tq1`
+|       9.2.2.5. :ref:`oru_out_obr`
+|       9.2.2.6. :ref:`oru_out_obx`
+|     9.2.3. :ref:`oru_out_dicom`
+|       9.2.3.1. :ref:`oru_out_oru_r01_dicom`
 | 10. :doc:`fwd/index`
 | 11. :doc:`security`

@@ -7,3 +7,4 @@ objects, to make them accessible via the DICOM query/retrieve services.
 .. toctree::
 
    inbound
+   outbound
