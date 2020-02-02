@@ -2,7 +2,7 @@ Outbound
 ########
 
 The Unsolicited Observation HL7 message is sent to other HL7 applications/receivers if HL7 receivers are to be
-[notified about the availability of the imaging results] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_
+`notified about the availability of the imaging results <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_
 
 .. _oru_out_messages:
 

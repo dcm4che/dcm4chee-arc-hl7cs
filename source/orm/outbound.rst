@@ -2,7 +2,7 @@ Outbound
 ########
 
 The General Clinical Order Message HL7 message is sent to other HL7 applications/receivers if the feature
-Synchronize External Receivers explained in https://github.com/dcm4che/dcm4chee-arc-light/wiki/Requested-Procedures
+`Synchronize External Receivers for Requested Procedures <https://github.com/dcm4che/dcm4chee-arc-light/wiki/Requested-Procedures>`_
 has been configured in the archive.
 
 .. _orm_out_messages:
