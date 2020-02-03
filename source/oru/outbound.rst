@@ -126,7 +126,7 @@ PV1 - Patient Visit segment
    16, 2 , IS, O, 0099, 00146, VIP Indicator
    17, 60, XCN, C, 0010, 00147, Admitting Doctor
    18, 2, IS, O, 0018, 00148, Patient Type
-   19, 20, CX, C, , 00149, Visit Number
+   19, 20, CX, C, , 00149, **Visit Number**
    20, 50, FC, O, 0064, 00150, Financial Class
    21, 2, IS, O, 0032, 00151, Charge Price Indicator
    22, 2, IS, O, 0045, 00152, Courtesy Code
@@ -158,7 +158,7 @@ PV1 - Patient Visit segment
    48, 12, NM, O, , 00178, Total Adjustments
    49, 12, NM, O, , 00179, Total Payments
    50, 20, CX, O, 0203, 00180, Alternate Visit ID
-   51, 1, IS, C, 0326, 01226, Visit Indicator
+   51, 1, IS, C, 0326, 01226, **Visit Indicator**
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
 .. _oru_out_orc:
@@ -341,6 +341,22 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   , , Patient Class, 00132, PV1:2, Set to U
+   Admission ID, "(0038, 0010)", Visit Number, 00251, PV1:19
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number #, 00149.2, PV1:19.2
+   >Universal Entity ID, "(0040, 0032)", Visit Number #, 00149.3, PV1:19.3
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number #, 00149.4, PV1:19.4
+   , , Visit Indicator, 01226, PV1:51, Set to V
    , , Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
@@ -349,12 +365,18 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
    Issuer of Accession Number Sequence, "(0008, 0051)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Field 1 #, 00251.2, OBR:18.2
+   >Universal Entity ID, "(0040, 0032)", Placer Field 1 #, 00251.3, OBR:18.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Field 1 #, 00251.4, OBR:18.4
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4
    , , Priority, 01635, TQ1:9, Set to R^Routine^HL70078
    , , Quantity/Timing, 00221, OBR:27, Set to ^^^^^R
    , , Universal Service ID, 00238, OBR:4, [#Note2]_

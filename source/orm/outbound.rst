@@ -311,6 +311,16 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   , , Patient Class, 00132, PV1:2, Set to U
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
@@ -320,13 +330,20 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   Issuer of Accession Number Sequence, "(0008, 0051)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Field 1 #, 00251.2, OBR:18.2
+   >Universal Entity ID, "(0040, 0032)", Placer Field 1 #, 00251.3, OBR:18.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Field 1 #, 00251.4, OBR:18.4
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4
    Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1
    Order Filler Identifier Sequence, "(0040, 0027)"
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2
-
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4
 
 .. [#Note1] If the Procedure Status Update is triggered by MPPS, this value is populated from the
    `Performed Procedure Step Start Date and Time` of MPPS attributes. Alternatively, if the Procedure Status Update is
