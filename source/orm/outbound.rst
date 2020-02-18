@@ -323,9 +323,9 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    , , Patient Class, 00132, PV1:2, Set to U
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, Set to CM
-   , , Start Date/Time, 01633, TQ1:7, [#Note1]_
-   , , Start Date/Time, 01633, TQ1:7, [#Note1]_
+   , , Order Status, 00219, ORC:5, [#Note1]_
+   , , Start Date/Time, 01633, TQ1:7, [#Note2]_
+   , , Start Date/Time, 01633, TQ1:7, [#Note2]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -345,7 +345,11 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4
 
-.. [#Note1] If the Procedure Status Update is triggered by MPPS, this value is populated from the
+.. [#Note1] If the Procedure Status Update is triggered by MPPS, and the MPPS was received with status DISCONTINUED,
+   then the value set is DC. If the Procedure Status Update is triggered by MPPS, and the MPPS was received with status
+   COMPLETED or if the Procedure Status Update is triggered by a Study then the value set is CM.
+
+.. [#Note2] If the Procedure Status Update is triggered by MPPS, this value is populated from the
    `Performed Procedure Step Start Date and Time` of MPPS attributes. Alternatively, if the Procedure Status Update is
    triggered when a Study (which has MWL entries referencing it) is completely received, then this value is populated
    from the created time of the task. (The `task` here refers to a task created in database for sending out the HL7 notification.)
