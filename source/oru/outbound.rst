@@ -361,12 +361,8 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
-   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
-   Issuer of Accession Number Sequence, "(0008, 0051)"
-   >Local Namespace Entity ID, "(0040, 0031)", Placer Field 1 #, 00251.2, OBR:18.2
-   >Universal Entity ID, "(0040, 0032)", Placer Field 1 #, 00251.3, OBR:18.3
-   >Universal Entity ID Type, "(0040, 0033)", Placer Field 1 #, 00251.4, OBR:18.4
+   Issuer of Accession Number Sequence, "(0008, 0051)", Placer Field 2 #, 00252, OBR:19, [#Note8]_
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2
@@ -381,7 +377,8 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    , , Quantity/Timing, 00221, OBR:27, Set to ^^^^^R
    , , Universal Service ID, 00238, OBR:4, [#Note2]_
    , , Observation Date/Time, 00241, OBR:7, [#Note3]_
-   , , Diagnostic Service Sect ID, 00257, OBR:24, Set to RAD
+   Institutional Department Type Code Sequence, "(0008, 1041)"
+   >Code Value, "(0008, 0100)", Diagnostic Service Sect ID #, 00257, OBR:24, [#Note7]_
    , , Result Status, 00258, OBR:25, Set to R
    , , Reason For Study, 00263, OBR:31, [#Note4]_
    , , Technician, 00266, OBR:34, [#Note5]_
@@ -423,3 +420,12 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
     - Performing Physician's Name (0008,1050) or Performing Physician Identification Sequence (0008,1052)
 
 .. [#Note6] Procedure Code shall match OBR-4.
+
+.. [#Note7] Value set to `RAD` as fallback, if no `Institutional Department Type Code Sequence (0008, 1041)` found in
+    the object's attributes.
+
+.. [#Note8] As `Encoding of Assigning Authority in ST data field OBR-19 needs to be clarified <https://groups.google.com/forum/#!topic/ihe-rad-tech/rgijW_U-1a8>`_
+    and `it has been captured into Change Proposals <https://groups.google.com/forum/#!topic/ihe-rad-tech/IEDUwf4JGD8>`_,
+    temporarily the `HL7v2 Hierarchic Designator Macro Attributes <http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.14.html#table_10-17>`_
+    of `Issuer Of Accession Number Sequence` have been encoded as per
+    `Example 3: ISO OID encoded in an ST subcomponent <http://hl7.eu/refactored/dtST.html>`_
