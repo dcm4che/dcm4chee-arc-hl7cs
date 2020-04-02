@@ -774,7 +774,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 .. [#Note9] The values present in ORC fields 1 and 5 decide the Scheduled Procedure Step Status that is applied to the MWL.
    The enumerated combinations of values in fields 1 and 5 of ORC segment currently supported by the archive are
-   NW_SC, NW_IP, CA_CA, DC_CA, XO_SC, XO_CM, SC_CM, SC_DC, SC_IP, SC_A where the first two letters eg. "NW" represent value
+   NW_SC, NW_IP, CA_CA, DC_CA, XO_SC, XO_CM where the first two letters eg. "NW" represent value
    in field 1 and the next letter(s) after the "_" eg. "SC" represent value in field 5.
    These combinations can be mapped to different Scheduled Procedure Step Status supported by archive :
    SCHEDULED, ARRIVED, READY, STARTED, DEPARTED, CANCELLED, DISCONTINUED, COMPLETED. One can map multiple combinations of
