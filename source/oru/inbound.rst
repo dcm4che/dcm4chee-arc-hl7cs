@@ -260,7 +260,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Code Meaning, "(0008, 0104)",,,, Radiology Report
    Verifying Observer Sequence, "(0040, A073)"
    >Verifying Organization, "(0040, A027)",,,, Default Value : Verifying Organization
-   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32, [#Note8]_
+   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32.1, [#Note8]_
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
    >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
@@ -292,7 +292,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Code Value, "(0008, 0100)",,,, 121008
    >>Code Scheme Designator, "(0008, 0102)",,,, DCM
    >>Code Meaning, "(0008, 0104)",,,, Person Observer Name
-   >Person Name, "(0040, A123)", Principal Result Interpreter, 00264, OBR:32
+   >Person Name, "(0040, A123)", Principal Result Interpreter, 00264, OBR:32.1
    Item 3
    >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
    >Value Type, "(0040, A040)",,,, CODE
@@ -322,22 +322,22 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>Text Value, "(0040, A160)",,, OBX:3/component='SR Text'
 
 
-.. [#Note1] : If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
+.. [#Note1] If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
 
-.. [#Note2] : If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
+.. [#Note2] If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
 
-.. [#Note3] : This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
+.. [#Note3] This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
 
-.. [#Note4] : If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note4] If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note5] : If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note5] If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note6] : If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note6] If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note7] : If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
+.. [#Note7] If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
     Report Manager is able to obtain values.
 
-.. [#Note8] : If absent "UNKNOWN" is used.
+.. [#Note8] If absent "UNKNOWN" is used.
 
 .. [#Note9] `HL7 DICOM Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7dicomcharacterset>`_
    if configured, is selected to specify Specific Character Set. Else, MSH-18 if present in the incoming HL7 message, :ref:`tab_hl7_dicom_charset` 

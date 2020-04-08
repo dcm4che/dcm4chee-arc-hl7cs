@@ -542,7 +542,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Quantity/Timing, 00221.4, ORC:7.4
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Quantity/Timing, 00221.4, ORC:7.4
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34.1, [#Note4]_
    >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.4.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
@@ -612,7 +612,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Modality, 00239, IPC:5
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34.1, [#Note4]_
    >Scheduled Procedure Step Description, "(0040, 0007)", Protocol Code, 00246.2, IPC:6.2
    >Scheduled Station Name, "(0040, 0010)", Scheduled Station Name, 01663, IPC:7
    >Scheduled Procedure Step Location, "(0040, 0011)", Scheduled Procedure Step Location, 01664, IPC:8
@@ -686,7 +686,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Scheduled Procedure Step Start Date, "(0040, 0002)", Start Date/Time, 01633, TQ1:7
    >Scheduled Procedure Step Start Time, "(0040, 0003)", Start Date/Time, 01633, TQ1:7
    >Modality, "(0008, 0060)", Diagnostic Serv Sect ID, 00257, OBR:24
-   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34, [#Note4]_
+   >Scheduled Performing Physician's Name, "(0040, 0006)", Technician, 00266, OBR:34.1, [#Note4]_
    >Scheduled Procedure Step Description, "(0040, 0007)", Universal Service ID, 00238.4.5, OBR:4.5, [#Note10]_
    >Scheduled Station Name, "(0040, 0010)", , , , [#Note5]_
    >Scheduled Protocol Code Sequence, "(0040, 0008)", , , , [#Note10]_
