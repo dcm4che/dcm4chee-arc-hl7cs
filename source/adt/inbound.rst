@@ -205,6 +205,30 @@ Performed Actions
 ^^^^^^^^^^^^^^^^^
 Same as specified in :numref:`adt_in_a01_actions`.
 
+.. _adt_in_a10:
+
+ADT/ACK - Patient Arriving - Tracking (Event A10)
+-------------------------------------------------
+Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+
+Trigger Event
+^^^^^^^^^^^^^
+A remote HL7 Application sends this event when a patient arrives at a new location in the healthcare facility (inpatient
+or outpatient) (via trigger event A09).
+
+Field *MSH-9 Message Type* shall be valued **ADT^A10^ADT_A09**. The third component is optional for HL7 v2.3.1.
+
+Supported Segments
+^^^^^^^^^^^^^^^^^^
+Same as specified in :numref:`adt_in_a01_segments`.
+
+Performed Actions
+^^^^^^^^^^^^^^^^^
+Same as specified in :numref:`adt_in_a01_actions`.
+
+Additionally, if configuration parameter *HL7 Patient Arrival Message Type*  of |product| is configured as *ADT^A10*,
+SPS Status of any MWL items (which are in **SCHEDULED** status) associated with this patient shall be changed to **ARRIVED**.
+
 .. _adt_in_a11:
 
 ADT/ACK - Cancel Admit/Visit Notification (Event A11)
