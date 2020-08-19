@@ -13,7 +13,7 @@ Outbound Messages
 
 ORU - Unsolicited Observation Message (Event R01)
 -------------------------------------------------
-Supported HL7 version: 2.5.1
+Supported HL7 version: 2.5.1 (RAD-128)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -24,17 +24,17 @@ Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are sent in an outgoing ORU^R01^ORU_R01 message:
 
-.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.5)
-   :header: Segment, Meaning, Usage, HL7 chapter
-   :widths: 15, 40, 15, 15
+.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.5.1)
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, 2
-   PID - :ref:`tab_pid_omg_251`, Patient Identification, R, 3
-   PV1 - :ref:`tab_pv1_251`, Patient Visit, R, 3
-   ORC - :ref:`tab_orc_251`, Common Order, O, 4
-   TQ1 - :ref:`tab_tq1_251`, Timing and Quantity, R, 4
-   OBR - :ref:`tab_obr_251`, Order Request Segment, R, 7
-   OBX - :ref:`tab_obx_251`, Observation Result Segment, R, 7
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_out_251`, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_oru_251`, Patient Visit, R, [1..1], 3
+   ORC - :ref:`tab_orc_oru_251`, Common Order, O, [1..1], 4
+   TQ1 - :ref:`tab_tq1_oru_251`, Timing and Quantity, R, [1..1], 4
+   OBR - :ref:`tab_obr_oru_251`, Order Request Segment, R, [1..1], 7
+   OBX - :ref:`tab_obx_oru_251`, Observation Result Segment, R, [1..1], 7
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -48,55 +48,18 @@ internal business logic and/or the profile in which the transaction is being per
 Outbound Message Segments
 =========================
 
+.. _oru_out_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_251`
+
 .. _oru_out_pid:
 
 PID - Patient Identification segment
 ------------------------------------
 
-.. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
-   :name: tab_pid_omg_251
-   :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
-   :widths: 8, 8, 8, 8, 8, 8, 12, 40
-
-   1, 4, SI, O, [0..1], , 00104, Set ID - PID
-   2, 20, CX, O, [0..0], , 00105, Patient ID
-   3, 250, CX, R, [1..*], , 00106, **Patient Identifier List**
-   4, 20, CX, O, [0..0], , 00107, Alternate Patient ID - PID
-   5, 250, XPN, R, [1..*], , 00108, **Patient Name**
-   6, 250, XPN, O, [0..1], , 00109, Mother’s Maiden Name
-   7, 26, TS, CE, [0..1], , 00110, **Date/Time of Birth**
-   8, 1, IS, CE, [1..1], 0001, 00111, **Administrative Sex**
-   9, 250, XPN, O, [0..1], , 00112, Patient Alias
-   10, 250, CE, O, [0..1], 0005, 00113, Race
-   11, 250, XAD, CE, [0..*], , 00114, Patient Address
-   12, 4, IS, X, [0..1], 0289, 00115, County Code
-   13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
-   14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
-   15, 250, CE, O, [0..1], 0296, 00118, Primary Language
-   16, 250, CE, O, [0..1], 0002, 00119, Marital Status
-   17, 250, CE, O, [0..1], 0006, 00120, Religion
-   18, 250, CX, C, [0..1], , 00121, Patient Account Number
-   19, 16, ST, X, [0..1], , 00122, SSN Number - Patient
-   20, 25, DLN, X, [0..1], , 00123, Driver's License Number - Patient
-   21, 250, CX, O, [0..*], , 00124, Mother's Identifier
-   22, 250, CE, O, [0..1], 0189, 00125, Ethnic Group
-   23, 250, ST, O, [0..1], , 00126, Birth Place
-   24, 1, ID, O, [0..1], 0136, 00127, Multiple Birth Indicator
-   25, 2, NM, O, [0..1], , 00128, Birth Order
-   26, 250, CE, O, [0..1], 0171, 00129, Citizenship
-   27, 250, CE, O, [0..1], 0172, 00130, Veterans Military Status
-   28, 250, CE, X, [0..0], 0212, 00739, Nationality
-   29, 26, TS, CE, [0..1], , 00740, Patient Death Date and Time
-   30, 1, ID, C, [0..1], 0136, 00741, Patient Death Indicator
-   31, 1, ID, CE, [0..1], 0136, 01535, Identity Unknown Indicator
-   32, 20, IS, CE, [0..*], 0445, 01536, Identity Reliability Code
-   33, 26, TS, CE, [0..1], , 01537, Last Update Date/Time
-   34, 241, HD, O, [0..1], , 01538, Last Update Facility
-   35, 250, CE, CE, [0..1], 0446, 01539, Species Code
-   36, 250, CE, C, [0..1], 0447, 01540, Breed Code
-   37, 80, ST, O, [0..1], , 01541, Strain
-   38, 250, CE, O, [0..2], , 01542, Production Class Code
-   39, 250, CWE, O, [0..*], , 01840, Tribal Citizenship
+Same as specified in :ref:`tab_pid_out_251`
 
 .. _oru_out_pv1:
 
@@ -104,7 +67,7 @@ PV1 - Patient Visit segment
 ---------------------------
 
 .. csv-table:: PV1 - Patient Visit segment (HL7 v2.5.1)
-   :name: tab_pv1_251
+   :name: tab_pv1_oru_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -167,7 +130,7 @@ ORC - Order Control segment
 ---------------------------
 
 .. csv-table:: ORC - Order Control segment (HL7 v2.5.1)
-   :name: tab_orc_251
+   :name: tab_orc_oru_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -209,7 +172,7 @@ TQ1 - Timing/Quantity segment
 -----------------------------
 
 .. csv-table:: TQ1 - Timing/Quantity segment (HL7 v2.5.1)
-   :name: tab_tq1_251
+   :name: tab_tq1_oru_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -234,7 +197,7 @@ OBR - Observation Request segment
 ---------------------------------
 
 .. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
-   :name: tab_obr_251
+   :name: tab_obr_oru_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -295,7 +258,7 @@ OBX - Observation Result segment
 --------------------------------
 
 .. csv-table:: OBX - Observation Result segment (HL7 v2.5.1)
-   :name: tab_obr_251
+   :name: tab_obx_oru_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 

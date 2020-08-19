@@ -1,8 +1,9 @@
 Outbound
 ########
 
-The HL7 messages mentioned below are sent to other HL7 applications/receivers if the feature Synchronize External Receivers
-explained in https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information has been configured in the archive.
+The HL7 messages mentioned below are sent to other HL7 applications/receivers if the feature
+`Synchronize External Receivers for Patient Updates <https://github.com/dcm4che/dcm4chee-arc-light/wiki/Patient-Information>`_
+has been configured in the archive.
 
 .. _adt_out_messages:
 
@@ -13,26 +14,26 @@ Outbound Messages
 
 ADT/ACK - Add Person or Patient Information (Event A28)
 -------------------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5.1 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when a new patient is created in the archive by using archive UI and RESTful service.
 Patient IDs and other Patient Information for the new Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_out_pid_adt`.
 
-.. _adt_in_a28_segments:
+.. _adt_out_a28_segments:
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are sent in an outgoing ADT^A28^ADT_A05 message:
 
-.. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.5)
+.. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, [1..1], 2
-   PID, Patient Identification, R, [1..1], 3
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251_out`, Patient Identification, R, [1..1], 3
 
 
 Expected Actions
@@ -47,17 +48,17 @@ information in an existing patient record.
 
 ADT/ACK - Update Person Information (Event A31)
 -----------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5.1 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when an existing patient is updated in the archive by using archive UI and RESTful service.
 Patient IDs and other Patient Information for the updated Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_out_pid_adt`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
-Same as specified in :numref:`adt_in_a28_segments`.
+Same as specified in :numref:`adt_out_a28_segments`.
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -70,36 +71,30 @@ identified by the Patient ID (defined by the field PID-3).
 
 ADT/ACK - Merge Patient - Patient Identifier List (Event A40)
 -------------------------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5.1 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when a one or more patients are merged with a target patient in the archive by using archive UI
 and RESTful service.
 Patient IDs and other Patient Information for the target Patient record are sent in the PID segment of the
-outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_pid_adt`.
+outgoing ADT message mapped from corresponding DICOM attributes as defined in :ref:`dicom_out_pid_adt`.
 Patient ID and the Patient name for the old Patient record are sent in the MRG segment of the outgoing ADT
-message and mapped from corresponding DICOM attributes as defined in :ref:`dicom_in_mrg_adt`.
+message and mapped from corresponding DICOM attributes as defined in :ref:`dicom_out_mrg_adt`.
+
+.. _adt_out_a40_segments:
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are sent in an outgoing ADT^A40^ADT_A39 message:
 
-.. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.3.1)
-   :header: Segment, Meaning, HL7 Chapter
-   :widths: 25, 50, 25
-
-   MSH, Message Header, 2
-   PID, Patient Identification, 3
-   MRG, Merge Information, 3
-
-.. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.5)
+.. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, [1..1], 2
-   PID, Patient Identification, R, [1..1], 3
-   MRG, Merge Information, R, [1..1], 3
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251_out`, Patient Identification, R, [1..1], 3
+   MRG - :ref:`tab_mrg_251_out`, Merge Information, R, [1..1], 3
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -119,18 +114,18 @@ are retrieved.
 
 ADT/ACK - Change Patient Identifier List (Event A47)
 ----------------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5.1 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
 This message is sent when an patient ID of an existing patient is updated in the archive by using archive UI and RESTful
 service. Patient IDs and other Patient Information for the Patient record with changed patient identifiers are sent in
 the PID segment of the outgoing ADT message mapped from corresponding DICOM attributes as defined in
-:ref:`dicom_in_pid_adt`.
+:ref:`dicom_out_pid_adt`.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
-Same as specified in :numref:`adt_in_a28_segments`.
+Same as specified in :numref:`adt_out_a40_segments`.
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -144,11 +139,17 @@ identified by the Patient ID (defined by the field PID-3).
 Outbound Message Segments
 =========================
 
+.. _adt_out_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_251`
+
 .. _adt_out_pid:
 
 PID - Patient Identification Segment
 ------------------------------------
-.. csv-table:: PID - Patient Identification segment (HL7 v2.5)
+.. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
    :name: tab_pid_251_out
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
@@ -199,7 +200,8 @@ Element names in **bold** indicates that the field is sent by |product|.
 
 MRG - Merge Segment
 -------------------
-.. csv-table:: MRG - Merge segment (HL7 v2.5)
+.. csv-table:: MRG - Merge segment (HL7 v2.5.1)
+   :name: tab_mrg_251_out
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
@@ -225,7 +227,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - The component/sub-component value is not listed if the HL7 element should not contain multiple components/sub-components.
 
 .. csv-table:: DICOM Patient Attributes to HL7 ADT mapping of PID segment
-   :name: dicom_in_pid_adt
+   :name: dicom_out_pid_adt
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
@@ -264,7 +266,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2
 
 .. csv-table:: HL7 ADT mapping of MRG segment to DICOM Patient Attributes
-   :name: dicom_in_mrg_adt
+   :name: dicom_out_mrg_adt
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**

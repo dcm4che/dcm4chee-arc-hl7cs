@@ -10,7 +10,7 @@ Inbound Messages
 
 ORM - General Order Message (Event O01)
 ---------------------------------------
-Supported HL7 version: 2.3.1
+Supported HL7 version: 2.3.1, 2.5.1 both for RAD-4 and RAD-13
 
 .. _orm_o01_event:
 
@@ -32,12 +32,24 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    :header: Segment, Meaning, HL7 Chapter
    :widths: 25, 50, 25
 
-   MSH, Message Header, 2
+   MSH - :ref:`tab_msh_231`, Message Header, 2
    PID - :ref:`tab_pid_231`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
-   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 4
+   PV1 - :ref:`tab_pv1_231`, Patient Visit, 3
+   ORC - :ref:`tab_orc_231`, Common Order, 4
+   OBR - :ref:`tab_obr_231`, Order Detail, 4
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
+
+.. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.5.1)
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
+
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
+   ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
+   TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
+   OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
+   IPC - :ref:`tab_ipc_251`, Imaging Procedure Control, R, [1..*], 4
 
 .. _orm_o01_actions:
 
@@ -58,7 +70,7 @@ system will generate a Study Instance UID for the Modality Worklist Item attribu
 
 OMG - General Clinical Order Message (Event O19)
 ------------------------------------------------
-Supported HL7 version: 2.5.1
+Supported HL7 version: 2.5.1 (EYECARE-21 and EYECARE-22)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -67,17 +79,17 @@ Same as specified in :numref:`orm_o01_event`. This message is sent for eyecare p
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
 .. csv-table:: Supported segments of OMG^O19^OMG_O19 (HL7 v2.5.1)
-   :header: Segment, Meaning, HL7 Chapter
-   :widths: 25, 50, 25
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, 2
-   PID - :ref:`tab_pid_231`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_orm_omg`, Patient Visit, 3
-   ORC - :ref:`tab_orc_orm_omg`, Common Order, 4
-   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR - :ref:`tab_obr_orm_omg`, Order Detail, 7
-   NTE - :ref:`tab_nte_omg`, Notes and Comments (for Detail), 4
-   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
+   ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
+   TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..*], 4
+   OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
+   NTE - :ref:`tab_nte_omg`, Notes and Comments (for Detail), O, [0..*], 4
+   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C*, [0..*],
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -87,25 +99,25 @@ Same as specified in :numref:`orm_o01_actions`.
 
 OMI - Imaging Order Message (Event O23)
 ---------------------------------------
-Supported HL7 version: 2.5.1
+Supported HL7 version: 2.5.1 (RAD-4 and RAD-13)
 
 Trigger Event
 ^^^^^^^^^^^^^
 Same as specified in :numref:`orm_o01_event`.
 
 Supported Segments
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^   
 .. csv-table:: Supported segments of OMI^O23^OMI_O23 (HL7 v2.5.1)
-   :header: Segment, Meaning, HL7 Chapter
-   :widths: 25, 50, 25
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, 2
-   PID - :ref:`tab_pid_251`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_omi`, Patient Visit, 3
-   ORC - :ref:`tab_orc_omi`, Common Order, 4
-   TQ1 - :ref:`tab_tq1_omg_omi`, Timing and Quantity, 4
-   OBR - :ref:`tab_obr_omi`, Order Detail, 7
-   IPC - :ref:`tab_ipc_omi`, Imaging Procedure Control, 4
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
+   ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
+   TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
+   OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
+   IPC - :ref:`tab_ipc_251`, Imaging Procedure Control, R, [1..*], 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -117,13 +129,25 @@ segment.
 Inbound Message Segments
 ========================
 
+.. _orm_in_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_231` and :ref:`tab_msh_251`
+
+.. _orm_in_pid:
+
+PID - Patient Identification segment
+------------------------------------
+Same as specified in :ref:`tab_pid_231` and :ref:`tab_pid_251`
+
 .. _orm_in_pv1:
 
 PV1 - Patient Visit Information segment
 ---------------------------------------
 
-.. csv-table:: Patient Visit Information segment (HL7 v2.3.1 & Eyecare)
-   :name: tab_pv1_orm_omg
+.. csv-table:: Patient Visit Information segment (HL7 v2.3.1)
+   :name: tab_pv1_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -182,7 +206,7 @@ PV1 - Patient Visit Information segment
 
 
 .. csv-table:: Patient Visit Information segment (HL7 v2.5.1)
-   :name: tab_pv1_omi
+   :name: tab_pv1_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -245,8 +269,8 @@ PV1 - Patient Visit Information segment
 ORC - Order Control segment
 ---------------------------
 
-.. csv-table:: Order Control segment - (HL7 v2.3.1 & Eyecare)
-   :name: tab_orc_orm_omg
+.. csv-table:: Order Control segment - (HL7 v2.3.1)
+   :name: tab_orc_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
    :widths: 8, 8, 8, 8, 8, 12, 48, 8
 
@@ -275,7 +299,7 @@ ORC - Patient Visit Information segment
 ---------------------------------------
 
 .. csv-table:: Order Control segment - (HL7 v2.5.1)
-   :name: tab_orc_omi
+   :name: tab_orc_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -318,7 +342,7 @@ TQ1 - Timing/Quantity segment
 -----------------------------
 
 .. csv-table:: Timing/Quantity segment - (HL7 v2.5.1 & Eyecare)
-   :name: tab_tq1_omg_omi
+   :name: tab_tq1_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -343,8 +367,8 @@ TQ1 - Timing/Quantity segment
 OBR - Observation Request segment
 ---------------------------------
 
-.. csv-table:: Observation Request segment - (HL7 v2.3.1 & Eyecare)
-   :name: tab_obr_orm_omg
+.. csv-table:: Observation Request segment - (HL7 v2.3.1)
+   :name: tab_obr_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -399,7 +423,7 @@ OBR - Observation Request segment
 ---------------------------------
 
 .. csv-table:: Observation Request segment - (HL7 v2.5.1)
-   :name: tab_obr_omi
+   :name: tab_obr_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -489,7 +513,7 @@ IPC - Imaging Procedure Control segment
 ---------------------------------------
 
 .. csv-table:: Imaging Procedure Control segment (HL7 v2.5.1)
-   :name: tab_ipc_omi
+   :name: tab_ipc_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name, Note
    :widths: 8, 8, 8, 8, 8, 12, 48, 8
 
@@ -521,7 +545,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 ORM - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------
 
-.. csv-table:: HL7 order mapping to DICOM Modality Worklist Attributes for (HL7 v2.3.1)
+.. csv-table:: HL7 order mapping to DICOM Modality Worklist Attributes for (HL7 v2.3.1 and v2.5.1)
    :name: orm_to_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 

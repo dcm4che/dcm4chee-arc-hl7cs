@@ -10,7 +10,7 @@ Inbound Messages
 
 ORU - Unsolicited Observation Result Message (Event R01)
 --------------------------------------------------------
-Supported HL7 version: 2.3.1
+Supported HL7 version: 2.3.1 (RAD-28), 2.5.1 (RAD-128)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -24,14 +24,25 @@ Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are processed from an incoming ORU^R01^ORU_R01 message:
 
-.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.3.1)
+.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 versions 2.3.1)
    :header: Segment, Meaning, HL7 Chapter
    :widths: 25, 50, 25
 
-   MSH, Message Header, 2
-   PID, Patient Identification, 3
-   OBR, Order Detail, 4
-   OBX, Observation Results, 7
+   MSH - :ref:`tab_msh_231`, Message Header, 2
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
+   PV1 - :ref:`tab_pv1_231`, Patient Visit, 3
+   OBR - :ref:`tab_obr_231_oru`, Order Detail, 4
+   OBX - :ref:`tab_obx_231`, Observation Results, 7
+
+.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.5.1)
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
+
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_251, Patient Visit, O, [0..1], 3
+   OBR - :ref:`tab_obr_251_oru`, Order Detail, R, [1..*], 4
+   OBX - :ref:`tab_obx_251`, Order Detail, R, [1..*], 4
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -49,6 +60,12 @@ Based on the information received in the OBR and OBX segments, a SR object is st
 Inbound Message Segments
 ========================
 
+.. _oru_in_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_231` and :ref:`tab_msh_251`
+
 .. _oru_in_pid:
 
 PID - Patient Identification segment
@@ -60,7 +77,7 @@ Same as specified in :ref:`tab_pid_231` and :ref:`tab_pid_251`
 OBR - Observation Request segment
 ---------------------------------
 .. csv-table:: OBR - Observation Request segment (HL7 v2.3.1)
-   :name: tab_obr_231
+   :name: tab_obr_231_oru
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 

@@ -5,16 +5,16 @@ The General Clinical Order Message HL7 message is sent to other HL7 applications
 `Synchronize External Receivers for Requested Procedures <https://github.com/dcm4che/dcm4chee-arc-light/wiki/Requested-Procedures>`_
 has been configured in the archive.
 
-.. _orm_out_messages:
+.. _omg_out_messages:
 
 Outbound Messages
 =================
 
-.. _orm_out_omg_o19:
+.. _omg_out_omg_o19:
 
 OMG - General Clinical Order Message (Event O19)
 ------------------------------------------------
-Supported HL7 version: 2.5.1
+Supported HL7 version: 2.5.1 (EYECARE-22)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -26,34 +26,40 @@ Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are sent in an outgoing OMG^O19^OMG_O19 message:
 
-.. csv-table:: Supported segments of ADT^A28^ADT_A05 (HL7 v2.5)
-   :header: Segment, Meaning, Usage, HL7 chapter
-   :widths: 15, 40, 15, 15
+.. csv-table:: Supported segments of OMG^O19^OMG_O19 (HL7 v2.5.1)
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, 2
-   PID - :ref:`tab_pid_omg_251`, Patient Identification, O, 3
-   PV1 - :ref:`tab_pv1_251`, Patient Visit, O, 3
-   ORC - :ref:`tab_orc_251`, Common Order, R, 4
-   TQ1 - :ref:`tab_tq1_251`, Timing and Quantity, R, 4
-   OBR - :ref:`tab_obr_251`, Order Detail, R, 7
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_out_251`, Patient Identification, O, [0..1], 3
+   PV1 - :ref:`tab_pv1_omg_251`, Patient Visit, O, [0..1], 3
+   ORC - :ref:`tab_orc_omg_251`, Common Order, R, [1..1], 4
+   TQ1 - :ref:`tab_tq1_omg_251`, Timing and Quantity, R, [1..1], 4
+   OBR - :ref:`tab_obr_omg_251`, Order Detail, R, [1..1], 7
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
 The DSS/Order Filler shall process the order status based upon the internal application (such as the procedure is completed
 and is ready for interpretation). The DSS/Order Filler is recommended to convey the order status to the user of the system.
 
-.. _orm_out_segments:
+.. _omg_out_segments:
 
 Outbound Message Segments
 =========================
 
-.. _orm_out_pid:
+.. _omg_out_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_251`
+
+.. _omg_out_pid:
 
 PID - Patient Identification segment
 ------------------------------------
 
 .. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
-   :name: tab_pid_omg_251
+   :name: tab_pid_out_251
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
@@ -97,13 +103,13 @@ PID - Patient Identification segment
    38, 250, CE, O, [0..2], , 01542, Production Class Code
    39, 250, CWE, O, [0..*], , 01840, Tribal Citizenship
 
-.. _orm_out_pv1:
+.. _omg_out_pv1:
 
 PV1 - Patient Visit segment
 ---------------------------
 
 .. csv-table:: PV1 - Patient Visit segment (HL7 v2.5.1)
-   :name: tab_pv1_251
+   :name: tab_pv1_omg_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -160,13 +166,13 @@ PV1 - Patient Visit segment
    51, 1, IS, C, 0326, 01226, Visit Indicator
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
-.. _orm_out_orc:
+.. _omg_out_orc:
 
 ORC - Order Control segment
 ---------------------------
 
 .. csv-table:: ORC - Order Control segment (HL7 v2.5.1)
-   :name: tab_orc_251
+   :name: tab_orc_omg_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -202,13 +208,13 @@ ORC - Order Control segment
    30, 250, CNE, O, 0483, 01644, Enterer Authorization Mode
    31, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
-.. _orm_out_tq1:
+.. _omg_out_tq1:
 
 TQ1 - Timing/Quantity segment
 -----------------------------
 
 .. csv-table:: TQ1 - Timing/Quantity segment (HL7 v2.5.1)
-   :name: tab_tq1_251
+   :name: tab_tq1_omg_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -227,13 +233,13 @@ TQ1 - Timing/Quantity segment
    13, 20, CQ, O, , 01639, Occurrence Duration
    14, 10, NM, O, , 01640, Total Occurrences
 
-.. _orm_out_obr:
+.. _omg_out_obr:
 
 OBR - Observation Request segment
 ---------------------------------
 
 .. csv-table:: OBR - Observation Request segment (HL7 v2.5.1)
-   :name: tab_obr_251
+   :name: tab_obr_omg_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -290,7 +296,7 @@ OBR - Observation Request segment
 
 Element names in **bold** indicates that the field is used by |product|.
 
-.. _orm_out_dicom:
+.. _omg_out_dicom:
 
 DICOM to HL7 Order Mapping
 ==========================
@@ -300,7 +306,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component/sub-component value is not listed if the HL7 element should not contain multiple components/sub-components.
 
-.. _orm_out_omg_o19_dicom:
+.. _omg_out_omg_o19_dicom:
 
 OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 -------------------------------------------------------------

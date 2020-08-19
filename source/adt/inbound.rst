@@ -10,7 +10,7 @@ Inbound Messages
 
 ADT/ACK - Admit/Visit Notification (Event A01)
 ----------------------------------------------
-Supported HL7 versions: 2.3.1, 2,5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -29,15 +29,15 @@ The following segments are processed from an incoming ADT^A01^ADT_A01 message:
    :header: Segment, Meaning, HL7 Chapter
    :widths: 25, 50, 25
 
-   MSH, Message Header, 2
-   PID, Patient Identification, 3
+   MSH - :ref:`tab_msh_231`, Message Header, 2
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
 
-.. csv-table:: Supported segments of ADT^A01^ADT_A01 (HL7 v2.5)
+.. csv-table:: Supported segments of ADT^A01^ADT_A01 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, [1..1], 2
-   PID, Patient Identification, R, [1..1], 3
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
 
 .. _adt_in_a01_actions:
 
@@ -60,7 +60,7 @@ reflected in the retrieved DICOM objects.
 
 ADT/ACK - Transfer a Patient (Event A02)
 ----------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -81,7 +81,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Discharge/End Visit (Event A03)
 -----------------------------------------
-Supported HL7 version: 2.3.1, 2.5, 2.5.1
+Supported HL7 version: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -103,7 +103,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Register a Patient (Event A04)
 ----------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -125,7 +125,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Pre-Admit a Patient (Event A05)
 -----------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -146,7 +146,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Change an Outpatient to an Inpatient (Event A06)
 ----------------------------------------------------------
-Supported HL7 version: 2.3.1, 2.5, 2.5.1
+Supported HL7 version: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -167,7 +167,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Change an Inpatient to an Outpatient (Event A07)
 ----------------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -188,7 +188,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Update Patient Information (Event A08)
 ------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -209,7 +209,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Patient Arriving - Tracking (Event A10)
 -------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -233,7 +233,7 @@ SPS Status of any MWL items (which are in **SCHEDULED** status) associated with 
 
 ADT/ACK - Cancel Admit/Visit Notification (Event A11)
 -----------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -254,7 +254,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Cancel Transfer (Event A12)
 -------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -275,7 +275,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Cancel Discharge/End Visit  (Event A13)
 -------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -296,7 +296,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Add Person or Patient Information (Event A28)
 -------------------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -316,7 +316,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Update Person Information (Event A31)
 -----------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -336,7 +336,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Cancel Pre-Admit (Event A38)
 --------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-31)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -357,7 +357,7 @@ Same as specified in :numref:`adt_in_a01_actions`.
 
 ADT/ACK - Merge Patient - Patient Identifier List (Event A40)
 -------------------------------------------------------------
-Supported HL7 versions: 2.3.1, 2.5, 2.5.1
+Supported HL7 versions: 2.3.1, 2.5.1 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -376,17 +376,17 @@ The following segments are processed from an incoming ADT^A40^ADT_A39 message:
    :header: Segment, Meaning, HL7 Chapter
    :widths: 25, 50, 25
 
-   MSH, Message Header, 2
-   PID, Patient Identification, 3
-   MRG, Merge Information, 3
+   MSH - :ref:`tab_msh_231`, Message Header, 2
+   PID - :ref:`tab_pid_231`, Patient Identification, 3
+   MRG - :ref:`tab_mrg_231`, Merge Information, 3
 
-.. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.5)
+.. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, [1..1], 2
-   PID, Patient Identification, R, [1..1], 3
-   MRG, Merge Information, R, [1..1], 3
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   MRG - :ref:`tab_mrg_251`, Merge Information, R, [1..1], 3
 
 The "incorrect supplier identifier" identified in the MRG segment (*MRG-1 Prior Patient Identifier List*) is to be
 merged with the required "correct target identifier" in the PID segment (*PID-3 Patient Identifier List*). The
@@ -417,7 +417,7 @@ the updated Patient Information in the *dominant* Patient record on retrieve of 
 
 ADT/ACK - Change Patient Identifier List (Event A47)
 ----------------------------------------------------
-Supported HL7 version: 2.5
+Supported HL7 version: 2.5 (ITI-30)
 
 Trigger Event
 ^^^^^^^^^^^^^
@@ -433,12 +433,12 @@ Supported Segments
 ^^^^^^^^^^^^^^^^^^
 The following segments are processed from an incoming ADT^A47^ADT_A30 message:
 
-.. csv-table:: Supported Segments of ADT^A47^ADT_A30 (HL7 v2.5)
+.. csv-table:: Supported Segments of ADT^A47^ADT_A30 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
-   MSH, Message Header, R, [1..1], 2
-   PID, Patient Identification, R, [1..1], 3
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
    MRG, Merge Information, R, 1..1], 3
 
 The "incorrect supplier identifier" value is stored in the MRG segment (*MRG-1 Prior Patient Identifier List*) and is
@@ -487,6 +487,12 @@ Patient ID will then cause the insert of a new Patient record, associated with t
 Inbound Message Segments
 ========================
 
+.. _adt_in_msh:
+
+MSH - Message Header segment
+----------------------------
+Same as specified in :ref:`tab_msh_231` and :ref:`tab_msh_251`
+
 .. _adt_in_pid:
 
 PID - Patient Identification segment
@@ -527,7 +533,7 @@ PID - Patient Identification segment
    29, 26, TS, O, , 00740, Patient Death Date and Time
    30, 1, ID, O, 0136, 00741, Patient Death Indicator
 
-.. csv-table:: PID - Patient Identification segment (HL7 v2.5)
+.. csv-table:: PID - Patient Identification segment (HL7 v2.5.1)
    :name: tab_pid_251
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
@@ -585,6 +591,7 @@ This field may be populated with various identifiers assigned to the patient by 
 MRG - Merge segment
 -------------------
 .. csv-table:: MRG - Merge segment (HL7 v2.3.1)
+   :name: tab_mrg_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -596,7 +603,8 @@ MRG - Merge segment
    6, 20, CX, O, , 01280, Prior Alternate Visit ID
    7, 48, XPN, R2, , 01281, **Prior Patient Name**
 
-.. csv-table:: MRG - Merge segment (HL7 v2.5)
+.. csv-table:: MRG - Merge segment (HL7 v2.5.1)
+   :name: tab_mrg_251
    :header: SEQ, LEN, DT, Usage, Card., TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
