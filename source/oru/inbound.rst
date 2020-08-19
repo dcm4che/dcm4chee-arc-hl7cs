@@ -39,8 +39,8 @@ The following segments are processed from an incoming ORU^R01^ORU_R01 message:
    :widths: 15, 40, 15, 15, 15
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
-   PID - :ref:`tab_pid_251, Patient Identification, R, [1..1], 3
-   PV1 - :ref:`tab_pv1_251, Patient Visit, O, [0..1], 3
+   PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_251`, Patient Visit, O, [0..1], 3
    OBR - :ref:`tab_obr_251_oru`, Order Detail, R, [1..*], 4
    OBX - :ref:`tab_obx_251`, Order Detail, R, [1..*], 4
 
@@ -64,13 +64,13 @@ Inbound Message Segments
 
 MSH - Message Header segment
 ----------------------------
-Same as specified in :ref:`tab_msh_231` and :ref:`tab_msh_251`
+Same as specified in :ref:`tab_msh_231` or :ref:`tab_msh_251`
 
 .. _oru_in_pid:
 
 PID - Patient Identification segment
 ------------------------------------
-Same as specified in :ref:`tab_pid_231` and :ref:`tab_pid_251`
+Same as specified in :ref:`tab_pid_231` or :ref:`tab_pid_251`
 
 .. _oru_in_obr:
 

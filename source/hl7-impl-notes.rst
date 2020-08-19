@@ -72,7 +72,7 @@ Message Control
 
 The MSH (message header) segment contains control information set in the beginning of each message sent.
 
-.. csv-table:: MSH segment
+.. csv-table:: MSH - Message Header segment (HL7 v2.3.1)
    :name: tab_msh_231
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -177,7 +177,7 @@ Message Control
 
 The MSH (message header) segment contains control information set in the beginning of each message sent.
 
-.. csv-table:: MSH - Message Header
+.. csv-table:: MSH - Message Header segment (HL7 v2.5.1)
    :name: tab_msh_251
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40

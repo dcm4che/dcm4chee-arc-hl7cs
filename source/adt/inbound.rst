@@ -439,7 +439,7 @@ The following segments are processed from an incoming ADT^A47^ADT_A30 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
-   MRG, Merge Information, R, 1..1], 3
+   MRG - :ref:`tab_mrg_251`, Merge Information, R, 1..1], 3
 
 The "incorrect supplier identifier" value is stored in the MRG segment (*MRG-1 Prior Patient Identifier List*) and is
 to be changed to the "correct target patient ID" value stored in the PID segment (*PID-3 Patient Identifier List*).
@@ -491,7 +491,7 @@ Inbound Message Segments
 
 MSH - Message Header segment
 ----------------------------
-Same as specified in :ref:`tab_msh_231` and :ref:`tab_msh_251`
+Same as specified in :ref:`tab_msh_231` or :ref:`tab_msh_251`
 
 .. _adt_in_pid:
 

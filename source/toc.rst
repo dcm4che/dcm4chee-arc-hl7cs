@@ -86,8 +86,9 @@ Table of Content
 |     9.1.2. :ref:`oru_in_segments`
 |       9.1.2.1. :ref:`oru_in_msh`
 |       9.1.2.2. :ref:`oru_in_pid`
-|       9.1.2.3. :ref:`oru_in_obr`
-|       9.1.2.4. :ref:`oru_in_obx`
+|       9.1.2.3. :ref:`oru_in_pv1`
+|       9.1.2.4. :ref:`oru_in_obr`
+|       9.1.2.5. :ref:`oru_in_obx`
 |     9.1.3. :ref:`oru_in_dicom`
 |   9.2. :doc:`oru/outbound`
 |     9.2.1. :ref:`oru_out_messages`
