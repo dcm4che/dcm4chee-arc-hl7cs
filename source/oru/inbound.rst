@@ -259,7 +259,7 @@ has been used.
 .. _oru_in_txt_report_dicom_sr_rad28:
 
 ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom
@@ -391,7 +391,7 @@ has been used.
 .. _oru_in_txt_report_dicom_sr_rad128:
 
 ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom_sr_rad128
@@ -485,7 +485,7 @@ ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
 .. _oru_in_cda_dicom_sr_rad128:
 
 ORU - HL7 ORU Encapsulated CDA mapping to DICOM SR Attributes
--------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom_cda_rad128
@@ -583,7 +583,7 @@ ORU - HL7 ORU Encapsulated CDA mapping to DICOM SR Attributes
 .. _oru_in_pdf_dicom_doc_rad128:
 
 ORU - HL7 ORU Encapsulated PDF mapping to DICOM DOC Attributes
---------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom_pdf_rad128
