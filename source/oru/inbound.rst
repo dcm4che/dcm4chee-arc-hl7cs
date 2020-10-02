@@ -258,10 +258,10 @@ has been used.
 
 .. _oru_in_txt_report_dicom_sr_rad28:
 
-ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mapping of HL7 ORU Text Report to DICOM SR Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+.. csv-table:: HL7 ORU Text Report to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
@@ -390,10 +390,10 @@ has been used.
 
 .. _oru_in_txt_report_dicom_sr_rad128:
 
-ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mapping of HL7 ORU Text Report to DICOM SR Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+.. csv-table:: HL7 ORU Text Report to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom_sr_rad128
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
@@ -484,10 +484,10 @@ ORU - HL7 ORU Text Report mapping to DICOM SR Attributes
 
 .. _oru_in_cda_dicom_sr_rad128:
 
-ORU - HL7 ORU Encapsulated CDA mapping to DICOM SR Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+.. csv-table:: HL7 ORU containing CDA to Encapsulated CDA DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom_cda_rad128
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
@@ -582,10 +582,10 @@ ORU - HL7 ORU Encapsulated CDA mapping to DICOM SR Attributes
 
 .. _oru_in_pdf_dicom_doc_rad128:
 
-ORU - HL7 ORU Encapsulated PDF mapping to DICOM DOC Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+.. csv-table:: HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes mapping
    :name: oru_obr_obx_dicom_pdf_rad128
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
 
