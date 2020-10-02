@@ -50,7 +50,7 @@ Patient Demographic Information are extracted from the PID segment of the receiv
 DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a Patient record with the extracted primary Patient ID
 already exists in the database, that Patient record will get updated. If there is no such Patient record a new Patient
 record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
-Based on the information received in the OBR and OBX segments, a SR object is stored to the study.
+Based on the information received in the OBR and OBX segments, a SR / PDF / CDA object is stored to the study.
 
 .. [#hl7NoPatientCreateMessageType] The creation of new Patient records will be suppressed for message types which are
    listed by configuration parameter *HL7 No Patient Create Message Type(s)*  of |product|.
@@ -240,16 +240,23 @@ Element names in **bold** indicates that the field is used by |product|.
 
 .. _oru_in_dicom:
 
-HL7 ORU to DICOM SR Mapping
-===========================
-
-Inverse of the mapping specified by `IHE Transaction Structured Report Export [RAD-28] <http://ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=283>`_
-has been used.
+HL7 ORU to DICOM Mapping
+========================
 
 Mappings between HL7 and DICOM are illustrated in the following manner:
 
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component / sub-component value is not listed if the HL7 element does not contain multiple components / sub-components.
+
+.. _oru_in_dicom_rad28:
+
+Inverse of the mapping specified by `IHE Transaction Structured Report Export [RAD-28] <http://ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=304>`_
+has been used.
+
+.. _oru_in_txt_report_dicom_sr_rad28:
+
+ORU - HL7 ORU Text Report mapping to DICOM SR Attributes (RAD-28)
+-----------------------------------------------------------------
 
 .. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
    :name: oru_obr_obx_dicom
@@ -259,7 +266,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
-   **Structured Report Export**
+   **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
@@ -325,6 +332,22 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Relationship Type, "(0040, A010)",,,, CONTAINS
    >Value Type, "(0040, A040)",,,, CONTAINER
    >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121060
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, History
+   >Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   >Content Sequence, "(0040, A730)"
+   >>Relationship Type, "(0040, A010)",,,, CONTAINS
+   >>Value Type, "(0040, A040)",,,, TEXT
+   >>Concept Name Code Sequence, "(0040, A043)"
+   >>>Code Value, "(0008, 0100)",,,, 121060
+   >>>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>>Code Meaning, "(0008, 0104)",,,, History
+   >>Text Value, "(0040, A160)",,, OBX:3/component='SR Text'
+   Item 5
+   >Relationship Type, "(0040, A010)",,,, CONTAINS
+   >Value Type, "(0040, A040)",,,, CONTAINER
+   >Concept Name Code Sequence, "(0040, A043)"
    >>Code Value, "(0008, 0100)",,,, 121070
    >>Code Scheme Designator, "(0008, 0102)",,,, DCM
    >>Code Meaning, "(0008, 0104)",,,, Findings
@@ -337,7 +360,317 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >>>Code Scheme Designator, "(0008, 0102)",,,, DCM
    >>>Code Meaning, "(0008, 0104)",,,, Finding
    >>Text Value, "(0040, A160)",,, OBX:3/component='SR Text'
+   Item 6
+   >Relationship Type, "(0040, A010)",,,, CONTAINS
+   >Value Type, "(0040, A040)",,,, CONTAINER
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121076
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Conclusions
+   >Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   >Content Sequence, "(0040, A730)"
+   >>Relationship Type, "(0040, A010)",,,, CONTAINS
+   >>Value Type, "(0040, A040)",,,, TEXT
+   >>Concept Name Code Sequence, "(0040, A043)"
+   >>>Code Value, "(0008, 0100)",,,, 121077
+   >>>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>>Code Meaning, "(0008, 0104)",,,, Conclusion
+   >>Text Value, "(0040, A160)",,, OBX:3/component='SR Text'
 
+.. _oru_in_dicom_rad128:
+
+Inverse of the mapping specified by `IHE Transaction Send Imaging Result [RAD-128] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_RD.pdf#page=25>`_
+has been used.
+
+.. _oru_in_txt_report_dicom_sr_rad128:
+
+ORU - HL7 ORU Text Report mapping to DICOM SR Attributes (RAD-128)
+------------------------------------------------------------------
+
+.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+   :name: oru_obr_obx_dicom
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
+   **Patient Identification**
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Structured Report**
+   Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
+   Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
+   Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
+   SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
+   Modality, "(0008, 0060)",,,, SR
+   Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note10]_
+   Instance Number, "(0020, 0013)",,,, 1
+   Value Type, "(0040, A040)",,,, CONTAINER
+   Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 11528-7
+   >>Code Scheme Designator, "(0008, 0102)",,,, LN
+   >>Code Meaning, "(0008, 0104)",,,, Radiology Report
+   Verifying Observer Sequence, "(0040, A073)"
+   >Verifying Organization, "(0040, A027)",,,, Default Value : Verifying Organization
+   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32.1, [#Note8]_
+   >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
+   Referenced Request Sequence, "(0040, A370)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
+   Completion Flag, "(0040, A491)", Result Status, 00258, OBR:25, [#Note1]_
+   Verification Flag, "(0040, A493)", Result Status, 00258, OBR:25, [#Note2]_
+   Content Sequence, "(0040, A730)",,,, [#Note3]_
+   Item 1
+   >Relationship Type, "(0040, A010)",,,, HAS CONCEPT MOD
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121049
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Language of Content Item and Descendants
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",,,, eng
+   >>Code Scheme Designator, "(0008, 0102)",,,, ISO639_2
+   >>Code Meaning, "(0008, 0104)",,,, English
+   Item 2
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, PNAME
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121008
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Person Observer Name
+   >Person Name, "(0040, A123)", Principal Result Interpreter, 00264, OBR:32.1
+   Item 3
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121023
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Procedure Code
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   Item 4
+   >Relationship Type, "(0040, A010)",,,, CONTAINS
+   >Value Type, "(0040, A040)",,,, CONTAINER
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   >Content Sequence, "(0040, A730)"
+   >>Relationship Type, "(0040, A010)",,,, CONTAINS
+   >>Value Type, "(0040, A040)",,,, TEXT or CODE, [#Note11]_
+   >>Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >>Text Value, "(0040, A160)",,, OBX:5, [#Note12]_
+   >>Concept Code Sequence, "(0040, A168)",,,,, [#Note13]_
+   >>>Code Value, "(0008, 0100)",,,, OBX:5.1
+   >>>Code Scheme Designator, "(0008, 0102)",,,, OBX:5.3
+   >>>Code Meaning, "(0008, 0104)",,,, OBX:5.2
+
+.. _oru_in_cda_dicom_sr_rad128:
+
+ORU - HL7 ORU Encapsulated CDA mapping to DICOM SR Attributes (RAD-128)
+-----------------------------------------------------------------------
+
+.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+   :name: oru_obr_obx_dicom
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
+   **Patient Identification**
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Structured Report**
+   Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
+   Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
+   Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
+   SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.2
+   Modality, "(0008, 0060)",,,, SR
+   Conversion Type, "(0008, 0064)",,,, WSD
+   Burned In Annotation, "(0028, 0301)",,,, NO
+   Encapsulated Document, "(0042, 0011)",,,, OBX:5.5, [#Note14]_
+   MIME Type of Encapsulated Document, "(0042, 0012)",,,, text/xml
+   Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note10]_
+   Instance Number, "(0020, 0013)",,,, 1
+   Value Type, "(0040, A040)",,,, CONTAINER
+   Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 11528-7
+   >>Code Scheme Designator, "(0008, 0102)",,,, LN
+   >>Code Meaning, "(0008, 0104)",,,, Radiology Report
+   Verifying Observer Sequence, "(0040, A073)"
+   >Verifying Organization, "(0040, A027)",,,, Default Value : Verifying Organization
+   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32.1, [#Note8]_
+   >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
+   Referenced Request Sequence, "(0040, A370)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
+   Completion Flag, "(0040, A491)", Result Status, 00258, OBR:25, [#Note1]_
+   Verification Flag, "(0040, A493)", Result Status, 00258, OBR:25, [#Note2]_
+   Content Sequence, "(0040, A730)",,,, [#Note3]_
+   Item 1
+   >Relationship Type, "(0040, A010)",,,, HAS CONCEPT MOD
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121049
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Language of Content Item and Descendants
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",,,, eng
+   >>Code Scheme Designator, "(0008, 0102)",,,, ISO639_2
+   >>Code Meaning, "(0008, 0104)",,,, English
+   Item 2
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, PNAME
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121008
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Person Observer Name
+   >Person Name, "(0040, A123)", Principal Result Interpreter, 00264, OBR:32.1
+   Item 3
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121023
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Procedure Code
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   Item 4
+   >Relationship Type, "(0040, A010)",,,, CONTAINS
+   >Value Type, "(0040, A040)",,,, CONTAINER
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   >Content Sequence, "(0040, A730)"
+   >>Relationship Type, "(0040, A010)",,,, CONTAINS
+   >>Value Type, "(0040, A040)",,,, TEXT or CODE, [#Note11]_
+   >>Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >>Text Value, "(0040, A160)",,, OBX:5, [#Note12]_
+   >>Concept Code Sequence, "(0040, A168)",,,,, [#Note13]_
+   >>>Code Value, "(0008, 0100)",,,, OBX:5.1
+   >>>Code Scheme Designator, "(0008, 0102)",,,, OBX:5.3
+   >>>Code Meaning, "(0008, 0104)",,,, OBX:5.2
+
+.. _oru_in_pdf_dicom_doc_rad128:
+
+ORU - HL7 ORU Encapsulated PDF mapping to DICOM DOC Attributes (RAD-128)
+------------------------------------------------------------------------
+
+.. csv-table:: HL7 ORU to DICOM Structured Report Attributes mapping
+   :name: oru_obr_obx_dicom
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Notes/Default values
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
+   **Patient Identification**
+   Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Structured Report**
+   Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
+   Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
+   Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
+   SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.1
+   Modality, "(0008, 0060)",,,, DOC
+   Conversion Type, "(0008, 0064)",,,, SD
+   Burned In Annotation, "(0028, 0301)",,,, NO
+   Encapsulated Document, "(0042, 0011)",,,, OBX:5.5, [#Note15]_
+   MIME Type of Encapsulated Document, "(0042, 0012)",,,, application/pdf
+   Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note10]_
+   Instance Number, "(0020, 0013)",,,, 1
+   Value Type, "(0040, A040)",,,, CONTAINER
+   Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 11528-7
+   >>Code Scheme Designator, "(0008, 0102)",,,, LN
+   >>Code Meaning, "(0008, 0104)",,,, Radiology Report
+   Verifying Observer Sequence, "(0040, A073)"
+   >Verifying Organization, "(0040, A027)",,,, Default Value : Verifying Organization
+   >Verifying Observer Name, "(0040, A075)", Principal Result Interpreter, 00264, OBR:32.1, [#Note8]_
+   >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
+   Referenced Request Sequence, "(0040, A370)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
+   Completion Flag, "(0040, A491)", Result Status, 00258, OBR:25, [#Note1]_
+   Verification Flag, "(0040, A493)", Result Status, 00258, OBR:25, [#Note2]_
+   Content Sequence, "(0040, A730)",,,, [#Note3]_
+   Item 1
+   >Relationship Type, "(0040, A010)",,,, HAS CONCEPT MOD
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121049
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Language of Content Item and Descendants
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",,,, eng
+   >>Code Scheme Designator, "(0008, 0102)",,,, ISO639_2
+   >>Code Meaning, "(0008, 0104)",,,, English
+   Item 2
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, PNAME
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121008
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Person Observer Name
+   >Person Name, "(0040, A123)", Principal Result Interpreter, 00264, OBR:32.1
+   Item 3
+   >Relationship Type, "(0040, A010)",,,, HAS OBS CONTEXT
+   >Value Type, "(0040, A040)",,,, CODE
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, 121023
+   >>Code Scheme Designator, "(0008, 0102)",,,, DCM
+   >>Code Meaning, "(0008, 0104)",,,, Procedure Code
+   >Concept Code Sequence, "(0040, A168)"
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   Item 4
+   >Relationship Type, "(0040, A010)",,,, CONTAINS
+   >Value Type, "(0040, A040)",,,, CONTAINER
+   >Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >Continuity Of Content, "(0040, A050)",,,, SEPARATE
+   >Content Sequence, "(0040, A730)"
+   >>Relationship Type, "(0040, A010)",,,, CONTAINS
+   >>Value Type, "(0040, A040)",,,, TEXT or CODE, [#Note11]_
+   >>Concept Name Code Sequence, "(0040, A043)"
+   >>Code Value, "(0008, 0100)",,,, OBX:3.1
+   >>Code Scheme Designator, "(0008, 0102)",,,, OBX:3.3
+   >>Code Meaning, "(0008, 0104)",,,, OBX:3.2
+   >>Text Value, "(0040, A160)",,, OBX:5, [#Note12]_
+   >>Concept Code Sequence, "(0040, A168)",,,,, [#Note13]_
+   >>>Code Value, "(0008, 0100)",,,, OBX:5.1
+   >>>Code Scheme Designator, "(0008, 0102)",,,, OBX:5.3
+   >>>Code Meaning, "(0008, 0104)",,,, OBX:5.2
 
 .. [#Note1] If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
 
@@ -345,11 +678,11 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 .. [#Note3] This sequence is present only if Field 32 (i.e. Principal Result Interpreter) is present in OBR segment.
 
-.. [#Note4] If OBX field[3] component is Study Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note4] If OBX field[3] component 1 is **Study Instance UID**, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note5] If OBX field[3] component is Series Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note5] If OBX field[3] component 1 is **Series Instance UID**, then value is taken from OBX:5; else value is system generated.
 
-.. [#Note6] If OBX field[3] component is SR Instance UID, then value is taken from OBX:5; else value is system generated.
+.. [#Note6] If OBX field[3] component 1 is **SR Instance UID**, then value is taken from OBX:5; else value is system generated.
 
 .. [#Note7] If the Placer and/or Filler order number are not provided by the Referenced Request Sequence, it is assumed that the
     Report Manager is able to obtain values.
@@ -361,3 +694,15 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    is selected to specify Specific Character Set. If MSH-18 is absent, then
    `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
    is selected to specify Specific Character Set.
+
+.. [#Note10] If OBX field[3] component 1 is **DICOM Study**, then value is taken from OBX:5; else value is system generated.
+
+.. [#Note11] If OBX:2 is **TX** then the value is **TEXT** else if OBX:2 is **CE** then the value is **CODE**
+
+.. [#Note12] If OBX:2 is **TX**, **only then** Text Value (0040, A160) is set in this item with text value taken from OBX:5
+
+.. [#Note13] If OBX:2 is **CE**, **only then** Concept Code Sequence (0040, A168) is set in this item with code item taken from OBX:5
+
+.. [#Note14] OBX:5.5 shall contain the CDA document which is then encapsulated into a DICOM object. Though the value for this attribute shall contain the Retrieve URL path to this bulkdata.
+
+.. [#Note15] OBX:5.5 shall contain the base 64 encoded PDF document which is then encapsulated into a DICOM object. Though the value for this attribute shall contain the Retrieve URL path to this bulkdata.

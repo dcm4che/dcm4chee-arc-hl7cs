@@ -90,6 +90,12 @@ Table of Content
 |       9.1.2.4. :ref:`oru_in_obr`
 |       9.1.2.5. :ref:`oru_in_obx`
 |     9.1.3. :ref:`oru_in_dicom`
+|       9.1.3.1. :ref:`oru_in_dicom_rad28`
+|         9.1.3.1.1. :ref:`oru_in_txt_report_dicom_sr_rad28`
+|       9.1.3.2. :ref:`oru_in_dicom_rad128`
+|         9.1.3.2.1. :ref:`oru_in_txt_report_dicom_sr_rad128`
+|         9.1.3.2.2. :ref:`oru_in_cda_dicom_sr_rad128`
+|         9.1.3.2.3. :ref:`oru_in_pdf_dicom_doc_rad128`
 |   9.2. :doc:`oru/outbound`
 |     9.2.1. :ref:`oru_out_messages`
 |       9.2.1.1. :ref:`oru_out_oru_r01`
