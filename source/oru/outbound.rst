@@ -2,7 +2,11 @@ Outbound
 ########
 
 The Unsolicited Observation HL7 message is sent to other HL7 applications/receivers if HL7 receivers are to be
-`notified about the availability of the imaging results <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_
+`notified about the availability of the imaging results <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_.
+This notification can be triggered on receive of studies either by :
+- DICOM Studies stored conforming to `Storage AE Specification <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/specs/storage/storage.html>`_
+- DICOM Studies / Bulkdata stored using `STOW-RS Services <https://petstore.swagger.io/index.html?url=https://raw.githubusercontent.com/dcm4che/dcm4chee-arc-light/master/dcm4chee-arc-ui2/src/swagger/openapi.json#/STOW-RS>`_
+- `Reports stored by HL7 ORU <https://dcm4chee-arc-hl7cs.readthedocs.io/en/latest/oru/inbound.html>`_
 
 .. _oru_out_messages:
 

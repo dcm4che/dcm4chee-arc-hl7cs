@@ -109,5 +109,6 @@ Table of Content
 |       9.2.2.7. :ref:`oru_out_obx`
 |     9.2.3. :ref:`oru_out_dicom`
 |       9.2.3.1. :ref:`oru_out_oru_r01_dicom`
-| 10. :doc:`fwd/index`
-| 11. :doc:`security`
+| 10. :doc:`notification/index`
+| 11. :doc:`fwd/index`
+| 12. :doc:`security`
