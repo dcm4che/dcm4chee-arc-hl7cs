@@ -9,5 +9,5 @@ can also be configured to send out HL7 ORU notifications on availability of imag
 
 .. toctree::
 
-   ../orm/outbound
-   ../oru/outbound
+   Outbound OMG^O19 <../orm/outbound>
+   Outbound ORU^R01 <../oru/outbound>
