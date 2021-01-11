@@ -37,7 +37,9 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    PV1 - :ref:`tab_pv1_231`, Patient Visit, 3
    ORC - :ref:`tab_orc_231`, Common Order, 4
    OBR - :ref:`tab_obr_231`, Order Detail, 4
+   NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
+   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 .. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
@@ -49,16 +51,19 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
    TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
    OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
+   NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
    IPC - :ref:`tab_ipc_251`, Imaging Procedure Control, R, [1..*], 4
+   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 .. _orm_o01_actions:
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
 Patient Demographic Information are extracted from the PID and PV1 segments of the received message and mapped
-into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. If a Patient record with the extracted
-primary Patient ID already exists in the database, that Patient record will get updated. If there is no such Patient
-record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
+into corresponding DICOM attributes as defined in :ref:`adt_in_pid_dicom`. Optionally, if the received message also contains
+OBX segments, then patient demographic attributes are checked in these segments as well [#Note16]_. If a Patient record
+with the extracted primary Patient ID already exists in the database, that Patient record will get updated. If there is
+no such Patient record a new Patient record will be inserted into the database [#hl7NoPatientCreateMessageType]_.
 Based on the information received in the ORC and OBR segments, Modality Worklist Item is created/updated in the archive
 for the created/updated patient. If the message contains ZDS segment, the specified Study Instance UID will be used else
 system will generate a Study Instance UID for the Modality Worklist Item attributes.
@@ -88,8 +93,9 @@ Supported Segments
    ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
    TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..*], 4
    OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
-   NTE - :ref:`tab_nte_omg`, Notes and Comments (for Detail), O, [0..*], 4
+   NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C*, [0..*],
+   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -117,7 +123,9 @@ Supported Segments
    ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
    TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
    OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
+   NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
    IPC - :ref:`tab_ipc_251`, Imaging Procedure Control, R, [1..*], 4
+   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 Performed Actions
 ^^^^^^^^^^^^^^^^^
@@ -484,8 +492,8 @@ OBR - Observation Request segment
 NTE - Notes and Comments (for Detail) segment
 ---------------------------------------------
 
-.. csv-table:: Notes and Comments (for Detail) segment (Eyecare)
-   :name: tab_nte_omg
+.. csv-table:: Notes and Comments (for Detail) segment
+   :name: tab_nte
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -527,6 +535,21 @@ IPC - Imaging Procedure Control segment
    8, 250, CE, O, , 01664, **Scheduled Procedure Step Location**
    9, , ST, O, , 01665, **Scheduled Station AE Title**, [#Note14]_
 
+.. _orm_in_nte:
+
+OBX - Observation / Results segment
+-----------------------------------
+
+.. csv-table:: Observation / Results segment
+   :name: tab_obx
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 00569, Set ID - OBX
+   2, 2, ID, C, 0125, 00570, Value Type
+   3, 250, CE, R, , 00571, **Observation Identifier**
+   4, 20, ST, C, , 00572, Observation Sub-ID
+   5, 99999¹, varies, C, , 00573, **Observation Value**
 
 Element names in **bold** indicates that the field is used by |product|.
 
@@ -555,6 +578,8 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Demographic**
    Same as Patient Demographic in :ref:`adt_in_pid_dicom`
+   Patient's Weight, "(0010, 1030)", Observation Value, 00573, OBX:5, [#Note16]_
+   Patient's Size, "(0010, 1020)", Observation Value, 00573, OBX:5, [#Note16]_
    **Patient Medical**
    Patient State, "(0038, 0500)", Danger Code, 00246, OBR:12
    Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note8]_
@@ -838,3 +863,6 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    is selected to specify Specific Character Set. If MSH-18 is absent, then
    `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
    is selected to specify Specific Character Set.
+
+.. [#Note16] If OBX:3.1 = "kg" and OBX:3.2 = "Body Weight", then OBX:5 is mapped to DICOM attribute Patient's Weight.
+   If OBX:3.1 = "m" and OBX:3.2 = "Body Height", then OBX:5 is mapped to DICOM attribute Patient's Size.
