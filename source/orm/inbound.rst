@@ -38,7 +38,7 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    ORC - :ref:`tab_orc_231`, Common Order, 4
    OBR - :ref:`tab_obr_231`, Order Detail, 4
    NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
-   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information
+   ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C, [0..1],
    OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 .. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.5.1)
