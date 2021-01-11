@@ -29,17 +29,17 @@ Supported Segments
 The following segments are processed from an incoming ORM^O01^ORM_O01 message:
 
 .. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.3.1)
-   :header: Segment, Meaning, HL7 Chapter
-   :widths: 25, 50, 25
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
 
-   MSH - :ref:`tab_msh_231`, Message Header, 2
-   PID - :ref:`tab_pid_231`, Patient Identification, 3
-   PV1 - :ref:`tab_pv1_231`, Patient Visit, 3
-   ORC - :ref:`tab_orc_231`, Common Order, 4
-   OBR - :ref:`tab_obr_231`, Order Detail, 4
+   MSH - :ref:`tab_msh_231`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_231`, Patient Identification, R, [1..1], 3
+   PV1 - :ref:`tab_pv1_231`, Patient Visit, R, [1..1], 3
+   ORC - :ref:`tab_orc_231`, Common Order, R, [1..*], 4
+   OBR - :ref:`tab_obr_231`, Order Detail, R, [1..*], 4
    NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
-   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C, [0..1],
+   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 .. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
