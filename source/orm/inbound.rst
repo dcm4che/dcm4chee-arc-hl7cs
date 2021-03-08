@@ -10,7 +10,7 @@ Inbound Messages
 
 ORM - General Order Message (Event O01)
 ---------------------------------------
-Supported HL7 version: 2.3.1, 2.5.1 both for RAD-4 and RAD-13
+Supported HL7 version: 2.3.1 both for RAD-4 and RAD-13
 
 .. _orm_o01_event:
 
@@ -39,20 +39,6 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    OBR - :ref:`tab_obr_231`, Order Detail, R, [1..*], 4
    NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C, [0..1],
-   OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
-
-.. csv-table:: Supported segments of OMI^O23^OMI_O23 (HL7 v2.5.1)
-   :header: Segment, Meaning, Usage, Card., HL7 chapter
-   :widths: 15, 40, 15, 15, 15
-
-   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
-   PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
-   PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
-   ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
-   TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
-   OBR - :ref:`tab_obr_251`, Order Detail, R, [1..*], 4
-   NTE - :ref:`tab_nte`, Notes and Comments (for Detail), O, [0..*], 4
-   IPC - :ref:`tab_ipc_251`, Imaging Procedure Control, R, [1..*], 4
    OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
 .. _orm_o01_actions:
