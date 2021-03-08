@@ -41,7 +41,7 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
    ZDS - :ref:`tab_zds_orm_omg`, Additional identification information, C, [0..1],
    OBX - :ref:`tab_obx`, Observation / Result, O, [0..*], 7
 
-.. csv-table:: Supported segments of ORM^O01^ORM_O01 (HL7 v2.5.1)
+.. csv-table:: Supported segments of OMI^O23^OMI_O23 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
