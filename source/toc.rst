@@ -109,6 +109,12 @@ Table of Content
 |       9.2.2.7. :ref:`oru_out_obx`
 |     9.2.3. :ref:`oru_out_dicom`
 |       9.2.3.1. :ref:`oru_out_oru_r01_dicom`
-| 10. :doc:`notification/index`
-| 11. :doc:`fwd/index`
-| 12. :doc:`security`
+| 10. :doc:`siu/index`
+|   10.1. :doc:`siu/inbound`
+|     10.1.1. :ref:`siu_in_messages`
+|       10.1.1.1. :ref:`siu_in_s12`
+|       10.1.1.2. :ref:`siu_in_s13`
+|       10.1.1.3. :ref:`siu_in_s15`
+| 11. :doc:`notification/index`
+| 12. :doc:`fwd/index`
+| 13. :doc:`security`
