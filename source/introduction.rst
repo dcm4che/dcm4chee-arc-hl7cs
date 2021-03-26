@@ -90,3 +90,6 @@ the authoritative source for formal definitions of these terms.
 
    ORU
       Unsolicited Transmission of an Observation.
+
+   SIU
+      Unsolicited Notification of an Appointment.
