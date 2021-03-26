@@ -19,6 +19,7 @@ HL7 Conformance Statement |product|
    adt/index
    orm/index
    oru/index
+   siu/index
    notification/index
    fwd/index
    security
