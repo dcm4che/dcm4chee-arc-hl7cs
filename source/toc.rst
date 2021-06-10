@@ -117,4 +117,8 @@ Table of Content
 |       10.1.1.3. :ref:`siu_in_s15`
 | 11. :doc:`notification/index`
 | 12. :doc:`fwd/index`
-| 13. :doc:`security`
+| 13. :doc:`export/index`
+| 14. :doc:`prefetch/index`
+| 15. :doc:`lifecycle/index`
+| 16. :doc:`ups/index`
+| 17. :doc:`security`

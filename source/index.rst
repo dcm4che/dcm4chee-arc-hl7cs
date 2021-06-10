@@ -22,4 +22,8 @@ HL7 Conformance Statement |product|
    siu/index
    notification/index
    fwd/index
+   export/index
+   prefetch/index
+   lifecycle/index
+   ups/index
    security
