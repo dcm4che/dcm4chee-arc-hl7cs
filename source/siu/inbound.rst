@@ -8,7 +8,7 @@ Inbound Messages
 
 .. _siu_in_s12:
 
-ADT/ACK - Notification of new appointment booking (Event S12)
+SIU/ACK - Notification of new appointment booking (Event S12)
 -------------------------------------------------------------
 Supported HL7 versions: 2.3.1
 
@@ -28,7 +28,7 @@ Update service is not invoked.
 
 .. _siu_in_s13:
 
-ADT/ACK - Notification of appointment rescheduling (Event S13)
+SIU/ACK - Notification of appointment rescheduling (Event S13)
 --------------------------------------------------------------
 Supported HL7 versions: 2.3.1
 
@@ -46,7 +46,7 @@ Same as specified in :numref:`siu_in_s12_actions`.
 
 .. _siu_in_s15:
 
-ADT/ACK - Notification of appointment cancellation (Event S15)
+SIU/ACK - Notification of appointment cancellation (Event S15)
 --------------------------------------------------------------
 Supported HL7 versions: 2.3.1
 
