@@ -122,3 +122,7 @@ Table of Content
 | 15. :doc:`lifecycle/index`
 | 16. :doc:`ups/index`
 | 17. :doc:`security`
+|   17.1 :doc:`security/profiles`
+|     17.1.1. :ref:`secure-transport-connection-profiles`
+|     17.1.2. :ref:`audit-trail-profiles`
+|   17.2 :doc:`security/association`
