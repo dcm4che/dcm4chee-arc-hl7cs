@@ -16,10 +16,16 @@
 "ADT/ACK - Merge Patient - Patient Identifier List (Event A40)", "2.3.1, 2.5, 2.5.1", "Yes", "Yes"
 "ADT/ACK - Change Patient Identifier List (Event A47)", "2.5", "Yes", "Yes"
 "**Order Management**",,,
-"ORM - General Order Message (Event O01)", "2.3.1", "No", "Yes"
-"OMG - General Clinical Order Message (Event O19)", "2.5.1", "Yes", "Yes"
-"OMI - Imaging Order Message (Event O23)", "2.5.1", "No", "Yes"
+"ORM/ACK - General Order Message (Event O01)", "2.3.1", "No", "Yes"
+"OMG/ACK - General Clinical Order Message (Event O19)", "2.5.1", "Yes", "Yes"
+"OMI/ACK - Imaging Order Message (Event O23)", "2.5.1", "No", "Yes"
 "**Report Management**",,,
-"ORU - Unsolicited Observation Message (Event R01)", "2.3.1", "No", "Yes"
+"ORU/ACK - Unsolicited Observation Message (Event R01)", "2.3.1", "Yes", "Yes"
+"**Appointment Notification**",,,
+"SIU/ACK - Notification of new appointment booking (Event S12)", "2.5.1", "Yes", "No"
+"SIU/ACK - Notification of appointment rescheduling (Event S13)", "2.5.1", "Yes", "No"
+"SIU/ACK - Notification of appointment cancellation (Event S15)", "2.5.1", "Yes", "No"
+"**Patient Demographics Query**",,,
+"QBP/RSP - Find Candidates (Event Q22)", "2.5.1", "No", "Yes"
 "**HL7 Forwarding**",,,
 "arbitrary HL7 Message", "2.x", "Yes", "Yes"

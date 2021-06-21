@@ -20,6 +20,7 @@ HL7 Conformance Statement |product|
    orm/index
    oru/index
    siu/index
+   qbp/index
    notification/index
    fwd/index
    export/index
