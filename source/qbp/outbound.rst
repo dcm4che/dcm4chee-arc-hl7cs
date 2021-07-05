@@ -26,15 +26,15 @@ suppliers
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
-The following segments are sent in an outgoing ORU^R01^ORU_R01 message:
+The following segments are sent in an outgoing QBP^Q22^QBP_Q22 message:
 
-.. csv-table:: Supported segments of ORU^R01^ORU_R01 (HL7 v2.5.1)
+.. csv-table:: Supported segments of QBP^Q22^QBP_Q22 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
    :widths: 15, 40, 15, 15, 15
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
-   QPD - :ref:`tab_qpd_out_251`, Patient Identification, R, [1..1], 5
-   RCP - :ref:`tab_rcp_out_251`, Patient Visit, R, [1..1], 5
+   QPD - :ref:`tab_qbp_qpd_out_251`, Query Parameter Definition, R, [1..1], 5
+   RCP - :ref:`tab_rcp_out_251`, Response Control Parameter, R, [1..1], 5
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ QPD - Query Parameter Definition segment
 ----------------------------------------
 
 .. csv-table:: QPD - Query Parameter Definition segment (HL7 v2.5.1)
-   :name: tab_qpd_qbp_251
+   :name: tab_qbp_qpd_out_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -71,7 +71,7 @@ RCP - Response Control Parameter segment
 ----------------------------------------
 
 .. csv-table:: RCP - Response Control Parameter segment (HL7 v2.5.1)
-   :name: tab_rcp_qbp_251
+   :name: tab_qbp_rcp_out_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -97,7 +97,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 
 .. _qbp_out_qbp_q22_dicom:
 
-ORU - DICOM Patient Attributes to HL7 Query by Parameter Message mapping
+QBP - DICOM Patient Attributes to HL7 Query by Parameter Message mapping
 ------------------------------------------------------------------------
 
 .. csv-table:: DICOM Patient Attributes to HL7 Query by Parameter Message mapping
