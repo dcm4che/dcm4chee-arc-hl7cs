@@ -616,6 +616,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_
@@ -691,6 +692,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_
@@ -761,6 +763,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note2]_
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.2, PV1:19.2, [#Note3]_

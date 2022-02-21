@@ -269,6 +269,8 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Visit**
+   Same as Patient Visit in :ref:`orm_to_dicom`
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
@@ -401,6 +403,8 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Visit**
+   Same as Patient Visit in :ref:`orm_to_dicom`
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
@@ -495,6 +499,8 @@ Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Visit**
+   Same as Patient Visit in :ref:`orm_to_dicom`
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
@@ -593,6 +599,8 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Visit**
+   Same as Patient Visit in :ref:`orm_to_dicom`
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
