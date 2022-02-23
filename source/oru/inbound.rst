@@ -72,6 +72,12 @@ PID - Patient Identification segment
 ------------------------------------
 Same as specified in :ref:`tab_pid_231` or :ref:`tab_pid_251`
 
+.. _oru_in_pv1:
+
+PV1 - Patient Visit segment
+---------------------------
+Same as specified in :ref:`tab_pv1_231` or :ref:`tab_pv1_251`
+
 .. _oru_in_obr:
 
 OBR - Observation Request segment

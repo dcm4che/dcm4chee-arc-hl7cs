@@ -63,6 +63,7 @@ Table of Content
 |       8.1.2.7. :ref:`orm_in_nte`
 |       8.1.2.8. :ref:`orm_in_zds`
 |       8.1.2.9. :ref:`orm_in_ipc`
+|       8.1.2.9. :ref:`orm_in_obx`
 |     8.1.3. :ref:`orm_in_dicom`
 |       8.1.3.1. :ref:`orm_in_orm_o01_dicom`
 |       8.1.3.2. :ref:`orm_in_omi_o23_dicom`

@@ -137,10 +137,10 @@ Same as specified in :ref:`tab_pid_231` or :ref:`tab_pid_251`
 
 .. _orm_in_pv1:
 
-PV1 - Patient Visit Information segment
----------------------------------------
+PV1 - Patient Visit segment
+---------------------------
 
-.. csv-table:: Patient Visit Information segment (HL7 v2.3.1)
+.. csv-table:: Patient Visit segment (HL7 v2.3.1)
    :name: tab_pv1_231
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -199,7 +199,7 @@ PV1 - Patient Visit Information segment
    52, 60, XCN, O, 0010, 01224, Other Healthcare Provider
 
 
-.. csv-table:: Patient Visit Information segment (HL7 v2.5.1)
+.. csv-table:: Patient Visit segment (HL7 v2.5.1)
    :name: tab_pv1_251
    :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
@@ -289,8 +289,8 @@ ORC - Order Control segment
    19, 120, XCN, O, , 00233, Action By
 
 
-ORC - Patient Visit Information segment
----------------------------------------
+ORC - Order Control segment
+---------------------------
 
 .. csv-table:: Order Control segment - (HL7 v2.5.1)
    :name: tab_orc_251
@@ -521,7 +521,7 @@ IPC - Imaging Procedure Control segment
    8, 250, CE, O, , 01664, **Scheduled Procedure Step Location**
    9, , ST, O, , 01665, **Scheduled Station AE Title**, [#Note14]_
 
-.. _orm_in_nte:
+.. _orm_in_obx:
 
 OBX - Observation / Results segment
 -----------------------------------

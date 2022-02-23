@@ -34,7 +34,7 @@ The following segments are sent in an outgoing QBP^Q22^QBP_Q22 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    QPD - :ref:`tab_qbp_qpd_out_251`, Query Parameter Definition, R, [1..1], 5
-   RCP - :ref:`tab_rcp_out_251`, Response Control Parameter, R, [1..1], 5
+   RCP - :ref:`tab_qbp_rcp_out_251`, Response Control Parameter, R, [1..1], 5
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
