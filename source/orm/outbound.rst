@@ -6,12 +6,12 @@ The General Clinical Order Message HL7 message is sent to other HL7 applications
 `on receive of studies without any MWL items associated to it <https://github.com/dcm4che/dcm4chee-arc-light/issues/2372>`.
 This notification can be triggered for :
 
-- Updates to MWL items in archive, on :
+Updates to MWL items in archive, on :
 
   - Receive of MPPS : Study referenced in MPPS is also associated with an existing MWL item in archive
   - Receive of studies : Study is associated with an existing MWL item in archive
 
-- Receive of studies either by :
+Receive of studies either by :
 
   - DICOM Studies stored conforming to `Storage AE Specification <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/specs/storage/storage.html>`_
   - DICOM Studies / Bulkdata stored using `STOW-RS Services <https://petstore.swagger.io/index.html?url=https://raw.githubusercontent.com/dcm4che/dcm4chee-arc-light/master/dcm4chee-arc-ui2/src/swagger/openapi.json#/STOW-RS>`_
