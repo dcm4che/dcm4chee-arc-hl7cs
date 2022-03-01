@@ -512,7 +512,7 @@ PID - Patient Identification segment
    8, 1, IS, R, 0001, 00111, **Sex**
    9, 48, XPN, O, , 00112, **Patient Alias**
    10, 80, CE, R2, 0005, 00113, Race
-   11, 1, 06, XAD, R2, 00114, Patient Address
+   11, 1, 06, XAD, R2, 00114, **Patient Address**
    12, 4, IS, O, , 00115, County Code
    13, 40, XTN, O, , 00116, Phone Number - Home
    14, 40, XTN, O, , 00117, Phone Number - Business
@@ -548,7 +548,7 @@ PID - Patient Identification segment
    8, 1, IS, CE, [1..1], 0001, 00111, **Administrative Sex**
    9, 250, XPN, O, [0..1], , 00112, Patient Alias
    10, 250, CE, O, [0..1], 0005, 00113, Race
-   11, 250, XAD, CE, [0..*], , 00114, Patient Address
+   11, 250, XAD, CE, [0..*], , 00114, **Patient Address**
    12, 4, IS, X, [0..1], 0289, 00115, County Code
    13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
    14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
@@ -662,6 +662,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    Responsible Person, "(0010, 2297)", Patient Alias, 00112, PID:9
    Responsible Person Role, "(0010, 2298)", , , , "set to ``OWNER``, if PID:9 is not empty"
+   Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
    Patient Species Description, "(0010, 2201)", Species Code, 01539.2, PID:35.2
    Patient Species Code Sequence, "(0010, 2202)"
    >Code Value, "(0008, 0100)", Species Code, 01539.1, PID:35.1

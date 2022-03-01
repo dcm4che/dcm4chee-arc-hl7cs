@@ -164,7 +164,7 @@ PID - Patient Identification Segment
    8, 1, IS, CE, [1..1], 0001, 00111, **Administrative Sex**
    9, 250, XPN, O, [0..1], , 00112, **Patient Alias**
    10, 250, CE, O, [0..1], 0005, 00113, Race
-   11, 250, XAD, CE, [0..*], , 00114, Patient Address
+   11, 250, XAD, CE, [0..*], , 00114, **Patient Address**
    12, 4, IS, X, [0..1], 0289, 00115, County Code
    13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
    14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
@@ -264,6 +264,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    **Patient Medical**
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2
+   Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
 
 .. csv-table:: HL7 ADT mapping of MRG segment to DICOM Patient Attributes
    :name: dicom_out_mrg_adt
