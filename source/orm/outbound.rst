@@ -329,6 +329,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
    Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
    Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
@@ -336,8 +337,10 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Item, "(FFFE, E000)"
    >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   **Patient Demographic**
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   **Visit Identification**
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
