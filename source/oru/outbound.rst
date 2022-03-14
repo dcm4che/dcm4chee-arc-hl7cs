@@ -320,11 +320,12 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note9]_
-   Admission ID, "(0038, 0010)", Visit Number, 00251, PV1:19
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
    Issuer of Admission ID Sequence, "(0038, 0014)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number #, 00149.2, PV1:19.2
-   >Universal Entity ID, "(0040, 0032)", Visit Number #, 00149.3, PV1:19.3
-   >Universal Entity ID Type, "(0040, 0033)", Visit Number #, 00149.4, PV1:19.4
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    , , Visit Indicator, 01226, PV1:51, Set to V
    , , Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM

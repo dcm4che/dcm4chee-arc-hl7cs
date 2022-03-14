@@ -342,6 +342,12 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    **Visit Identification**
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, [#Note1]_
