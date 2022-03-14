@@ -338,7 +338,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
-   , , Patient Class, 00132, PV1:2, Set to U
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, [#Note1]_
@@ -373,3 +373,6 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    triggered when a Study (which has MWL entries referencing it) is completely received, then this value is populated
    from the created time of the task. (The `task` here refers to a task created in database for sending out the HL7 notification.)
    Refer `Synchronize external HL7 receivers on updates of Requested Procedures <https://github.com/dcm4che/dcm4chee-arc-light/wiki/Requested-Procedures>`_
+
+.. [#Note3] Route of Admissions (0038, 0016) DICOM attribute, if present, shall be mapped to PV1:2. If this DICOM attribute
+   is absent, default "U" (denoting Patient Class as Unknown) shall be used.

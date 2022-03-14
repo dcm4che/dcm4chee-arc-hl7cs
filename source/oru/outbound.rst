@@ -319,7 +319,7 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
-   , , Patient Class, 00132, PV1:2, Set to U
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note9]_
    Admission ID, "(0038, 0010)", Visit Number, 00251, PV1:19
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number #, 00149.2, PV1:19.2
@@ -398,3 +398,6 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
     temporarily the `HL7v2 Hierarchic Designator Macro Attributes <http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.14.html#table_10-17>`_
     of `Issuer Of Accession Number Sequence` have been encoded as per
     `Example 3: ISO OID encoded in an ST subcomponent <http://hl7.eu/refactored/dtST.html>`_
+
+.. [#Note9] Route of Admissions (0038, 0016) DICOM attribute, if present, shall be mapped to PV1:2. If this DICOM attribute
+   is absent, default "U" (denoting Patient Class as Unknown) shall be used.
