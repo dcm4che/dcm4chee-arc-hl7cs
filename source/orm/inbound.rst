@@ -863,8 +863,8 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
    is selected to specify Specific Character Set.
 
-.. [#Note16] If OBX:3.1 = "kg" and OBX:3.2 = "Body Weight", then OBX:5 is mapped to DICOM attribute Patient's Weight.
-   If OBX:3.1 = "m" and OBX:3.2 = "Body Height", then OBX:5 is mapped to DICOM attribute Patient's Size.
+.. [#Note16] If OBX:6 = "kg" and OBX:3.2 = "Body Weight", then OBX:5 is mapped to DICOM attribute Patient's Weight.
+   If OBX:6 = "m" and OBX:3.2 = "Body Height", then OBX:5 is mapped to DICOM attribute Patient's Size.
 
 .. [#Note17] Route of Admissions (0038, 0016) DICOM attribute shall be mapped to value present in PV1:2. If this field is
    absent, default "U" (denoting Patient Class as Unknown) shall be used.
