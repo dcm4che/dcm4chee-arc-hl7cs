@@ -241,6 +241,12 @@ OBX - Observation Request segment
    17, 250, CE, O, , 00936, Observation Method
    18, 22, EI, O, , 01479, Equipment Instance Identifier
    19, 26, TS, O, , 01480, Date/Time of Analysis
+   20, 0, ST, X, , , Reserved for harmonization with V2.6
+   21, 0, ST, X, , , Reserved for harmonization with V2.6
+   22, 0, ST, X, , , Reserved for harmonization with V2.6
+   23, 567, XON, O, , , **Performing Organization Name**
+   24, 631, XAD, O, , , Performing Organization Address
+   25, 3002, XCN, O, , , Performing Organization Medical Director
 
 Element names in **bold** indicates that the field is used by |product|.
 
@@ -283,6 +289,7 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
    Modality, "(0008, 0060)",,,, SR
+   Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    SOP Instance UID, "(0008, 0018)",,, OBX[1]:5, [#Note6]_
    Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note4]_
    Series Instance UID, "(0020, 000E)",,, OBX[3]:5, [#Note5]_
@@ -417,6 +424,7 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
    Modality, "(0008, 0060)",,,, SR
+   Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note10]_
    Instance Number, "(0020, 0013)",,,, 1
    Value Type, "(0040, A040)",,,, CONTAINER
@@ -513,6 +521,7 @@ Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.2
    Modality, "(0008, 0060)",,,, SR
+   Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Conversion Type, "(0008, 0064)",,,, WSD
    Burned In Annotation, "(0028, 0301)",,,, NO
    Encapsulated Document, "(0042, 0011)",,,, OBX:5.5, [#Note14]_
@@ -613,6 +622,7 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.1
    Modality, "(0008, 0060)",,,, DOC
+   Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Conversion Type, "(0008, 0064)",,,, SD
    Burned In Annotation, "(0028, 0301)",,,, NO
    Encapsulated Document, "(0042, 0011)",,,, OBX:5.5, [#Note15]_
@@ -726,3 +736,7 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
 .. [#Note14] OBX:5.5 shall contain the CDA document which is then encapsulated into a DICOM object. Though the value for this attribute shall contain the Retrieve URL path to this bulkdata.
 
 .. [#Note15] OBX:5.5 shall contain the base 64 encoded PDF document which is then encapsulated into a DICOM object. Though the value for this attribute shall contain the Retrieve URL path to this bulkdata.
+
+.. [#Note16] OBX:23 - Performing Organization Name : This field contains the name of the organization/service responsible
+   for performing the service. When this field is null, the receiving system assumes that the observations were produced
+   by the sending organization (MSH:4).
