@@ -342,15 +342,15 @@ error conditions.
    :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
 
    101,Required Field Missing,MSH^1^3^1^1,Missing Sending Application,
-   ,,MSH^1^4^1^1",Missing Sending Facility,
-   ,,MSH^1^5^1^1",Missing Receiving Application,
-   ,,MSH^1^6^1^1",Missing Receiving Facility,
-   ,,MSH^1^9^1^1",Missing Message Type,
+   ,,MSH^1^4^1^1,Missing Sending Facility,
+   ,,MSH^1^5^1^1,Missing Receiving Application,
+   ,,MSH^1^6^1^1,Missing Receiving Facility,
+   ,,MSH^1^9^1^1,Missing Message Type,
    ,,MSH^1^10^1^1,Missing Message Control ID,
    103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
    ,,MSH^1^5^1^1,Receiving Application and/or Facility not recognized,[#Note2]_
-   200,Unsupported Message Type,MSH^1^9^1^1",Message Type - Message Code not supported,
-   201,Unsupported Event Code,MSH^1^9^1^2",Message Type - Trigger Event not supported,
+   200,Unsupported Message Type,MSH^1^9^1^1,Message Type - Message Code not supported,
+   201,Unsupported Event Code,MSH^1^9^1^2,Message Type - Trigger Event not supported,
    207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
 
 .. [#Note1] Caused by mismatch of Sending Application with Facility in incoming HL7 messages with configured list of
