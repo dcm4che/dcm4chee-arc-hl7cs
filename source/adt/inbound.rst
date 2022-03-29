@@ -690,9 +690,37 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.4.2, MRG:1.4.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.4.3, MRG:1.4.3
 
+.. _adt_in_err:
+
+HL7 ADT - Error Mapping
+=======================
+
+Following table gives an overview of error codes and messages sent by |product| for incoming HL7 ADT messages triggering
+error conditions.
+
+.. csv-table:: Error Codes Mapping and Usage
+   :name: tab_hl7_adt_error
+   :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
+
+   **Error Common**
+   Same as Error Codes Mapping and Usage in :ref:`tab_hl7_error`
+   **Patient Management specific**
+   101,Required Field Missing,PID^1^3^1^1,Missing patient identifier,
+   ,,MRG^1^1^1^1,Missing prior patient identifier,
+   204,Unknown Key Identifier,PID^1^3^1^1,,[#Note2]_
+   ,,MRG^1^1^1^1,,[#Note2]_
+   205,Duplicate Key Identifier,PID^1^3,Either previous or new Patient ID has missing issuer and change patient id tracking is enabled. Disable change patient id tracking feature and retry update,
+   ,,MRG^1^1^1^1,Prior patient identifier matches patient identifier,
+   207,Application Internal Error,,,[#Note3]_
 
 .. [#Note1] `HL7 DICOM Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7dicomcharacterset>`_
    if configured, is selected to specify Specific Character Set. Else, MSH-18 if present in the incoming HL7 message, :ref:`tab_hl7_dicom_charset` 
    is selected to specify Specific Character Set. If MSH-18 is absent, then
    `HL7 Default Character Set <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7defaultcharacterset>`_
    is selected to specify Specific Character Set.
+
+.. [#Note2] Message stating respective patient identifier refers to an already merged patient record. Depends on configured
+   `HL7 Referred Merged Patient Policy <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveHL7Application.html#hl7referredmergedpatientpolicy>_`.
+
+.. [#Note3] User message in ERR:7 is set to exception message. This exception pertains to HL7 ADT message processing
+   triggered internal application failure.

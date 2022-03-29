@@ -702,6 +702,30 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    >>>Code Scheme Designator, "(0008, 0102)",,,, OBX:5.3
    >>>Code Meaning, "(0008, 0104)",,,, OBX:5.2
 
+.. _oru_in_err:
+
+HL7 ORU - Error Mapping
+=======================
+
+Following table gives an overview of error codes and messages sent by |product| for incoming HL7 ADT messages triggering
+error conditions.
+
+.. csv-table:: Error Codes Mapping and Usage
+   :name: tab_hl7_oru_error
+   :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
+
+   **Error Common**
+   Same as Error Codes Mapping and Usage in :ref:`tab_hl7_error`
+   **Patient Management specific**
+   Same as Error Codes Mapping and Usage in :ref:`tab_hl7_adt_error` specific to PID segment.
+   **Observation Reporting Management specific**
+   101,Required Field Missing,OBX^1^5^1^2,Invalid encoding of encapsulated document in components 2 and/or 3 and/or 4 of field 5",[#Note17]_
+   ,,OBX^1^5^1^5,Encapsulated document data missing,[#Note17]_
+   ,,OBX^1^5^1^1,Missing study instance uid,
+   ,,OBR^1^18^1^1,Missing accession number,
+   206,Application Record Locked,,No HL7 Message Listener configured,[#Note3]_
+
+
 .. [#Note1] If the value of this field is P, then CompletionFlag is set to PARTIAL. In all other cases it is set to COMPLETE
 
 .. [#Note2] If the value of this field is P or F, then VerificationFlag is set to VERIFIED. In all other cases it is set to UNVERIFIED
@@ -740,3 +764,5 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
 .. [#Note16] OBX:23 - Performing Organization Name : This field contains the name of the organization/service responsible
    for performing the service. When this field is null, the receiving system assumes that the observations were produced
    by the sending organization (MSH:4).
+
+.. [#Note17] Applicable only for HL7 ORU^O01 messages containing encapsulated documents

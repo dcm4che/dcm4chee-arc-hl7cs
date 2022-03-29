@@ -61,9 +61,9 @@ following subsections. The ERR segment is optional and will not be included in A
    :header: Segment,Meaning,Chapter in HL7 v2.3.1
    :widths: 25, 50, 25
 
-   MSH,Message Header,2
-   MSA,Message Acknowledgement,2
-   [ERR],Error,2
+   MSH - :ref:`tab_msh_231`,Message Header,2
+   MSA - :ref:`tab_msa_231`,Message Acknowledgement,2
+   [ERR] - :ref:`tab_err_231`,Error,2
 
 .. _message_control_231:
 
@@ -132,6 +132,7 @@ Acknowledgement Modes
 This segment contains information sent while acknowledging another message.
 
 .. csv-table:: MSA - Message Acknowledgement
+   :name: tab_msa_231
    :header: SEQ,LEN,DT,OPT,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 12, 48
 
@@ -150,6 +151,19 @@ message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value `
 If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may provide an error message in
 *MSA-3-Text Message*.
 
+Error Modes
+^^^^^^^^^^^
+
+This segment contains information sent while acknowledging another message in error cases. The segment is documented only
+for reference and backward compatibility. It is not used by the |product|.
+
+.. csv-table:: ERR - Error Segment
+   :name: tab_err_231
+   :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
+
+   1,80,CM,R,Y,,00024,Error Code and Location
+
 HL7 v2.5 Message Implementation Requirements
 --------------------------------------------
 
@@ -166,9 +180,9 @@ following subsections. The ERR segment is optional and will be included in ACK m
    :header: Segment,Meaning,Usage,Card.,HL7 chapter
    :widths: 15,40,15,15,15
 
-   MSH,Message Header,R,[1..1],2
-   MSA,Message Acknowledgement,R,[1..1],2
-   [ERR],Error,C,[0..*],2
+   MSH - :ref:`tab_msh_251`,Message Header,R,[1..1],2
+   MSA - :ref:`tab_msa_251`,Message Acknowledgement,R,[1..1],2
+   [ERR] - :ref:`tab_err_251`,Error,C,[0..*],2
 
 .. _message_control_25:
 
@@ -237,6 +251,7 @@ Acknowledgement Modes
 This segment contains information sent while acknowledging another message.
 
 .. csv-table:: MSA - Message Acknowledgement
+   :name: tab_msa_251
    :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
@@ -254,6 +269,31 @@ message, *MSA-1-Acknowledgement code* of the acknowledgement contain the value `
 
 If the *MSA-1-Acknowledgement code* identifies an error condition, |product| may provide an error message in
 *MSA-3-Text Message*.
+
+Error Modes
+^^^^^^^^^^^
+
+This segment is used to add error codes and comments to acknowledgment messages.
+
+.. csv-table:: ERR - Error Segment
+   :name: tab_err_251
+   :header: SEQ,LEN,DT,Usage,Card.,TBL#,ITEM #,Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 40
+
+   1,493,ELD,B,Y,,00024,Error Code and Location
+   2,18,ERL,O,Y,,01812,**Error Location**
+   3,705,CWE,R,,0357,01813,**HL7 Error Code**
+   4,2,ID,R,,0516,01814,**Severity**
+   5,705,CWE,O,,0533,01815,Application Error Code
+   6,80,ST,O,Y/10,,01816,Application Error Parameter
+   7,2048,TX,O,,,01817,Diagnostic Information
+   8,250,TX,O,,,01818,**User Message**
+   9,20,IS,O,Y,0517,01819,Inform Person Indicator
+   10,705,CWE,O,,0518,01820,Override Type
+   11,705,CWE,O,Y,0519,01821,Override Reason Code
+   12,652,XTN,O,Y,,01822,Help Desk Contact Point
+
+Element names in **bold** indicates that the field is used by |product|.
 
 .. _hl7_and_dicom_mapping_considerations:
 
@@ -290,3 +330,34 @@ number of bytes per character in such sets.
    CNS 11643-1992,ISO_IR 166,Thai
    UNICODE UTF-8,ISO_IR 192,Unicode in UTF-8
    GB 18030-2000,GB18030,Chinese Character Set (GB 18030-2000)
+
+Error Codes Mapping
+-------------------
+
+Following table gives an overview of error codes and messages sent by |product| for incoming HL7 messages triggering
+error conditions.
+
+.. csv-table:: Error Codes Mapping and Usage
+   :name: tab_hl7_error
+   :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
+
+   101,Required Field Missing,MSH^1^3^1^1,Missing Sending Application,
+   ,,MSH^1^4^1^1",Missing Sending Facility,
+   ,,MSH^1^5^1^1",Missing Receiving Application,
+   ,,MSH^1^6^1^1",Missing Receiving Facility,
+   ,,MSH^1^9^1^1",Missing Message Type,
+   ,,MSH^1^10^1^1,Missing Message Control ID,
+   103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
+   ,,MSH^1^5^1^1,Receiving Application and/or Facility not recognized,[#Note2]_
+   200,Unsupported Message Type,MSH^1^9^1^1",Message Type - Message Code not supported,
+   201,Unsupported Event Code,MSH^1^9^1^2",Message Type - Trigger Event not supported,
+   207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
+
+.. [#Note1] Caused by mismatch of Sending Application with Facility in incoming HL7 messages with configured list of
+   `Accepted Sending Application(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7acceptedsendingapplication>`
+
+.. [#Note2] Caused by misconfigured `Network Connection <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/networkConnection.html>`
+   of a `HL7 Application <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html>` in a
+   device.
+
+.. [#Note3] Caused by incorrect HL7 application configuration or issues in HL7 service registry initialization in archive.

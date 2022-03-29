@@ -36,6 +36,7 @@ Table of Content
 |       7.1.2.2. :ref:`adt_in_pid`
 |       7.1.2.3. :ref:`adt_in_mrg`
 |     7.1.3. :ref:`adt_in_dicom`
+|     7.1.4. :ref:`adt_in_err`
 |   7.2. :doc:`adt/outbound`
 |     7.2.1. :ref:`adt_out_messages`
 |       7.2.1.1. :ref:`adt_out_a28`
@@ -68,6 +69,7 @@ Table of Content
 |       8.1.3.1. :ref:`orm_in_orm_o01_dicom`
 |       8.1.3.2. :ref:`orm_in_omi_o23_dicom`
 |       8.1.3.3. :ref:`orm_in_omg_o19_dicom`
+|     8.1.4. :ref:`orm_in_err`
 |   8.2. :doc:`orm/outbound`
 |     8.2.1. :ref:`omg_out_messages`
 |       8.2.1.1. :ref:`omg_out_omg_o19`
@@ -97,6 +99,7 @@ Table of Content
 |         9.1.3.2.1. :ref:`oru_in_txt_report_dicom_sr_rad128`
 |         9.1.3.2.2. :ref:`oru_in_cda_dicom_sr_rad128`
 |         9.1.3.2.3. :ref:`oru_in_pdf_dicom_doc_rad128`
+|     9.1.4. :ref:`oru_in_err`
 |   9.2. :doc:`oru/outbound`
 |     9.2.1. :ref:`oru_out_messages`
 |       9.2.1.1. :ref:`oru_out_oru_r01`

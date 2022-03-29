@@ -790,6 +790,31 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    C - Callback, HIGH
    T - Timing, MEDIUM
 
+.. _orm_in_err:
+
+HL7 ORM - Error Mapping
+=======================
+
+Following table gives an overview of error codes and messages sent by |product| for incoming HL7 ADT messages triggering
+error conditions.
+
+.. csv-table:: Error Codes Mapping and Usage
+   :name: tab_hl7_orm_error
+   :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
+
+   **Error Common**
+   Same as Error Codes Mapping and Usage in :ref:`tab_hl7_error`
+   **Patient Management specific**
+   Same as Error Codes Mapping and Usage in :ref:`tab_hl7_adt_error` specific to PID segment.
+   **Procedure Management specific**
+   101,Required Field Missing,ORC^1^1^1^1,Invalid order control in field 1 and/or invalid order status in field 5,
+   ,,ZDS^1^1^1^1,Missing study instance uid,[#Note18]_
+   ,,IPC^1^3^1^1,Missing study instance uid,[#Note19]_
+   ,,OBR^1^18^1^1,Missing accession number,[#Note18]_
+   ,,IPC^1^1^1^1,Missing accession number,[#Note19]_
+   102,Data Type Error,ORC^1^7^1^4,Invalid scheduled procedure step start date and/or time,[#Note18]_
+   ,,TQ1^1^7^1^1,Invalid scheduled procedure step start date and/or time,[#Note19]_
+
 
 .. [#Note1] Only the suggested values of the HL7 Priority component of Quantity/Timing. These values shall be
    mapped to the DICOM enumerated fields for Priority. See :ref:`status_mapping`
@@ -868,3 +893,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 .. [#Note17] Route of Admissions (0038, 0016) DICOM attribute shall be mapped to value present in PV1:2. If this field is
    absent, default "U" (denoting Patient Class as Unknown) shall be used.
+
+.. [#Note18] Applicable only for HL7 v2.3 ORM^O01 or OMG^O19 messages
+
+.. [#Note19] Applicable only for HL7 v2.5 OMI^O23 messages
