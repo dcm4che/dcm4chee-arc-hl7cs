@@ -619,12 +619,12 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID Type, "(0040, 0033)", Filler Order, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note17]_
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1 or 00121.1, PV1:19.1 or PID:18.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Item, "(FFFE, E000)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1, [#Note3]_
-   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2, [#Note3]_
-   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3, [#Note3]_
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
 
 .. _orm_in_omi_o23_dicom:
 
@@ -697,12 +697,12 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note17]_
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1 or 00121.1, PV1:19.1 or PID:18.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Item, "(FFFE, E000)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1, [#Note3]_
-   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2, [#Note3]_
-   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3, [#Note3]_
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
 
 .. _orm_in_omg_o19_dicom:
 
@@ -771,12 +771,12 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note2]_
    **Visit Identification**
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note17]_
-   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1 or 00121.1, PV1:19.1 or PID:18.1, [#Note3]_
    Issuer of Admission ID Sequence, "(0038, 0014)"
    >Item, "(FFFE, E000)"
-   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1, [#Note3]_
-   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2, [#Note3]_
-   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3, [#Note3]_
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
 
 
 .. csv-table:: HL7 status mapping to DICOM status
@@ -812,6 +812,7 @@ error conditions.
    ,,IPC^1^3^1^1,Missing study instance uid,[#Note19]_
    ,,OBR^1^18^1^1,Missing accession number,[#Note18]_
    ,,IPC^1^1^1^1,Missing accession number,[#Note19]_
+   ,,PV1^1^19^1^1,Missing admission ID,
    102,Data Type Error,ORC^1^7^1^4,Invalid scheduled procedure step start date and/or time,[#Note18]_
    ,,TQ1^1^7^1^1,Invalid scheduled procedure step start date and/or time,[#Note19]_
 

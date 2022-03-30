@@ -519,7 +519,7 @@ PID - Patient Identification segment
    15, 60, CE, O, 0296, 00118, Primary Language
    16, 1, IS, O, 0002, 00119, Marital Status
    17, 80, CE, O, 0006, 00120, Religion
-   18, 20, CX, C, , 00121, Patient Account Number
+   18, 20, CX, C, , 00121, **Patient Account Number**
    19, 16, ST, O, , 00122, SSN Number – Patient
    20, 25, DLN, O, , 00123, Driver's License Number - Patient
    21, 20, CX, O, , 00124, Mother's Identifier
@@ -555,7 +555,7 @@ PID - Patient Identification segment
    15, 250, CE, O, [0..1], 0296, 00118, Primary Language
    16, 250, CE, O, [0..1], 0002, 00119, Marital Status
    17, 250, CE, O, [0..1], 0006, 00120, Religion
-   18, 250, CX, C, [0..1], , 00121, Patient Account Number
+   18, 250, CX, C, [0..1], , 00121, **Patient Account Number**
    19, 16, ST, X, [0..1], , 00122, SSN Number - Patient
    20, 25, DLN, X, [0..1], , 00123, Driver's License Number - Patient
    21, 250, CX, O, [0..*], , 00124, Mother's Identifier

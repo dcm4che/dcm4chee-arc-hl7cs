@@ -723,6 +723,7 @@ error conditions.
    ,,OBX^1^5^1^5,Encapsulated document data missing,[#Note17]_
    ,,OBX^1^5^1^1,Missing study instance uid,
    ,,OBR^1^18^1^1,Missing accession number,
+   ,,PV1^1^19^1^1,Missing admission ID,
    206,Application Record Locked,,No HL7 Message Listener configured,[#Note3]_
 
 
