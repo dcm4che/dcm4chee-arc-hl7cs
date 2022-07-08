@@ -265,7 +265,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 HL7 ORU Text Report to DICOM SR Mapping (RAD-28)
 ------------------------------------------------
 
-Inverse of the mapping specified by `IHE Transaction Structured Report Export [RAD-28] <http://ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=304>`_
+Inverse of the mapping specified by `IHE Transaction Structured Report Export [RAD-28] <http://ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=308>`_
 has been used.
 
 .. _oru_in_txt_report_dicom_sr_rad28:
@@ -283,11 +283,25 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
+   **Patient Medical**
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note18]_
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
+   Request Attributes Sequence, "(0040, 0275)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
    Modality, "(0008, 0060)",,,, SR
    Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    SOP Instance UID, "(0008, 0018)",,, OBX[1]:5, [#Note6]_
@@ -306,6 +320,9 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
    >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
    >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
    >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
    >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
@@ -418,11 +435,25 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
+   **Patient Medical**
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note18]_
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.88.11
+   Request Attributes Sequence, "(0040, 0275)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
    Modality, "(0008, 0060)",,,, SR
    Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Study Instance UID, "(0020, 000D)",,, OBX[2]:5, [#Note10]_
@@ -439,6 +470,9 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
    >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
    >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
    >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
    >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
@@ -515,11 +549,25 @@ Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
+   **Patient Medical**
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note18]_
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.2
+   Request Attributes Sequence, "(0040, 0275)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
    Modality, "(0008, 0060)",,,, SR
    Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Conversion Type, "(0008, 0064)",,,, WSD
@@ -540,6 +588,9 @@ Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
    >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
    >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
    >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
    >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
@@ -616,11 +667,25 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
+   **Patient Medical**
+   Pregnancy Status, "(0010, 21C0)", Ambulatory Status, 00145, PV1:15, [#Note18]_
    **Structured Report**
    Content Date, "(0008, 0023)", Observation Date/Time, 00241, OBR:7
    Content Time, "(0008, 0033)", Observation Date/Time, 00241, OBR:7
    Accession Number, "(0008, 0050)", Placer field 1, 00251, OBR:18
    SOP Class UID, "(0008, 0016)",,,, 1.2.840.10008.5.1.4.1.1.104.1
+   Request Attributes Sequence, "(0040, 0275)"
+   >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
+   >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
+   >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
+   >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
+   >>Code Scheme Designator, "(0008, 0102)",, 00238.3, OBR:4.3
+   >>Code Meaning, "(0008, 0104)",, 00238.2, OBR:4.2
+   >Placer Order Number Imaging Service Request, "(0040, 2016)", Placer Order Number, 00216, OBR:2, [#Note7]_
+   >Filler Order Number Imaging Service Request, "(0040, 2017)", Filler Order Number, 00217, OBR:3, [#Note7]_
    Modality, "(0008, 0060)",,,, DOC
    Institution Name, "(0008, 0080)",Performing Organization Name or Sending Facility,,OBX:23 or MSH:4, [#Note16]_
    Conversion Type, "(0008, 0064)",,,, SD
@@ -641,6 +706,9 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    >Verification DateTime, "(0040, A030)", Observation Date/Time, 00241, OBR:7
    Referenced Request Sequence, "(0040, A370)"
    >Study Instance UID, "(0020, 000D)",,, OBX[1]:5, [#Note4]_
+   >Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Requested Procedure ID, "(0040, 1001)", Placer Field 2, 00252, OBR:19
    >Requested Procedure Description, "(0032, 1060)", Universal Service ID, 00238, OBR:4.2
    >Requested Procedure Code Sequence, "(0032, 1064)", Universal Service ID
    >>Code Value, "(0008, 0100)",, 00238.1, OBR:4.1
@@ -767,3 +835,5 @@ error conditions.
    by the sending organization (MSH:4).
 
 .. [#Note17] Applicable only for HL7 ORU^O01 messages containing encapsulated documents
+
+.. [#Note18] "B6" must be mapped to DICOM. Enumerated value "3" (definitely pregnant)
