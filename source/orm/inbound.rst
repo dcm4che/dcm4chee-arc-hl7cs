@@ -625,6 +625,13 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
+   Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institution Code Sequence, "(0008, 0082)"
+   >Item, "(FFFE, E000)"
+   >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
+   >Code Scheme Designator, "(0008, 0102)", Institution Code, 00231.3, ORC:17.3
+   >Code Meaning, "(0008, 0104)", Institution Code, 00231.2, ORC:17.2
+   Institution Address, "(0008, 0081)", Ordering Facility Address, 01312, ORC:22,
 
 .. _orm_in_omi_o23_dicom:
 
@@ -703,6 +710,13 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
+   Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institution Code Sequence, "(0008, 0082)"
+   >Item, "(FFFE, E000)"
+   >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
+   >Code Scheme Designator, "(0008, 0102)", Institution Code, 00231.3, ORC:17.3
+   >Code Meaning, "(0008, 0104)", Institution Code, 00231.2, ORC:17.2
+   Institution Address, "(0008, 0081)", Ordering Facility Address, 01312, ORC:22,
 
 .. _orm_in_omg_o19_dicom:
 
@@ -777,7 +791,13 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1 or 00121.4.1, PV1:19.4.1 or PID:18.4.1, [#Note3]_
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
-
+   Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institution Code Sequence, "(0008, 0082)"
+   >Item, "(FFFE, E000)"
+   >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
+   >Code Scheme Designator, "(0008, 0102)", Institution Code, 00231.3, ORC:17.3
+   >Code Meaning, "(0008, 0104)", Institution Code, 00231.2, ORC:17.2
+   Institution Address, "(0008, 0081)", Ordering Facility Address, 01312, ORC:22,
 
 .. csv-table:: HL7 status mapping to DICOM status
    :name: status_mapping
