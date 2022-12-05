@@ -30,6 +30,7 @@ The following segments are processed from an incoming ORU^R01^ORU_R01 message:
 
    MSH - :ref:`tab_msh_231`, Message Header, 2
    PID - :ref:`tab_pid_231`, Patient Identification, 3
+   NTE - :ref:`tab_nte_231`, Notes and Comments (for PID), 2
    PV1 - :ref:`tab_pv1_231`, Patient Visit, 3
    OBR - :ref:`tab_obr_231_oru`, Order Detail, 4
    OBX - :ref:`tab_obx_231`, Observation Results, 7
@@ -40,6 +41,7 @@ The following segments are processed from an incoming ORU^R01^ORU_R01 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_251`, Patient Visit, O, [0..1], 3
    OBR - :ref:`tab_obr_251_oru`, Order Detail, R, [1..*], 4
    OBX - :ref:`tab_obx_251`, Order Detail, R, [1..*], 4
@@ -71,6 +73,12 @@ Same as specified in :ref:`tab_msh_231` or :ref:`tab_msh_251`
 PID - Patient Identification segment
 ------------------------------------
 Same as specified in :ref:`tab_pid_231` or :ref:`tab_pid_251`
+
+.. _oru_in_nte:
+
+NTE - Notes and Comments segment (for PID)
+------------------------------------------
+Same as specified in :ref:`tab_nte_231` or :ref:`tab_nte_251`
 
 .. _oru_in_pv1:
 

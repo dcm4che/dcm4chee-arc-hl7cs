@@ -36,6 +36,7 @@ The following segments are sent in an outgoing ORU^R01^ORU_R01 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_out_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_out_251`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_oru_251`, Patient Visit, R, [1..1], 3
    ORC - :ref:`tab_orc_oru_251`, Common Order, O, [1..1], 4
    TQ1 - :ref:`tab_tq1_oru_251`, Timing and Quantity, R, [1..1], 4
@@ -65,7 +66,14 @@ Same as specified in :ref:`tab_msh_251`
 PID - Patient Identification segment
 ------------------------------------
 
-Same as specified in :ref:`tab_pid_out_251`
+Same as specified in :ref:`tab_pid_251_out`
+
+.. _oru_out_nte:
+
+NTE - Notes and Comments segment for (PID)
+------------------------------------------
+
+Same as specified in :ref:`tab_nte_251_out`
 
 .. _oru_out_pv1:
 
@@ -319,6 +327,7 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
    Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note9]_
    Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
    Issuer of Admission ID Sequence, "(0038, 0014)"

@@ -34,6 +34,7 @@ The following segments are sent in an outgoing ADT^A28^ADT_A05 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251_out`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251_out`, Notes and Comments (for PID), O, [0..1], 2
 
 
 Expected Actions
@@ -94,6 +95,7 @@ The following segments are sent in an outgoing ADT^A40^ADT_A39 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251_out`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251_out`, Notes and Comments (for PID), O, [0..1], 2
    MRG - :ref:`tab_mrg_251_out`, Merge Information, R, [1..1], 3
 
 Expected Actions
@@ -196,6 +198,23 @@ PID - Patient Identification Segment
 
 Element names in **bold** indicates that the field is sent by |product|.
 
+.. _adt_out_nte:
+
+NTE - Notes and Comments Segment (for PID)
+------------------------------------------
+
+.. csv-table:: NTE - Notes and Comments segment (for PID) (HL7 v2.5.1)
+   :name: tab_nte_251_out
+   :header: SEQ, LEN, DT, OPT, RP/#, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , , 00096, SetID - NTE
+   2, 4, ID, O, , 0105, 00097, Source of Comment
+   3, 65536, FT, O, Y, , 00098, **Comment**
+   4, 250, CE, O, , 0364, 01318, Comment Type
+
+Element names in **bold** indicates that the field is sent by |product|.
+
 .. _adt_out_mrg:
 
 MRG - Merge Segment
@@ -262,6 +281,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    **Patient Demographic**
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
    **Patient Medical**
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2
    Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11

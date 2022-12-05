@@ -31,6 +31,7 @@ The following segments are processed from an incoming ADT^A01^ADT_A01 message:
 
    MSH - :ref:`tab_msh_231`, Message Header, 2
    PID - :ref:`tab_pid_231`, Patient Identification, 3
+   NTE - :ref:`tab_nte_231`, Notes and Comments (for PID), 2
 
 .. csv-table:: Supported segments of ADT^A01^ADT_A01 (HL7 v2.5.1)
    :header: Segment, Meaning, Usage, Card., HL7 chapter
@@ -38,6 +39,7 @@ The following segments are processed from an incoming ADT^A01^ADT_A01 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments (for PID), O, [0..1], 2
 
 .. _adt_in_a01_actions:
 
@@ -378,6 +380,7 @@ The following segments are processed from an incoming ADT^A40^ADT_A39 message:
 
    MSH - :ref:`tab_msh_231`, Message Header, 2
    PID - :ref:`tab_pid_231`, Patient Identification, 3
+   NTE - :ref:`tab_nte_231`, Notes and Comments, 2
    MRG - :ref:`tab_mrg_231`, Merge Information, 3
 
 .. csv-table:: Supported segments of ADT^A40^ADT_A39 (HL7 v2.5.1)
@@ -386,6 +389,7 @@ The following segments are processed from an incoming ADT^A40^ADT_A39 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments, O, [0..1], 2
    MRG - :ref:`tab_mrg_251`, Merge Information, R, [1..1], 3
 
 The "incorrect supplier identifier" identified in the MRG segment (*MRG-1 Prior Patient Identifier List*) is to be
@@ -439,6 +443,7 @@ The following segments are processed from an incoming ADT^A47^ADT_A30 message:
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments, O, [0..1], 2
    MRG - :ref:`tab_mrg_251`, Merge Information, R, 1..1], 3
 
 The "incorrect supplier identifier" value is stored in the MRG segment (*MRG-1 Prior Patient Identifier List*) and is
@@ -586,6 +591,31 @@ universal ID type) are also populated, they shall reference the same entity as i
 
 This field may be populated with various identifiers assigned to the patient by various assigning authorities.
 
+.. _adt_in_nte:
+
+NTE - Notes and Comments segment (for PID)
+------------------------------------------
+.. csv-table:: NTE - Notes and Comments segment (for PID) (HL7 v2.3.1)
+   :name: tab_nte_231
+   :header: SEQ, LEN, DT, OPT, RP/#, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , , 00096, SetID - NTE
+   2, 4, ID, O, , 0105, 00097, Source of Comment
+   3, 64k, FT, O, Y, , 00098, **Comment**
+
+.. csv-table:: NTE - Notes and Comments segment (for PID) (HL7 v2.5.1)
+   :name: tab_nte_251
+   :header: SEQ, LEN, DT, OPT, RP/#, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , , 00096, SetID - NTE
+   2, 4, ID, O, , 0105, 00097, Source of Comment
+   3, 65536, FT, O, Y, , 00098, **Comment**
+   4, 250, CE, O, , 0364, 01318, Comment Type
+
+Element names in **bold** indicates that the field is used by |product|.
+
 .. _adt_in_mrg:
 
 MRG - Merge segment
@@ -673,6 +703,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Code Value, "(0008, 0100)", Breed Code, 01540.1, PID:36.1
    >Coding Scheme Designator, "(0008, 0102)", Breed Code, 01540.3, PID:36.3
    >Code Meaning, "(0008, 0104)", Breed Code, 01540.2, PID:36.2
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
    **Patient Medical**
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2, "'Y'⇒'ALTERED', 'N'⇒'UNALTERED'"
 

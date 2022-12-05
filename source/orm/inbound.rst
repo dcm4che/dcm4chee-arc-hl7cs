@@ -34,6 +34,7 @@ The following segments are processed from an incoming ORM^O01^ORM_O01 message:
 
    MSH - :ref:`tab_msh_231`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_231`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_231`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_231`, Patient Visit, R, [1..1], 3
    ORC - :ref:`tab_orc_231`, Common Order, R, [1..*], 4
    OBR - :ref:`tab_obr_231`, Order Detail, R, [1..*], 4
@@ -75,6 +76,7 @@ Supported Segments
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
    ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
    TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..*], 4
@@ -105,6 +107,7 @@ Supported Segments
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
    PID - :ref:`tab_pid_251`, Patient Identification, R, [1..1], 3
+   NTE - :ref:`tab_nte_251`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_251`, Patient Visit, R, [1..1], 3
    ORC - :ref:`tab_orc_251`, Common Order, R, [1..*], 4
    TQ1 - :ref:`tab_tq1_251`, Timing/Quantity, R, [1..1], 4
@@ -134,6 +137,12 @@ Same as specified in :ref:`tab_msh_231` or :ref:`tab_msh_251`
 PID - Patient Identification segment
 ------------------------------------
 Same as specified in :ref:`tab_pid_231` or :ref:`tab_pid_251`
+
+.. _orm_in_nte_pid:
+
+NTE - Notes and Comments segment (for PID)
+------------------------------------------
+Same as specified in :ref:`tab_nte_231` or :ref:`tab_nte_251`
 
 .. _orm_in_pv1:
 
