@@ -289,6 +289,8 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
    **Patient Medical**
@@ -441,6 +443,8 @@ Mapping of HL7 ORU Text Report to DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
    **Patient Medical**
@@ -555,6 +559,8 @@ Mapping of HL7 ORU containing CDA to Encapsulated CDA DICOM SR Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
    **Patient Medical**
@@ -673,6 +679,8 @@ Mapping of HL7 ORU containing PDF to Encapsulated PDF DICOM Attributes
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note9]_
    **Patient Identification**
    Same as Patient Identification in :ref:`adt_in_pid_dicom`
+   **Patient Demographic**
+   Same as Patient Demographic in :ref:`adt_in_pid_dicom`
    **Patient Visit**
    Same as Visit Identification in :ref:`orm_to_dicom`
    **Patient Medical**

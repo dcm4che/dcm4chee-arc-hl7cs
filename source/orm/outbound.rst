@@ -43,8 +43,8 @@ The following segments are sent in an outgoing OMG^O19^OMG_O19 message:
    :widths: 15, 40, 15, 15, 15
 
    MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
-   PID - :ref:`tab_pid_out_251`, Patient Identification, O, [0..1], 3
-   NTE - :ref:`tab_nte_out_251`, Notes and Comments (for PID), O, [0..1], 2
+   PID - :ref:`tab_pid_251_out`, Patient Identification, O, [0..1], 3
+   NTE - :ref:`tab_nte_251_out`, Notes and Comments (for PID), O, [0..1], 2
    PV1 - :ref:`tab_pv1_omg_251`, Patient Visit, O, [0..1], 3
    ORC - :ref:`tab_orc_omg_251`, Common Order, R, [1..1], 4
    TQ1 - :ref:`tab_tq1_omg_251`, Timing and Quantity, R, [1..1], 4
