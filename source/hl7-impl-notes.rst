@@ -345,6 +345,7 @@ error conditions.
    ,,MSH^1^4^1^1,Missing Sending Facility,
    ,,MSH^1^5^1^1,Missing Receiving Application,
    ,,MSH^1^6^1^1,Missing Receiving Facility,
+   ,,MSH^1^7^1^1,Missing Date/Time of Message,
    ,,MSH^1^9^1^1,Missing Message Type,
    ,,MSH^1^10^1^1,Missing Message Control ID,
    103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
