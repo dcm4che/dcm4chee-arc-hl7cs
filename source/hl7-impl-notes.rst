@@ -337,8 +337,8 @@ Error Codes Mapping
 Following tables give an overview of error codes and messages sent by |product| for incoming HL7 messages triggering
 error conditions.
 
-By default, `HL7 Application of archive is configured <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`
-to check if required fields of MSH segment are missing, as mandated by `IHE RAD TF Vol 2 Message Control requirements <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=43>`
+By default, `HL7 Application of archive is configured <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`_
+to check if required fields of MSH segment are missing, as mandated by `IHE RAD TF Vol 2 Message Control requirements <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=43>`_
 
 .. csv-table:: Error Codes Mapping and Usage
    :name: tab_hl7_error
@@ -360,7 +360,7 @@ to check if required fields of MSH segment are missing, as mandated by `IHE RAD 
    207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
 
 In setups where RIS or ADT systems may not send all of the required MSH fields, users can update the configuration
-`HL7 Required MSH Field(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`
+`HL7 Required MSH Field(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`_
 as required, to bypass the validation checks.
 
 If this field is absent (i.e. not configured) altogether, then the following default validation checks present previously
@@ -377,10 +377,10 @@ in dcm4che library code apply.
    207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
 
 .. [#Note1] Caused by mismatch of Sending Application with Facility in incoming HL7 messages with configured list of
-   `Accepted Sending Application(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7acceptedsendingapplication>`
+   `Accepted Sending Application(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7acceptedsendingapplication>`_
 
-.. [#Note2] Caused by misconfigured `Network Connection <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/networkConnection.html>`
-   of a `HL7 Application <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html>` in a
+.. [#Note2] Caused by misconfigured `Network Connection <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/networkConnection.html>`_
+   of a `HL7 Application <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html>`_ in a
    device.
 
 .. [#Note3] Caused by incorrect HL7 application configuration or issues in HL7 service registry initialization in archive.
