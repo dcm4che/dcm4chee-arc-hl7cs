@@ -334,8 +334,11 @@ number of bytes per character in such sets.
 Error Codes Mapping
 -------------------
 
-Following table gives an overview of error codes and messages sent by |product| for incoming HL7 messages triggering
+Following tables give an overview of error codes and messages sent by |product| for incoming HL7 messages triggering
 error conditions.
+
+By default, `HL7 Application of archive is configured <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`
+to check if required fields of MSH segment are missing, as mandated by `IHE RAD TF Vol 2 Message Control requirements <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf#page=43>`
 
 .. csv-table:: Error Codes Mapping and Usage
    :name: tab_hl7_error
@@ -348,10 +351,29 @@ error conditions.
    ,,MSH^1^7^1^1,Missing Date/Time of Message,
    ,,MSH^1^9^1^1,Missing Message Type,
    ,,MSH^1^10^1^1,Missing Message Control ID,
+   ,,MSH^1^11^1^1,Missing Processing ID,
+   ,,MSH^1^12^1^1,Missing Version ID,
    103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
    ,,MSH^1^5^1^1,Receiving Application and/or Facility not recognized,[#Note2]_
    200,Unsupported Message Type,MSH^1^9^1^1,Message Type - Message Code not supported,
    201,Unsupported Event Code,MSH^1^9^1^2,Message Type - Trigger Event not supported,
+   207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
+
+In setups where RIS or ADT systems may not send all of the required MSH fields, users can update the configuration
+`HL7 Required MSH Field(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/hl7Application.html#hl7requiredmshfield>`
+as required, to bypass the validation checks.
+
+If this field is absent (i.e. not configured) altogether, then the following default validation checks present previously
+in dcm4che library code apply.
+
+.. csv-table:: Default Error Codes Mapping and Usage
+   :name: tab_hl7_error_default
+   :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
+
+   ,,MSH^1^9^1^1,Missing Message Type,
+   103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
+   ,,MSH^1^5^1^1,Receiving Application and/or Facility not recognized,[#Note2]_
+   200,Unsupported Message Type,MSH^1^9^1^1,Message Type - Message Code not supported,
    207,Application Internal Error,,No HL7 Message Listener configured,[#Note3]_
 
 .. [#Note1] Caused by mismatch of Sending Application with Facility in incoming HL7 messages with configured list of
