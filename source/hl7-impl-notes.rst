@@ -370,7 +370,7 @@ in dcm4che library code apply.
    :name: tab_hl7_error_default
    :header: Error Code,Error Code Meaning,Error Location,User Message,Notes
 
-   ,,MSH^1^9^1^1,Missing Message Type,
+   101,Required Field Missing,MSH^1^9^1^1,Missing Message Type,
    103,Table Value Not Found,MSH^1^3^1^1,Sending Application and/or Facility not recognized,[#Note1]_
    ,,MSH^1^5^1^1,Receiving Application and/or Facility not recognized,[#Note2]_
    200,Unsupported Message Type,MSH^1^9^1^1,Message Type - Message Code not supported,
