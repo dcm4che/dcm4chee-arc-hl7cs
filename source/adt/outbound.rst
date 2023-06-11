@@ -157,9 +157,9 @@ PID - Patient Identification Segment
    :widths: 8, 8, 8, 8, 8, 8, 12, 40
 
    1, 4, SI, O, [0..1], , 00104, Set ID - PID
-   2, 20, CX, O, [0..0], , 00105, **Patient ID**
+   2, 20, CX, O, [0..0], , 00105, Patient ID
    3, 250, CX, R, [1..*], , 00106, **Patient Identifier List**
-   4, 20, CX, O, [0..0], , 00107, **Alternate Patient ID - PID**
+   4, 20, CX, O, [0..0], , 00107, Alternate Patient ID - PID
    5, 250, XPN, R, [1..*], , 00108, **Patient Name**
    6, 250, XPN, O, [0..1], , 00109, **Mother’s Maiden Name**
    7, 26, TS, CE, [0..1], , 00110, **Date/Time of Birth**
@@ -260,13 +260,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
    Patient's Mother's Birth Name, "(0010, 1060)", Mother’s Maiden Name, 00109, PID:6
-   OtherPatientIDsSequence, "(0010,1002)"
-   >Item # 1
-   >Patient ID, "(0010, 0020)", Patient Identifier List, 00105.1, PID:2.1
-   >Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00105.4.1, PID:2.4.1
-   >Item # 2
-   >Patient ID, "(0010, 0020)", Patient Identifier List, 00107.1, PID:4.1
-   >Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00107.4.1, PID:4.4.1
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
    Responsible Person, "(0010, 2297)", Patient Alias, 00112, PID:9
    Patient Species Description, "(0010, 2201)", Species Code, 01539.2, PID:35.2, [#Note1]_
    Patient Species Code Sequence, "(0010, 2202)"
@@ -299,6 +293,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.1.2, MRG:1.1.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.1.3, MRG:1.1.3
+   Other Patient IDs Sequence, "(0010,1002)", Prior Patient Identifier List, 00211, MRG:1, [#Note4]_
 
 
 .. [#Note1] If the Patient Species Code Sequence is present in the attributes, then the value is taken from the Code Meaning of the sequence
@@ -310,3 +305,6 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 .. [#Note3] This field value, if available, shall be present only in HL7 messages sent out of the archive for HL7
    Forwarding case and IOCM triggered HL7 messages. For External Archive HL7 services case, this field value shall not
    be present in HL7 messages sent out of the archive.
+
+.. [#Note4] Each **Other Patient IDs Sequence (0010,1002)** item is populated in patient identifiers list in the
+   specified segment field separated using **Repetition Separator ~**

@@ -302,6 +302,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Item, "(FFFE, E000)"
    >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
    **Patient Demographic**
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
@@ -351,3 +352,6 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 .. [#Note3] Route of Admissions (0038, 0016) DICOM attribute, if present, shall be mapped to PV1:2. If this DICOM attribute
    is absent, default "U" (denoting Patient Class as Unknown) shall be used.
+
+.. [#Note4] Each **Other Patient IDs Sequence (0010,1002)** item is populated in patient identifiers list in the
+   specified segment field separated using **Repetition Separator ~**

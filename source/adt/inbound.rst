@@ -666,9 +666,9 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note1]_
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
-   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
-   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
-   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1, [#Note4]_
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1, [#Note4]_
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)",,,, [#Note4]_
    >Item, "(FFFE, E000)"
    >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
    >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
@@ -715,9 +715,9 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, [#Note1]_
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
-   Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1
-   Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.4.1, MRG:1.4.1
-   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1, [#Note4]_
+   Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.4.1, MRG:1.4.1, [#Note4]_
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)",,, [#Note4]_
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.4.2, MRG:1.4.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.4.3, MRG:1.4.3
 
@@ -755,3 +755,9 @@ error conditions.
 
 .. [#Note3] User message in ERR:7 is set to exception message. This exception pertains to HL7 ADT message processing
    triggered internal application failure.
+
+.. [#Note4] Multiple patient identifiers separated by **Repetition Separator ~** are included inside of
+   Other Patient IDs Sequence (0010,1002). By default the first patient identifier pair is selected to be mapped to
+   Patient ID (0010,0020), Issuer of Patient ID (0010,0021) and Issuer of Patient ID Qualifiers Sequence (0010,0024),
+   unless any issuer value is configured in `HL7 Primary Assigning Authority of Patient ID <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7primaryassigningauthorityofpatientid>`_
+   which shall be used to search primary qualified patient identifier in the list of identifiers in specified segment field.
