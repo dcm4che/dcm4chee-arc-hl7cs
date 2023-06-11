@@ -717,7 +717,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Name, "(0010, 0010)", Prior Patient  Name, 01281, MRG:7
    Patient ID, "(0010, 0020)", Prior Patient Identifier List, 00211.1, MRG:1.1, [#Note4]_
    Issuer of Patient ID, "(0010, 0021)", Prior Patient Identifier List, 00211.4.1, MRG:1.4.1, [#Note4]_
-   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)",,, [#Note4]_
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)",,,, [#Note4]_
    >Universal Entity ID, "(0040, 0032)", Prior Patient Identifier List, 00211.4.2, MRG:1.4.2
    >Universal Entity ID Type, "(0040, 0033)", Prior Patient Identifier List, 00211.4.3, MRG:1.4.3
 
