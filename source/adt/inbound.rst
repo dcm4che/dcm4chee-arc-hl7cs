@@ -740,6 +740,8 @@ error conditions.
    ,,MRG^1^1^1^1,Missing prior patient identifier,
    204,Unknown Key Identifier,PID^1^3^1^1,,[#Note2]_
    ,,MRG^1^1^1^1,,[#Note2]_
+   204,Unknown Key Identifier,PID^1^3^1^1,Missing patient identifier with trusted assigning authority,[#Note5]_
+   ,,MRG^1^1^1^1,Missing prior patient identifier with trusted assigning authority,[#Note5]_
    205,Duplicate Key Identifier,PID^1^3,Either previous or new Patient ID has missing issuer and change patient id tracking is enabled. Disable change patient id tracking feature and retry update,
    ,,MRG^1^1^1^1,Prior patient identifier matches patient identifier,
    207,Application Internal Error,,,[#Note3]_
@@ -761,3 +763,6 @@ error conditions.
    Patient ID (0010,0020), Issuer of Patient ID (0010,0021) and Issuer of Patient ID Qualifiers Sequence (0010,0024),
    unless any issuer value is configured in `HL7 Primary Assigning Authority of Patient ID <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#hl7primaryassigningauthorityofpatientid>`_
    which shall be used to search primary qualified patient identifier in the list of identifiers in specified segment field.
+
+.. [#Note5] Message stating respective patient identifiers can not be identified by configured `Trusted Issuer of Patient ID Pattern <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#dcmtrustedissuerofpatientidpattern>`_
+   or by `Trusted Issuer of Patient IDs <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveDevice.html#dcmtrustedissuerofpatientid>`_
