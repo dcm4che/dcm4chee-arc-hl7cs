@@ -519,8 +519,8 @@ PID - Patient Identification segment
    10, 80, CE, R2, 0005, 00113, Race
    11, 1, 06, XAD, R2, 00114, **Patient Address**
    12, 4, IS, O, , 00115, County Code
-   13, 40, XTN, O, , 00116, Phone Number - Home
-   14, 40, XTN, O, , 00117, Phone Number - Business
+   13, 40, XTN, O, , 00116, **Phone Number - Home**
+   14, 40, XTN, O, , 00117, **Phone Number - Business**
    15, 60, CE, O, 0296, 00118, Primary Language
    16, 1, IS, O, 0002, 00119, Marital Status
    17, 80, CE, O, 0006, 00120, Religion
@@ -555,8 +555,8 @@ PID - Patient Identification segment
    10, 250, CE, O, [0..1], 0005, 00113, Race
    11, 250, XAD, CE, [0..*], , 00114, **Patient Address**
    12, 4, IS, X, [0..1], 0289, 00115, County Code
-   13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
-   14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
+   13, 250, XTN, O, [0..*], , 00116, **Phone Number - Home**
+   14, 250, XTN, O, [0..*], , 00117, **Phone Number - Business**
    15, 250, CE, O, [0..1], 0296, 00118, Primary Language
    16, 250, CE, O, [0..1], 0002, 00119, Marital Status
    17, 250, CE, O, [0..1], 0006, 00120, Religion
