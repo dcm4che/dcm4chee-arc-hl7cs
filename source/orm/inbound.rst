@@ -155,7 +155,7 @@ PV1 - Patient Visit segment
    :widths: 8, 8, 8, 8, 8, 12, 48
 
    1, 4, SI, O, , 00131, Set ID - PV1
-   2, 1, IS, R, 0004, 00132, Patient Class
+   2, 1, IS, R, 0004, 00132, **Patient Class**
    3, 80, PL, C, , 00133, Assigned Patient Location
    4, 2, IS, O, 0007, 00134, Admission Type
    5, 20, CX, O, , 00135, Preadmit Number
@@ -197,7 +197,7 @@ PV1 - Patient Visit segment
    41, 2, IS, O, 0117, 00171, Account Status
    42, 80, PL, O, , 00172, Pending Location
    43, 80, PL, O, , 00173, Prior Temporary Location
-   44, 26, TS, O, , 00174, Admit Date/Time
+   44, 26, TS, O, , 00174, **Admit Date/Time**
    45, 26, TS, O, , 00175, Discharge Date/Time
    46, 12, NM, O, , 00176, Current Patient Balance
    47, 12, NM, O, , 00177, Total Charges
@@ -214,7 +214,7 @@ PV1 - Patient Visit segment
    :widths: 8, 8, 8, 8, 8, 12, 48
 
    1, 4, SI, O, , 00131, Set ID - PV1
-   2, 1, IS, R, 0004, 00132, Patient Class
+   2, 1, IS, R, 0004, 00132, **Patient Class**
    3, 80, PL, C, , 00133, Assigned Patient Location
    4, 2, IS, O, 0007, 00134, Admission Type
    5, 250, CX, O, , 00135, Preadmit Number
@@ -256,7 +256,7 @@ PV1 - Patient Visit segment
    41, 2, IS, O, 0117, 00171, Account Status
    42, 80, PL, C, , 00172, Pending Location
    43, 80, PL, O, , 00173, Prior Temporary Location
-   44, 26, TS, RE, , 00174, Admit Date/Time
+   44, 26, TS, RE, , 00174, **Admit Date/Time**
    45, 26, TS, RE, , 00175, Discharge Date/Time
    46, 12, NM, O, , 00176, Current Patient Balance
    47, 12, NM, O, , 00177, Total Charges
