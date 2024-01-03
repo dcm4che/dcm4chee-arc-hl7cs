@@ -170,7 +170,7 @@ PID - Patient Identification Segment
    12, 4, IS, X, [0..1], 0289, 00115, County Code
    13, 250, XTN, O, [0..*], , 00116, Phone Number - Home
    14, 250, XTN, O, [0..*], , 00117, Phone Number - Business
-   15, 250, CE, O, [0..1], 0296, 00118, Primary Language
+   15, 250, CE, O, [0..1], 0296, 00118, **Primary Language**
    16, 250, CE, O, [0..1], 0002, 00119, Marital Status
    17, 250, CE, O, [0..1], 0006, 00120, Religion
    18, 250, CX, C, [0..1], , 00121, Patient Account Number
@@ -276,9 +276,10 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
+   Patient's Primary Language Code Sequence, "(0010, 0101)", Primary Language, 00118, PID:15
    **Patient Medical**
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2
-   Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
 
 .. csv-table:: HL7 ADT mapping of MRG segment to DICOM Patient Attributes
    :name: dicom_out_mrg_adt
