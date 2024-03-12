@@ -277,6 +277,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
    Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
    Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
+   Military Rank, "(0010, 1080)", Veterans Military Status, 00130, PID:27.2
    Patient's Primary Language Code Sequence, "(0010, 0101)", Primary Language, 00118, PID:15
    **Patient Medical**
    Patient's Sex Neutered, "(0010, 2203)", Administrative Sex, 00111.2, PID:8.2

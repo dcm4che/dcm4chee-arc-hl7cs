@@ -333,7 +333,7 @@ ORC - Order Control segment
    25, 250, CWE, O, , 01473, Order Status Modifier
    26, 60, CWE, C, 0552, 01641, Advanced Beneficiary Notice Override Reason
    27, 26, TS, O, , 01642, Filler's Expected Availability Date/Time
-   28, 250, CWE, O, 0177, 00615, Confidentiality Code
+   28, 250, CWE, O, 0177, 00615, **Confidentiality Code**
    29, 250, CWE, O, 0482, 01643, Order Type
    30, 250, CNE, O, 0483, 01644, Enterer Authorization Mode
    31, 250, CWE, O, , 02286, Parent Universal Service Identifier
@@ -610,6 +610,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001.1, ZDS:1.1
    Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.6, [#Note1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
+   Confidentiality Code, "(0040, 1008)", Confidentiality Code, 00615, ORC:28.2
    **Imaging Request**
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
    Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16
@@ -693,6 +694,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    Study Instance UID, "(0020, 000D)", Study Instance UID, 00217, IPC:3
    Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note1]_
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
+   Confidentiality Code, "(0040, 1008)", Confidentiality Code, 00615, ORC:28.2
    **Imaging Request**
    Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1
    Issuer Of Accession Number Sequence, "(0008, 0051)"
@@ -778,6 +780,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note1]_
    Requested Procedure Comments, "(0040, 1400)", Comment, 00098, NTE:3
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
+   Confidentiality Code, "(0040, 1008)", Confidentiality Code, 00615, ORC:28.2
    **Imaging Request**
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
    Requesting Physician, "(0032, 1032)", Ordering Provider, 00226, OBR:16

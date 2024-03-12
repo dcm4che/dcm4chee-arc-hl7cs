@@ -431,7 +431,7 @@ That is, a single *PID-3 patient identifier list value* has been found to be inc
 This message is not used to update other patient demographics information. The A31 trigger event should be used for
 this purpose.
 
-Field  *MSH-9 Mesage Type* shall be valued **ADT^A47^ADT_A30**.
+Field  *MSH-9 Message Type* shall be valued **ADT^A47^ADT_A30**.
 
 Supported Segments
 ^^^^^^^^^^^^^^^^^^
@@ -533,7 +533,7 @@ PID - Patient Identification segment
    24, 1, ID, O, 0136, 00127, Multiple Birth Indicator
    25, 2, NM, O, , 00128, Birth Order
    26, 80, CE, O, 0171, 00129, Citizenship
-   27, 60, CE, O, 0172, 00130, Veterans Military Status
+   27, 60, CE, O, 0172, 00130, **Veterans Military Status**
    28, 80, CE, O, , 00739, Nationality
    29, 26, TS, O, , 00740, Patient Death Date and Time
    30, 1, ID, O, 0136, 00741, Patient Death Indicator
@@ -569,7 +569,7 @@ PID - Patient Identification segment
    24, 1, ID, O, [0..1], 0136, 00127, Multiple Birth Indicator
    25, 2, NM, O, [0..1], , 00128, Birth Order
    26, 250, CE, O, [0..1], 0171, 00129, Citizenship
-   27, 250, CE, O, [0..1], 0172, 00130, Veterans Military Status
+   27, 250, CE, O, [0..1], 0172, 00130, **Veterans Military Status**
    28, 250, CE, X, [0..0], 0212, 00739, Nationality
    29, 26, TS, CE, [0..1], , 00740, Patient Death Date and Time
    30, 1, ID, C, [0..1], 0136, 00741, Patient Death Indicator
@@ -693,6 +693,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
    Responsible Person, "(0010, 2297)", Patient Alias, 00112, PID:9
    Responsible Person Role, "(0010, 2298)", , , , "set to ``OWNER``, if PID:9 is not empty"
    Patient's Address, "(0010, 1040)", Patient Address, 00114, PID:11
+   Military Rank, "(0010, 1080)", Veterans Military Status, 00130, PID:27.2
    Patient's Primary Language Code Sequence, "(0010, 0101)", Primary Language, 00118, PID:15
    Patient Species Description, "(0010, 2201)", Species Code, 01539.2, PID:35.2
    Patient Species Code Sequence, "(0010, 2202)"
