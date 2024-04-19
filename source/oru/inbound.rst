@@ -128,7 +128,7 @@ OBR - Observation Request segment
    31, 300, CE, R2, , 00263, Reason For Study
    32, 200, CM, O, , 00264, **Principal Result Interpreter**
    33, 200, CM, O, , 00265, Assistant Result Interpreter
-   34, 200, CM, O, , 00266, Technician
+   34, 200, CM, O, , 00266, **Technician**
    35, 200, CM, O, , 00267, Transcriptionist
    36, 26, TS, O, , 00268, Scheduled Date/Time
    37, 4, NM, O, , 01028, Number of Sample Containers
@@ -179,7 +179,7 @@ OBR - Observation Request segment
    31, 250, CE, R2, , 00263, Reason For Study
    32, 200, NDL, O, , 00264, **Principal Result Interpreter**
    33, 200, NDL, O, , 00265, Assistant Result Interpreter
-   34, 200, NDL, O, , 00266, Technician
+   34, 200, NDL, O, , 00266, **Technician**
    35, 200, NDL, O, , 00267, Transcriptionist
    36, 26, TS, O, , 00268, Scheduled Date/Time
    37, 4, NM, O, , 01028, Number of Sample Containers
