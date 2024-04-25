@@ -76,6 +76,7 @@ Table of Content
 |   8.2. :doc:`orm/outbound`
 |     8.2.1. :ref:`omg_out_messages`
 |       8.2.1.1. :ref:`omg_out_omg_o19`
+|       8.2.1.2. :ref:`omi_out_omi_o23`
 |     8.2.2. :ref:`omg_out_segments`
 |       8.2.2.1. :ref:`omg_out_msh`
 |       8.2.2.2. :ref:`omg_out_pid`
@@ -84,8 +85,15 @@ Table of Content
 |       8.2.2.5. :ref:`omg_out_orc`
 |       8.2.2.6. :ref:`omg_out_tq1`
 |       8.2.2.7. :ref:`omg_out_obr`
-|     8.2.3. :ref:`omg_out_dicom`
-|       8.2.3.1. :ref:`omg_out_omg_o19_dicom`
+|       8.2.2.8. :ref:`omg_out_obx`
+|       8.2.2.9. :ref:`omi_out_ipc`
+|     8.2.3. :ref:`order_out_dicom`
+|       8.2.3.1. :ref:`order_out_omg_o19_dicom_mwl`
+|       8.2.3.2. :ref:`order_out_omi_o23_dicom_mwl`
+|       8.2.3.3. :ref:`order_out_omg_o19_dicom_study`
+|       8.2.3.4. :ref:`order_out_omi_o23_dicom_study`
+|       8.2.3.5. :ref:`order_out_omg_o19_dicom_mpps`
+|       8.2.3.6. :ref:`order_out_omi_o23_dicom_mpps`
 | 9. :doc:`oru/index`
 |   9.1. :doc:`oru/inbound`
 |     9.1.1. :ref:`oru_in_messages`

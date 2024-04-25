@@ -1,9 +1,13 @@
 Outbound
 ########
 
-The General Clinical Order Message HL7 message is sent to other HL7 applications/receivers if HL7 receivers are to be
-`notified about procedure status updates <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`_ or
-`on receive of studies without any MWL items associated to it <https://github.com/dcm4che/dcm4chee-arc-light/issues/2372>`.
+HL7 messages
+
+  - General Clinical Order Message
+  - Imaging Order Message
+
+are sent to other HL7 applications/receivers if HL7 receivers are to be `notified about procedure status updates <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`_
+or `on receive of studies with(-out) any MWL items associated to it <https://github.com/dcm4che/dcm4chee-arc-light/issues/2372>`_.
 This notification can be triggered for :
 
 Updates to MWL items in archive, on :
@@ -28,6 +32,8 @@ OMG - General Clinical Order Message (Event O19)
 ------------------------------------------------
 Supported HL7 version: 2.5.1 (EYECARE-22)
 
+.. _omg_o19_event:
+
 Trigger Event
 ^^^^^^^^^^^^^
 This message is sent out by the archive :
@@ -48,12 +54,46 @@ The following segments are sent in an outgoing OMG^O19^OMG_O19 message:
    PV1 - :ref:`tab_pv1_omg_251`, Patient Visit, O, [0..1], 3
    ORC - :ref:`tab_orc_omg_251`, Common Order, R, [1..1], 4
    TQ1 - :ref:`tab_tq1_omg_251`, Timing and Quantity, R, [1..1], 4
-   OBR - :ref:`tab_obr_omg_251`, Order Detail, R, [1..1], 7
+   OBR - :ref:`tab_obr_omg_251`, Observation Request, R, [1..1], 7
+   OBX - :ref:`tab_obx_omg_251`, Observation Detail, O, [1..1], 7
+
+.. _omg_o19_actions:
 
 Expected Actions
 ^^^^^^^^^^^^^^^^
 The DSS/Order Filler shall process the order status based upon the internal application (such as the procedure is completed
 and is ready for interpretation). The DSS/Order Filler is recommended to convey the order status to the user of the system.
+
+.. _omi_out_omi_o23:
+
+OMI - Imaging Order Message (Event O23)
+---------------------------------------
+Supported HL7 version: 2.5.1
+
+Trigger Event
+^^^^^^^^^^^^^
+Same as specified in :numref:`omg_o19_event`.
+
+Supported Segments
+^^^^^^^^^^^^^^^^^^
+The following segments are sent in an outgoing OMI^O23^OMI_O23 message:
+
+.. csv-table:: Supported segments of OMI^O23^OMI_O23 (HL7 v2.5.1)
+   :header: Segment, Meaning, Usage, Card., HL7 chapter
+   :widths: 15, 40, 15, 15, 15
+
+   MSH - :ref:`tab_msh_251`, Message Header, R, [1..1], 2
+   PID - :ref:`tab_pid_251_out`, Patient Identification, O, [0..1], 3
+   NTE - :ref:`tab_nte_251_out`, Notes and Comments (for PID), O, [0..1], 2
+   PV1 - :ref:`tab_pv1_omg_251`, Patient Visit, O, [0..1], 3
+   ORC - :ref:`tab_orc_omg_251`, Common Order, R, [1..1], 4
+   TQ1 - :ref:`tab_tq1_omg_251`, Timing and Quantity, R, [1..1], 4
+   OBR - :ref:`tab_obr_omg_251`, Observation Request, R, [1..1], 7
+   IPC - :ref:`tab_ipc_omi_251`, Imaging Procedure Control, O, [1..1], 7
+
+Expected Actions
+^^^^^^^^^^^^^^^^
+Same as specified in :numref:`omg_o19_actions`.
 
 .. _omg_out_segments:
 
@@ -271,9 +311,45 @@ OBR - Observation Request segment
    49, 2, IS, O, 0507, 01647, Result Handling
    50, 250, CWE, O, , 02286, Parent Universal Service Identifier
 
+.. _omg_out_obx:
+
+OBX - Observation / Result segment
+----------------------------------
+
+.. csv-table:: OBX - Observation Result segment (HL7 v2.5.1)
+   :name: tab_obx_omg_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 4, SI, O, , 00569, SetID - OBX
+   2, 2, ID, C, , 00570, **Value Type**
+   3, 250, CE, R, , 00571, **Observation Identifier**
+   4, 20, ST, C, , 00572, Observation Sub-ID
+   5, 99999, VARIES, C, , 00573, **Observation Value**
+
+.. _omi_out_ipc:
+
+IPC - Imaging Procedure Control segment
+---------------------------------------
+
+.. csv-table:: IPC - Imaging Procedure Control segment (HL7 v2.5.1)
+   :name: tab_ipc_omi_251
+   :header: SEQ, LEN, DT, OPT, TBL#, ITEM #, Element Name
+   :widths: 8, 8, 8, 8, 8, 12, 48
+
+   1, 80, EI, R, , 01330, **Accession Identifier**
+   2, 22, EI, R, , 01658, Requested Procedure ID
+   3, 70, EI, R, , 01659, **Study Instance UID**
+   4, 22, EI, R, , 01660, Scheduled Procedure Step ID
+   5, 16, CE, O, , 01661, **Modality**
+   6, 250, CE, O, , 01662, Protocol Code
+   7, 22, EI, O, , 01663, Scheduled Station Name
+   8, 250, CE, O, , 01664, Scheduled Procedure Step Location
+   9, 16, ST, O, , 01665, **Scheduled AE Title**
+
 Element names in **bold** indicates that the field is used by |product|.
 
-.. _omg_out_dicom:
+.. _order_out_dicom:
 
 DICOM to HL7 Order Mapping
 ==========================
@@ -283,13 +359,17 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 - Element Name (HL7 item_number.component.sub-component #/ DICOM (group, element))
 - The component/sub-component value is not listed if the HL7 element should not contain multiple components/sub-components.
 
-.. _omg_out_omg_o19_dicom:
+.. _order_out_omg_o19_dicom_mwl:
 
-OMG - HL7 order mapping to DICOM Modality Worklist Attributes
+OMG - DICOM Modality Worklist Attributes to HL7 order mapping
 -------------------------------------------------------------
 
-.. csv-table:: DICOM Modality Worklist Attributes to HL7 order mapping
-   :name: dicom_to_omg
+Applicable when :
+- Outgoing notification is OMG^O19
+- Study stored to archive is associated with a MWL
+
+.. csv-table:: DICOM Modality Worklist Attributes to HL7 order OMG^O19 mapping
+   :name: dicom_to_omg_mwl
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
    **SOP Common**
@@ -317,9 +397,8 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
    , , Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, [#Note1]_
-   , , Start Date/Time, 01633, TQ1:7, [#Note2]_
-   , , Start Date/Time, 01633, TQ1:7, [#Note2]_
+   , , Order Status, 00219, ORC:5, Set to CM
+   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -338,6 +417,319 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+   Study Instance UID, "(0020, 000D)", Observation Value, 00573, OBX:5, [#Note5]_
+
+.. _order_out_omi_o23_dicom_mwl:
+
+OMI - DICOM Modality Worklist Attributes to HL7 order mapping
+-------------------------------------------------------------
+
+Applicable when :
+- Outgoing notification is OMI^O23
+- Study stored to archive is associated with a MWL
+
+.. csv-table:: DICOM Modality Worklist Attributes to HL7 order OMI^O23 mapping
+   :name: dicom_to_omi_mwl
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
+   **Patient Demographic**
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+   **Scheduled Procedure Step**
+   Modality, "(0008, 0060)", Modality, 01661, IPC:5,
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   **Requested Procedure**
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   **Imaging Request**
+   Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1
+   Issuer of Accession Number Sequence, "(0008, 0051)"
+   >Local Namespace Entity ID, "(0040, 0031)", Accession Identifier, 01330.2, IPC:1.2
+   >Universal Entity ID, "(0040, 0032)", Accession Identifier, 01330.3, IPC:1.3
+   >Universal Entity ID Type, "(0040, 0033)", Accession Identifier, 01330.4, IPC:1.4
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1
+   Order Placer Identifier Sequence, "(0040, 0026)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1
+   Order Filler Identifier Sequence, "(0040, 0027)"
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+   Study Instance UID, "(0020, 000D)", Study Instance UID, 01659, IPC:3,
+
+.. _order_out_omg_o19_dicom_study:
+
+OMG - DICOM Composite Object Attributes to HL7 order mapping
+------------------------------------------------------------
+
+Applicable when :
+- Outgoing notification is OMG^O19
+- Study stored to archive is NOT associated with any MWL
+
+.. csv-table:: DICOM Composite Object Attributes to HL7 order OMG^O19 mapping
+   :name: dicom_to_omg_study
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
+   **Patient Demographic**
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+   **Scheduled Procedure Step**
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   **Requested Procedure**
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   **Imaging Request**
+   Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   Issuer of Accession Number Sequence, "(0008, 0051)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Field 1 #, 00251.2, OBR:18.2
+   >Universal Entity ID, "(0040, 0032)", Placer Field 1 #, 00251.3, OBR:18.3
+   >Universal Entity ID Type, "(0040, 0033)", Placer Field 1 #, 00251.4, OBR:18.4
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note7]_
+   Order Placer Identifier Sequence, "(0040, 0026)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note7]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note7]_
+   Order Filler Identifier Sequence, "(0040, 0027)"
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note7]_
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+   Study Instance UID, "(0020, 000D)", Observation Value, 00573, OBX:5, [#Note5]_
+
+.. _order_out_omi_o23_dicom_study:
+
+OMI - DICOM Study Attributes to HL7 order mapping
+-------------------------------------------------
+
+Applicable when :
+- Outgoing notification is OMI^O23
+- Study stored to archive is NOT associated with any MWL
+
+.. csv-table:: DICOM Composite Object Attributes to HL7 order OMI^O23 mapping
+   :name: dicom_to_omi_study
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
+   **Patient Demographic**
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+   **Scheduled Procedure Step**
+   Modality, "(0008, 0060)", Modality, 01661, IPC:5,
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   **Requested Procedure**
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   **Imaging Request**
+   Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1
+   Issuer of Accession Number Sequence, "(0008, 0051)"
+   >Local Namespace Entity ID, "(0040, 0031)", Accession Identifier, 01330.2, IPC:1.2
+   >Universal Entity ID, "(0040, 0032)", Accession Identifier, 01330.3, IPC:1.3
+   >Universal Entity ID Type, "(0040, 0033)", Accession Identifier, 01330.4, IPC:1.4
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note7]_
+   Order Placer Identifier Sequence, "(0040, 0026)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note7]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note7]_
+   Order Filler Identifier Sequence, "(0040, 0027)"
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note7]_
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+   Study Instance UID, "(0020, 000D)", Study Instance UID, 01659, IPC:3,
+
+.. _order_out_omg_o19_dicom_mpps:
+
+OMG - DICOM Modality Performed Procedure Step Attributes to HL7 order mapping
+-----------------------------------------------------------------------------
+
+Applicable when :
+- Outgoing notification is OMG^O19
+- MPPS sent to archive
+
+.. csv-table:: DICOM Composite Object Attributes to HL7 order OMG^O19 mapping
+   :name: dicom_to_omg_mpps
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
+   **Patient Demographic**
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+   **Scheduled Procedure Step**
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
+   **Requested Procedure**
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   **Imaging Request**
+   Scheduled Step Attributes Sequence, "(0040,0270)",
+   >Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
+   >Issuer of Accession Number Sequence, "(0008, 0051)"
+   >>Local Namespace Entity ID, "(0040, 0031)", Placer Field 1 #, 00251.2, OBR:18.2
+   >>Universal Entity ID, "(0040, 0032)", Placer Field 1 #, 00251.3, OBR:18.3
+   >>Universal Entity ID Type, "(0040, 0033)", Placer Field 1 #, 00251.4, OBR:18.4
+   >Study Instance UID, "(0020, 000D)", Observation Value, 00573, OBX:5, [#Note5]_
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note7]_
+   Order Placer Identifier Sequence, "(0040, 0026)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note7]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note7]_
+   Order Filler Identifier Sequence, "(0040, 0027)"
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note7]_
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+
+.. _order_out_omi_o23_dicom_mpps:
+
+OMI - DICOM Modality Performed Procedure Step Attributes to HL7 order mapping
+-----------------------------------------------------------------------------
+
+Applicable when :
+- Outgoing notification is OMI^O23
+- MPPS sent to archive
+
+.. csv-table:: DICOM Composite Object Attributes to HL7 order OMI^O23 mapping
+   :name: dicom_to_omi_mpps
+   :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
+
+   **SOP Common**
+   Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+   **Patient Identification**
+   Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
+   Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
+   Issuer of Patient ID, "(0010, 0021)", Patient Identifier List, 00106.4.1, PID:3.4.1
+   Issuer of Patient ID Qualifiers Sequence, "(0010, 0024)"
+   >Item, "(FFFE, E000)"
+   >Universal Entity ID, "(0040, 0032)", Patient Identifier List, 00106.4.2, PID:3.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Patient Identifier List, 00106.4.3, PID:3.4.3
+   Other Patient IDs Sequence, "(0010,1002)", Patient Identifier List, 00106, PID:3, [#Note4]_
+   **Patient Demographic**
+   Patient's Birth Date, "(0010, 0030)", Date/Time of Birth, 00110, PID:7
+   Patient's Sex, "(0010, 0040)", Administrative Sex, 00111.1, PID:8.1
+   Patient Comments, "(0010, 4000)", Comment, 00098, NTE:3
+   **Visit Identification**
+   Route of Admissions, "(0038, 0016)", Patient Class, 00132, PV1:2, [#Note3]_
+   Admission ID, "(0038, 0010)", Visit Number, 00149.1, PV1:19.1
+   Issuer of Admission ID Sequence, "(0038, 0014)"
+   >Item, "(FFFE, E000)"
+   >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
+   >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
+   >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+   **Scheduled Procedure Step**   
+   , , Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
+   Modality, "(0008, 0060)", Modality, 01661, IPC:5,
+   Performed Station AE Title, "(0040, 0241)", Scheduled AE Title, 01665, IPC:9,
+   **Requested Procedure**
+   Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
+   **Imaging Request**
+   Scheduled Step Attributes Sequence, "(0040,0270)",
+   >Accession Number, "(0008, 0050)", Accession Identifier, 01330, IPC:1
+   >Issuer of Accession Number Sequence, "(0008, 0051)"
+   >>Local Namespace Entity ID, "(0040, 0031)", Accession Identifier, 01330.2, IPC:1.2
+   >>Universal Entity ID, "(0040, 0032)", Accession Identifier, 01330.3, IPC:1.3
+   >>Universal Entity ID Type, "(0040, 0033)", Accession Identifier, 01330.4, IPC:1.4
+   >Study Instance UID, "(0020, 000D)", Study Instance UID, 01659, IPC:3,
+   Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1, [#Note7]_
+   Order Placer Identifier Sequence, "(0040, 0026)"
+   >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Placer Order #, 00216.3, ORC:2.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Placer Order #, 00216.4, ORC:2.4, [#Note7]_
+   Filler Issuer and Number, "(0040, 2017)", Filler Order #, 00217.1, ORC:3.1, [#Note7]_
+   Order Filler Identifier Sequence, "(0040, 0027)"
+   >Local Namespace Entity ID, "(0040, 0031)", Filler Order #, 00217.2, ORC:3.2, [#Note7]_
+   >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note7]_
+   >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note7]_
+   , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
 
 .. [#Note1] If the Procedure Status Update is triggered by MPPS, and the MPPS was received with status DISCONTINUED or
    IN_PROGRESS, then the value set is DC or IP respectively. If the Procedure Status Update is triggered by MPPS, and the
@@ -355,3 +747,10 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
 
 .. [#Note4] Each **Other Patient IDs Sequence (0010,1002)** item is populated in patient identifiers list in the
    specified segment field separated using **Repetition Separator ~**
+
+.. [#Note5] If outgoing notification message is OMG^O19, Study Instance UID is sent in OBX segment field 5, else for
+   OMI^O23 notification, IPC segment field 3 is used.
+
+.. [#Note6] Set to current date time when notification is sent out.
+
+.. [#Note7] Populated with a value only if configured in `HL7 Procedure Status Update Template Parameters(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveNetworkAE.html#hl7psutemplateparam>_`
