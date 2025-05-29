@@ -3,8 +3,8 @@ Outbound
 
 HL7 messages
 
-  - General Clinical Order Message (OMG^O19) (implemented for `Eye Care Transactions - Procedure Status Update [EYECARE-22] <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`)
-  - Imaging Order Message (OMI^O23) (implemented for `AI Workflow for Imaging (AIW-I) - Procedure Update [RAD-13] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_AIW-I.pdf#page=53>`)
+  - General Clinical Order Message (OMG^O19) (implemented for `Eye Care Transactions - Procedure Status Update [EYECARE-22] <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`_)
+  - Imaging Order Message (OMI^O23) (implemented for `AI Workflow for Imaging (AIW-I) - Procedure Update [RAD-13] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_AIW-I.pdf#page=53>`_)
 
 are sent to other HL7 applications/receivers if HL7 receivers are to be `notified about procedure status updates <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`_
 or `on receive of studies with(-out) any MWL items associated to it <https://github.com/dcm4che/dcm4chee-arc-light/issues/2372>`_.
