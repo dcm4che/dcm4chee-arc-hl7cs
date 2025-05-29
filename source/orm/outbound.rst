@@ -397,7 +397,7 @@ Applicable on :
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
-   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Start DateTime, "(0040, 4005)", Start Date/Time, 01633, TQ1:7, [#Note6]_
    Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
@@ -522,7 +522,7 @@ Applicable on :
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
-   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Start DateTime, "(0040, 4005)", Start Date/Time, 01633, TQ1:7, [#Note6]_
    Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
@@ -585,7 +585,7 @@ Applicable on :
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
    Modality, "(0008, 0060)", Modality, 01661, IPC:5,
-   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Start DateTime, "(0040, 4005)", Start Date/Time, 01633, TQ1:7, [#Note6]_
    Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
@@ -619,7 +619,7 @@ Applicable on :
   - Outgoing notification is OMG^O19
   - MPPS sent to archive
 
-.. csv-table:: DICOM Composite Object Attributes to HL7 order OMG^O19 mapping
+.. csv-table:: DICOM Modality Performed Procedure Step Attributes to HL7 order OMG^O19 mapping
    :name: dicom_to_omg_mpps
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
@@ -646,7 +646,6 @@ Applicable on :
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
-
    **Scheduled Procedure Step**
    Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
@@ -683,7 +682,7 @@ Applicable on :
   - Outgoing notification is OMI^O23
   - MPPS sent to archive
 
-.. csv-table:: DICOM Composite Object Attributes to HL7 order OMI^O23 mapping
+.. csv-table:: DICOM Modality Performed Procedure Step Attributes to HL7 order OMI^O23 mapping
    :name: dicom_to_omi_mpps
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 
@@ -710,7 +709,6 @@ Applicable on :
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
-
    **Scheduled Procedure Step**
    Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
