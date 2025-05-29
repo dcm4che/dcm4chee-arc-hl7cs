@@ -2,7 +2,8 @@ Outbound
 ########
 
 The Unsolicited Observation HL7 message is sent to other HL7 applications/receivers if HL7 receivers are to be
-`notified about the availability of the imaging results <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_.
+notified about the availability of the imaging results using
+`Encounter-Based Imaging Workflow (EBIW) - Notify of Imaging Results [RAD-132] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_EBIW.pdf#page=71>`_.
 This notification can be triggered on receive of studies either by :
 
 - DICOM Studies stored conforming to `Storage AE Specification <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/specs/storage/storage.html>`_

@@ -3,19 +3,19 @@ Outbound
 
 HL7 messages
 
-  - General Clinical Order Message
-  - Imaging Order Message
+  - General Clinical Order Message (OMG^O19) (implemented for `Eye Care Transactions - Procedure Status Update [EYECARE-22] <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`)
+  - Imaging Order Message (OMI^O23) (implemented for `AI Workflow for Imaging (AIW-I) - Procedure Update [RAD-13] <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_AIW-I.pdf#page=53>`)
 
 are sent to other HL7 applications/receivers if HL7 receivers are to be `notified about procedure status updates <https://www.ihe.net/uploadedFiles/Documents/Eye_Care/IHE_EyeCare_TF_Vol2.pdf#page=111>`_
 or `on receive of studies with(-out) any MWL items associated to it <https://github.com/dcm4che/dcm4chee-arc-light/issues/2372>`_.
 This notification can be triggered for :
 
-Updates to MWL items in archive, on :
+1. Updates to MWL items in archive, on :
 
   - Receive of MPPS : Study referenced in MPPS is also associated with an existing MWL item in archive
   - Receive of studies : Study is associated with an existing MWL item in archive
 
-Receive of studies either by :
+2. Receive of studies either by :
 
   - DICOM Studies stored conforming to `Storage AE Specification <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/specs/storage/storage.html>`_
   - DICOM Studies / Bulkdata stored using `STOW-RS Services <https://petstore.swagger.io/index.html?url=https://raw.githubusercontent.com/dcm4che/dcm4chee-arc-light/master/dcm4chee-arc-ui2/src/swagger/openapi.json#/STOW-RS>`_
