@@ -688,6 +688,8 @@ Applicable on :
 
    **SOP Common**
    Specific Character Set, "(0008, 0005)", Character Set, 00692, MSH:18, :ref:`tab_hl7_dicom_charset`
+
+--test
    **Patient Identification**
    Patient's Name, "(0010, 0010)", Patient  Name, 00108, PID:5
    Patient ID, "(0010, 0020)", Patient Identifier List, 00106.1, PID:3.1
