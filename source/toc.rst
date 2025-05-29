@@ -144,6 +144,8 @@ Table of Content
 |     11.2.3. :ref:`qbp_out_dicom`
 |       11.2.3.1. :ref:`qbp_out_qbp_q22_dicom`
 | 12. :doc:`notification/index`
+|   12.1. :doc:`orm/outbound`
+|   12.1. :doc:`oru/outbound`
 | 13. :doc:`fwd/index`
 | 14. :doc:`export/index`
 | 15. :doc:`prefetch/index`
