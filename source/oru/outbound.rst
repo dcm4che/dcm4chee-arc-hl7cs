@@ -314,7 +314,7 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
 ---------------------------------------------------------------------------
 
-.. csv-table:: DICOM Modality Worklist Attributes to HL7 Unsolicited Observation Message mapping
+.. csv-table:: DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    :name: dicom_to_oru
    :header: DICOM Attribute, DICOM Tag, HL7 Field, HL7 Item #, HL7 Segment, Note
 

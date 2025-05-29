@@ -364,9 +364,10 @@ Mappings between HL7 and DICOM are illustrated in the following manner:
 OMG - DICOM Modality Worklist Attributes to HL7 order mapping
 -------------------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMG^O19
-- Study stored to archive is associated with a MWL
+Applicable on :
+
+  - Outgoing notification is OMG^O19
+  - Study stored to archive is associated with a MWL
 
 .. csv-table:: DICOM Modality Worklist Attributes to HL7 order OMG^O19 mapping
    :name: dicom_to_omg_mwl
@@ -396,9 +397,9 @@ Applicable when :
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
-   , , Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -425,9 +426,10 @@ Applicable when :
 OMI - DICOM Modality Worklist Attributes to HL7 order mapping
 -------------------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMI^O23
-- Study stored to archive is associated with a MWL
+Applicable on :
+
+  - Outgoing notification is OMI^O23
+  - Study stored to archive is associated with a MWL
 
 .. csv-table:: DICOM Modality Worklist Attributes to HL7 order OMI^O23 mapping
    :name: dicom_to_omi_mwl
@@ -458,9 +460,9 @@ Applicable when :
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
    Modality, "(0008, 0060)", Modality, 01661, IPC:5,
-   , , Order Control, 00215, ORC:1, Set to SC
+   Scheduled Procedure Step Start DateTime, "(0040, 4005)", Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
-   , , Start Date/Time, 01633, TQ1:7, [#Note6]_
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -487,9 +489,10 @@ Applicable when :
 OMG - DICOM Composite Object Attributes to HL7 order mapping
 ------------------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMG^O19
-- Study stored to archive is NOT associated with any MWL
+Applicable on :
+
+  - Outgoing notification is OMG^O19
+  - Study stored to archive is NOT associated with any MWL
 
 .. csv-table:: DICOM Composite Object Attributes to HL7 order OMG^O19 mapping
    :name: dicom_to_omg_study
@@ -519,9 +522,9 @@ Applicable when :
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
-   , , Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -548,9 +551,10 @@ Applicable when :
 OMI - DICOM Study Attributes to HL7 order mapping
 -------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMI^O23
-- Study stored to archive is NOT associated with any MWL
+Applicable on :
+
+  - Outgoing notification is OMI^O23
+  - Study stored to archive is NOT associated with any MWL
 
 .. csv-table:: DICOM Composite Object Attributes to HL7 order OMI^O23 mapping
    :name: dicom_to_omi_study
@@ -581,9 +585,9 @@ Applicable when :
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
    **Scheduled Procedure Step**
    Modality, "(0008, 0060)", Modality, 01661, IPC:5,
-   , , Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, Set to CM
    , , Start Date/Time, 01633, TQ1:7, [#Note6]_
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -610,9 +614,10 @@ Applicable when :
 OMG - DICOM Modality Performed Procedure Step Attributes to HL7 order mapping
 -----------------------------------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMG^O19
-- MPPS sent to archive
+Applicable on :
+
+  - Outgoing notification is OMG^O19
+  - MPPS sent to archive
 
 .. csv-table:: DICOM Composite Object Attributes to HL7 order OMG^O19 mapping
    :name: dicom_to_omg_mpps
@@ -641,8 +646,9 @@ Applicable when :
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
+
    **Scheduled Procedure Step**
-   , , Order Control, 00215, ORC:1, Set to SC
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
    **Requested Procedure**
@@ -672,9 +678,10 @@ Applicable when :
 OMI - DICOM Modality Performed Procedure Step Attributes to HL7 order mapping
 -----------------------------------------------------------------------------
 
-Applicable when :
-- Outgoing notification is OMI^O23
-- MPPS sent to archive
+Applicable on :
+
+  - Outgoing notification is OMI^O23
+  - MPPS sent to archive
 
 .. csv-table:: DICOM Composite Object Attributes to HL7 order OMI^O23 mapping
    :name: dicom_to_omi_mpps
@@ -703,8 +710,9 @@ Applicable when :
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
-   **Scheduled Procedure Step**   
-   , , Order Control, 00215, ORC:1, Set to SC
+
+   **Scheduled Procedure Step**
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
    , , Order Status, 00219, ORC:5, Set to CM
    Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
    Modality, "(0008, 0060)", Modality, 01661, IPC:5,
@@ -753,4 +761,4 @@ Applicable when :
 
 .. [#Note6] Set to current date time when notification is sent out.
 
-.. [#Note7] Populated with a value only if configured in `HL7 Procedure Status Update Template Parameters(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveNetworkAE.html#hl7psutemplateparam>_`
+.. [#Note7] Populated with a value only if configured in `HL7 Procedure Status Update Template Parameters(s) <https://dcm4chee-arc-cs.readthedocs.io/en/latest/networking/config/archiveNetworkAE.html#hl7psutemplateparam>`_
