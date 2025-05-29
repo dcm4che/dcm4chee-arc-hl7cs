@@ -709,15 +709,6 @@ Applicable on :
    >Local Namespace Entity ID, "(0040, 0031)", Visit Number, 00149.4.1, PV1:19.4.1
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2, PV1:19.4.2
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3, PV1:19.4.3
-   **Scheduled Procedure Step**
-   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
-   , , Order Status, 00219, ORC:5, Set to CM
-   Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
-   Modality, "(0008, 0060)", Modality, 01661, IPC:5,
-   Performed Station AE Title, "(0040, 0241)", Scheduled AE Title, 01665, IPC:9,
-
-
---test
    **Requested Procedure**
    Requested Procedure ID, "(0040, 1001)", Placer field 2, 00252, OBR:19
    **Imaging Request**
@@ -739,6 +730,15 @@ Applicable on :
    >Universal Entity ID, "(0040, 0032)", Filler Order #, 00217.3, ORC:3.3, [#Note7]_
    >Universal Entity ID Type, "(0040, 0033)", Filler Order #, 00217.4, ORC:3.4, [#Note7]_
    , , Observation Result Status, 00579, OBX:11, Set to O (= Order detail description only)
+
+--test
+   **Scheduled Procedure Step**
+   Scheduled Procedure Step Status, "(0040, 0020)", Order Control, 00215, ORC:1, Set to SC
+   , , Order Status, 00219, ORC:5, Set to CM
+   Performed Procedure Step Start Date and Time, "(0040, 0244)" and "(0040, 0245)" , Start Date/Time, 01633, TQ1:7,
+   Modality, "(0008, 0060)", Modality, 01661, IPC:5,
+   Performed Station AE Title, "(0040, 0241)", Scheduled AE Title, 01665, IPC:9,
+
 
 .. [#Note1] If the Procedure Status Update is triggered by MPPS, and the MPPS was received with status DISCONTINUED or
    IN_PROGRESS, then the value set is DC or IP respectively. If the Procedure Status Update is triggered by MPPS, and the
