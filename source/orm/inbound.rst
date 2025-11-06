@@ -289,7 +289,7 @@ ORC - Order Control segment
    10, 120, XCN, R2, , 00224, Entered By
    11, 120, XCN, O, , 00225, Verified By
    12, 120, XCN, R, , 00226, Ordering Provider
-   13, 80, PL, O, , 00227, Enterer's Location
+   13, 80, PL, O, , 00227, **Enterer's Location**
    14, 40, XTN, R2, , 00228, Callback Phone Number
    15, 26, TS, O, , 00229, Order Effective Date/Time
    16, 200, CE, O, , 00230, Order Control Code Reason
@@ -318,7 +318,7 @@ ORC - Order Control segment
    10, 250, XCN, R2, , 00224, Entered By
    11, 250, XCN, O, , 00225, Verified By
    12, 250, XCN, R, , 00226, Ordering Provider
-   13, 80, PL, O, , 00227, Enterer's Location
+   13, 80, PL, O, , 00227, **Enterer's Location**
    14, 250, XTN, R2, , 00228, Callback Phone Number
    15, 26, TS, O, , 00229, Order Effective Date/Time
    16, 250, CE, O, , 00230, Order Control Code Reason
@@ -636,6 +636,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
    Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institutional Department Name, "(0008, 1040)", Enterer's Location, 00227.9, ORC:13.9,
    Institution Code Sequence, "(0008, 0082)"
    >Item, "(FFFE, E000)"
    >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
@@ -722,6 +723,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
    Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institutional Department Name, "(0008, 1040)", Enterer's Location, 00227.9, ORC:13.9,
    Institution Code Sequence, "(0008, 0082)"
    >Item, "(FFFE, E000)"
    >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
@@ -804,6 +806,7 @@ OMG - HL7 order mapping to DICOM Modality Worklist Attributes
    >Universal Entity ID, "(0040, 0032)", Visit Number, 00149.4.2 or 00121.4.2, PV1:19.4.2 or PID:18.4.2, [#Note3]_
    >Universal Entity ID Type, "(0040, 0033)", Visit Number, 00149.4.3 or 00121.4.3, PV1:19.4.3 or PID:18.4.3, [#Note3]_
    Institution Name, "(0008, 0080)", Entering Organization, 00231.2, ORC:17.2,
+   Institutional Department Name, "(0008, 1040)", Enterer's Location, 00227.9, ORC:13.9,
    Institution Code Sequence, "(0008, 0082)"
    >Item, "(FFFE, E000)"
    >Code Value, "(0008, 0100)", Institution Code, 00231.1, ORC:17.1
