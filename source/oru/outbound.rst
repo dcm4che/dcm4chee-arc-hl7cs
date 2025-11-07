@@ -343,7 +343,8 @@ ORU - DICOM Image Attributes to HL7 Unsolicited Observation Message mapping
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
    , , Start Date/Time, 01633, TQ1:7, [#Note1]_
    Accession Number, "(0008, 0050)", Placer Field 1, 00251, OBR:18
-   Issuer of Accession Number Sequence, "(0008, 0051)", Placer Field 2 #, 00252, OBR:19, [#Note8]_
+   Issuer of Accession Number Sequence, "(0008, 0051)", Placer Field 1 #, 00251, OBR:18, [#Note8]_
+   Requested Procedure ID, "(0040,1001)", Placer Field 2 #, 00252, OBR:19,
    Placer Issuer and Number, "(0040, 2016)", Placer Order #, 00216.1, ORC:2.1
    Order Placer Identifier Sequence, "(0040, 0026)"
    >Local Namespace Entity ID, "(0040, 0031)", Placer Order #, 00216.2, ORC:2.2
