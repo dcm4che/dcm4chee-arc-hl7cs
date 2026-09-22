@@ -609,6 +609,7 @@ ORM - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
    Study Instance UID, "(0020, 000D)", Study Instance UID, Z0001.1, ZDS:1.1
    Requested Procedure Priority, "(0040, 1003)", Quantity/Timing, 00221.6, ORC:7.6, [#Note1]_
+   Requested Procedure Comments, "(0040, 1400)", Comment, 00098, NTE:3
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    Confidentiality Code, "(0040, 1008)", Confidentiality Code, 00615, ORC:28.2
    **Imaging Request**
@@ -694,6 +695,7 @@ OMI - HL7 order mapping to DICOM Modality Worklist Attributes
    >Code Meaning, "(0008, 0104)", Procedure Code, 00393.2, OBR:44.2
    Study Instance UID, "(0020, 000D)", Study Instance UID, 00217, IPC:3
    Requested Procedure Priority, "(0040, 1003)", Start Date/Time, 01633, TQ1:9, [#Note1]_
+   Requested Procedure Comments, "(0040, 1400)", Comment, 00098, NTE:3
    Patient Transport Arrangements, "(0040, 1004)", Transportation Mode, 00262, OBR:30
    Confidentiality Code, "(0040, 1008)", Confidentiality Code, 00615, ORC:28.2
    **Imaging Request**
